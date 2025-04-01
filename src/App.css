@@ -1,7 +1,6 @@
-@import "tailwindcss";
-
-@theme {
-  --color-primary: #121063;
-  --color-secondary: #4F17A8;
-  --color-tetiary: #78dcca;
+.sp-bg{
+    background: url("./assets/images/sp-bg.png");
+    background-position: center center;
+    background-size: 100%;
 }
+

@@ -1,10 +1,22 @@
 import React from 'react'
-import Header from '../components/Header'
+import CertNumber from '../components/home/CertNumber'
+import Header from '../components/global/Header'
+import Hero from '../components/home/Hero'
+import CertSupport from '../components/home/CertSupport'
+import Engaged from '../components/home/Engaged'
+import FaqBanner from '../components/home/FaqBanner'
+import Footer from '../components/global/Footer'
 
 const Home = () => {
   return (
-    <div className='w-screen h-auto'>
+    <div className='w-screen h-auto bg-hero-bg font-aptos'>
         <Header/>
+        <Hero/>
+        <CertNumber/>
+        <CertSupport/>
+        <Engaged/>
+        <FaqBanner/>
+        <Footer/>
     </div>
   )
 }
