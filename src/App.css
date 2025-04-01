@@ -4,3 +4,21 @@
     background-size: 100%;
 }
 
+.hero-cert::before{
+    position: absolute;
+    pointer-events: none;
+    z-index: 2;
+    content: '';
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background: url('./assets/images/heroOverlay.png');
+    background-position: center center;
+    background-size: cover;
+    background-blend-mode:multiply;
+    background-repeat: repeat-y;
+}
+

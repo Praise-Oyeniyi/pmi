@@ -11,10 +11,12 @@
 @theme {
   --color-primary: #121063;
   --color-secondary: #4F17A8;
+  --color-purple:#330F6F;
   --color-tetiary: #78dcca;
   --color-hero-bg:#F8F5F0;
   --color-cgray:#797977;
   --color-off-white:#DBD7D3;
+  --color-dark:#040301;
   --font-aptos: "Aptos", "sans-serif"; 
 }
 
