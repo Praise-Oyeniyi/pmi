@@ -2,7 +2,7 @@ import React from 'react'
 
 const CertNumber = () => {
   return (
-    <div className='w-full my-20'>
+    <div className='w-full my-20 mb-22'>
         <div className="cert-no-inner text-white w-5/6 mx-auto bg-secondary rounded-[1.25rem]">
             <div className="h-28 cert-inner-top flex justify-between w-full">
                 <div className='flex items-center px-7 py-3 justify-start gap-x-7 w-3/6 border-r border-r-[#ffffffa4]'>

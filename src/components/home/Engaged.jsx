@@ -2,6 +2,8 @@ import React from 'react'
 import E1 from '../../assets/images/Enagaged1.png'
 import E2 from '../../assets/images/Enagaged2.png'
 import EngagedBox from './EngagedBox'
+import { FaChevronRight } from "react-icons/fa6";
+
 
 
 const Engaged = () => {
@@ -37,7 +39,7 @@ const Engaged = () => {
                 </div>
                 ))}
             </div>
-            <p className='text-right my-3 text-xl font-bold w-fit ml-auto cursor-pointer'>GO TO ARCHIVES <span>rr</span></p>
+            <p className='text-right my-3 text-xl font-bold w-fit ml-auto cursor-pointer flex gap-x-1 items-center'>GO TO ARCHIVES <FaChevronRight size={14}/></p>
         </div>
     </div>
   )

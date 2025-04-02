@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../../assets/icons/logo.svg';
+import Logo from '../../assets/images/logo.png';
 
 
 const Footer = () => {
@@ -8,8 +8,8 @@ const Footer = () => {
         <div className='w-5/6 mx-auto'>
             <div className="footer-inner-inner flex justify-between items-start pb-5">
                 <div className='w-[30%]'>
-                    <div className="logo">
-                        <img src={Logo} alt="" />
+                    <div className="logo h-14">
+                        <img src={Logo} alt="" className='h-full object-contain'/>
                     </div>
                     <p className='font-normal text-xl pt-5'>
                         The Bangalore Chapter of the Project Management Institute (PMI) was founded in 1998, as an autonomous, non-profit,

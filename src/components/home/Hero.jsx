@@ -5,9 +5,9 @@ import heroBg from '../../assets/images/hero-image.png';
 const Hero = () => {
   return (
     <div className='hero-outer bg-hero-bg'>
-        <div className="hero-inner py-5 flex justify-between items-center gap-x-[4rem]">
-            <div className="hero-image-section w-[45rem]">
-                <img src={heroBg} alt="pmi hero section media"  className='object-cover w-full'/>
+        <div className="hero-inner py-10 flex justify-between items-center gap-x-[4rem]">
+            <div className="hero-image-section w-[50rem]">
+                <img src={heroBg} alt="pmi hero section media"  className='object-cover h-full w-full'/>
             </div>
 
             <div className="hero-text w-4/6">
@@ -18,7 +18,7 @@ const Hero = () => {
                         and changemakers. Access exclusive trainings, register for events, and unlock opportunities 
                         to grow, lead, and contribute with PMI Bangalore Chapter
                     </p>
-                    <button className='bg-secondary mt-8 w-fit flex items-center justify-center text-lg font-semibold text-white h-[3rem] px-6 rounded-full'>
+                    <button className='bg-secondary mt-8 w-fit flex items-center justify-center text-lg font-semibold text-white h-[3.5rem] px-8 rounded-full'>
                         Explore Training Programs
                     </button>
                 </div>

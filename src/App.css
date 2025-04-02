@@ -1,7 +1,7 @@
 .sp-bg{
     background: url("./assets/images/sp-bg.png");
     background-position: center center;
-    background-size: 100%;
+    background-size: cover;
 }
 
 .hero-cert::before{

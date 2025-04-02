@@ -12,11 +12,11 @@ const Hero = ({image, title, duration, body}) => {
                 </div>
 
                 <div className='w-3/6 space-y-3'>
-                    <h5 className='text-lg font-semibold rounded-full px-4 py-1 border border-white w-fit'>Certification</h5>
+                    <h5 className='text-lg font-semibold rounded-full px-4 h-8 flex justify-center items-center border border-white w-fit'>Certification</h5>
                     <h3 className='font-bold text-5xl'>{title}</h3>
                     <h4 className='text-3xl font-semibold'>{duration}</h4>
                     <p className='text-lg font-normal text-[#ffffffc0]' dangerouslySetInnerHTML={{ __html: body }}/>
-                    <button className='mt-5 bg-white rounded-full flex justify-center items-center text-lg font-semibold text-[#040301] px-7 py-2'>Click Here To Register</button>
+                    <button className='mt-5 bg-white rounded-full flex justify-center items-center text-lg font-semibold text-[#040301] px-7 py-3'>Click Here To Register</button>
                 </div> 
             </div>
             
