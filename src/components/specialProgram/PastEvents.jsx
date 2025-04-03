@@ -21,11 +21,11 @@ const PastEvents = () => {
        ]
 
   return (
-    <div className='w-full my-20 '>
-        <div className="inner w-5/6 mx-auto py-7 px-14">
-            <div className='flex items-center gap-x-7 mb-4'>
-                <h4 className='uppercase text-black font-semibold tracking-wider text-4xl'>past events</h4>
-                <button className='bg-[#F2F2F2] rounded-[2px] text-base font-semibold  border border-[#DCDCDC] w-fit px-3 py-2'> 2025</button>
+    <div className='w-full mt-16 mb-7 md:my-20 overflow-x-hidden'>
+        <div className="inner w-[90%] md:w-5/6 mx-auto py-5 md:py-7 md:px-14">
+            <div className='flex items-center gap-x-5 md:gap-x-7 md:mb-4'>
+                <h4 className='uppercase text-black font-semibold tracking-wider text-2xl md:text-4xl'>past events</h4>
+                <button className='bg-[#F2F2F2] rounded-[2px] text-sm md:text-base font-semibold  border border-[#DCDCDC] w-fit px-3 py-2'> 2025</button>
             </div>
 
             <div>

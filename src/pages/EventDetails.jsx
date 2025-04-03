@@ -45,20 +45,20 @@ const EventDetails = () => {
     ]
 
   return (
-    <div className='w-screen h-full font-aptos bg-hero-bg'>
+    <div className='w-screen h-full font-aptos bg-hero-bg overflow-x-hidden'>
         <Header/>
         <div className='w-full'>
             <Hero head={heroInfo.title} subhead={heroInfo.subtitle} body={heroInfo.body} subParams={heroInfo.subParams}/>
             <LinkedinProfile/>
             <EventDescription/>
 
-            <div className='w-full mt-20 mb-10'>
-              <div className='max-w-5/6 mx-auto w-5/6'>
-                <h3 className='text-6xl font-bold'>Related Events</h3>
+            <div className='w-full mt-16 md:mt-20 mb-10'>
+              <div className='md:max-w-5/6 mx-auto md:w-5/6 w-[90%]'>
+                <h3 className='text-2xl md:text-5xl font-bold'>Related Events</h3>
 
-                <div className='w-full flex-wrap pt-10 gap-y-6 gap-x-3 flex justify-between items-stretch h-full'>
+                <div className='w-full flex-wrap pt-7 md:pt-10 gap-y-6 gap-x-3 flex justify-between items-stretch h-full'>
                   {relatedEventsInfo.map((e,index)=>(
-                    <div key={index} className="min-w-[49%] w-[49%] "> 
+                    <div key={index} className="min-w-[49%] md:w-[49%] w-full "> 
                       <RelatedEvents image={e.image} title={e.title} date={e.date}/>
                     </div>
                   ))}
