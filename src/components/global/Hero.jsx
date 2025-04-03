@@ -9,7 +9,7 @@ const Hero = ({image, title, body, url}) => {
             </div>
 
             <div className='w-full pt-7 md:flex space-y-7 sm:space-y-0 justify-between items-center gap-x-[4rem]'>
-                <div className="hero-image-section w-[17.2rem]  md:w-[50rem]">
+                <div className="hero-image-section w-5/6  md:w-[50rem]">
                     <img src={image} alt="pmi hero section media"  className='object-cover h-full w-full'/>
                 </div>
 

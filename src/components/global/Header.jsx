@@ -79,9 +79,11 @@ const Header = () => {
         <div className="mobile-nav w-full relative md:hidden">
             <div className='w-full shadow-sm'>
                 <div className='relative flex justify-between w-5/6 mx-auto h-16 items-center'>
-                    <div className="m-logo">
-                        <img src={mLogo} alt="PMI logo" />
-                    </div>
+                    <Link to={'/'}>
+                        <div className="m-logo">
+                            <img src={mLogo} alt="PMI logo" />
+                        </div>
+                    </Link>
 
                     <div onClick={()=>setNav(!nav)}>
                         {!nav?<div className='cursor-pointer space-y-1 '>

@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <div className='hero-outer bg-hero-bg'>
         <div className="hero-inner py-7 space-y-7 sm:space-y-0 sm:py-10 block md:flex justify-between items-center gap-x-[4rem]">
-            <div className="hero-image-section w-[17.2rem]  md:w-[50rem]">
+            <div className="hero-image-section w-5/6  md:w-[50rem]">
                 <img src={heroBg} alt="pmi hero section media"  className='object-cover h-full w-full'/>
             </div>
 
