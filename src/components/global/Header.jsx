@@ -95,7 +95,7 @@ const Header = () => {
                     </div>
                 </div>
 
-                <div className={`mobile-head-links-outer w-full duration-300 transition-all ease-in-out relative ${nav?'left-0':'-left-100'}`}>
+                <div className={`mobile-head-links-outer w-full duration-300 transition-all ease-in-out relative ${nav?'left-0':'-left-[100rem]'}`}>
                     <div className="mobile-outer w-full h-screen bg-hero-bg absolute">
                         <nav className="menu w-full">
                             <ul className='text-dark w-full'>

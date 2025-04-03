@@ -62,7 +62,7 @@ const BOD = () => {
                             </div>
                             
                             <div className='h-[9.6rem] w-full rounded-2xl overflow-hidden md:h-48 order-1 md:order-2'>
-                                <img src={e.image} alt="pmi board of directors" className='h-full w-full object-cover object-top'/>
+                                <img src={e.image} alt="pmi board of directors" className='h-full w-full object-fill object-top'/>
                             </div>
                         </div>
                     ))}
