@@ -34,17 +34,17 @@ const Courses = () => {
 
   return (
     <div className='w-full'>
-        <div className='w-5/6 mx-auto'>
-            <h3 className='font-bold text-5xl leading-snug text-center capitalize'>courses</h3>
+        <div className='w-[90%] md:w-5/6 mx-auto'>
+            <h3 className='font-bold text-2xl md:text-5xl leading-snug text-center capitalize'>courses</h3>
         
             <div className="course-body">
                 <div>
                     {courseInfo.map((e, index)=>(
-                        <div className={`border-b border-b-[#DBD8D1] py-6 flex justify-between gap-x-20 items-start ${index === courseInfo.length-1 && 'border-none'}`} key={index}>
+                        <div className={`border-b border-b-[#DBD8D1] pt-3 md:py-6 md:flex justify-between gap-x-20 items-start ${index === courseInfo.length-1 && 'border-none'}`} key={index}>
 
-                            <div className='w-auto text-lg font-normal flex justify-between gap-x-10 text-[#200F3B]'>
-                                <h4 className='text-3xl font-bold text-dark w-2/6'>{e.title}</h4>
-                                <div className='space-y-2 w-4/6'>
+                            <div className='w-auto text-lg font-normal md:flex justify-between gap-x-10 text-[#200F3B]'>
+                                <h4 className='text-lg md:text-3xl font-bold text-dark w-full md:w-2/6'>{e.title}</h4>
+                                <div className='space-y-2 w-full text-sm md:text-xl   md:w-4/6'>
                                     <p  dangerouslySetInnerHTML={{ __html: e.para }} />
                                     <ul className='list-disc pl-7'>
                                         {e.offers.map((offer, index)=>(
@@ -57,8 +57,8 @@ const Courses = () => {
                                 </div>
                             </div>
                             
-                            <div className='min-w-[20rem] w-[20rem]'>
-                                <img src={e.image} alt="" className='w-full h-auto object-cover'/>
+                            <div className='md:min-w-[20rem] w-full md:w-[20rem] h-[11rem] rounded-2xl overflow-hidden my-3'>
+                                <img src={e.image} alt="" className='w-full h-full object-cover'/>
                             </div>
                         </div>
                     ))}

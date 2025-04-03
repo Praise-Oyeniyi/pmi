@@ -31,7 +31,7 @@ const President = () => {
 
   return (
     <div className='w-full'>
-        <div className="mx-auto w-5/6 text-dark mb-14">
+        <div className="mx-auto w-[90%] md:w-5/6 text-dark mb-14">
             <h3 className='font-bold text-2xl md:text-5xl md:leading-snug text-center capitalize md:py-7'>Past Presidents</h3>
 
             <div className='w-full'>

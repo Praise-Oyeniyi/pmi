@@ -4,8 +4,8 @@ import Logo from '../../assets/images/logo.png';
 
 const Footer = () => {
   return (
-    <footer className="footer-outer w-full pt-20 bg-[#F5F5F5]">
-        <div className='w-5/6 mx-auto'>
+    <footer className="footer-outer w-full pt-5 md:pt-20 bg-[#F5F5F5]">
+        <div className='w-[90%] md:w-5/6 mx-auto'>
             <div className="footer-inner-inner flex flex-col md:flex-row justify-between items-start pb-5">
                 
                 <div className='md:w-[30%] w-full order-2 md:order-1 mt-7 md:mt-0'>
@@ -67,7 +67,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className='text-xs md:hidden font-normal text-center space-y-2 pb-7 pt-2'>
+            <div className='text-xs md:hidden font-normal text-center space-y-3 pb-7 pt-2'>
                 <h6>©2025 PMI Bangalore Chapter. All Right Reserved.</h6>
                 <ul className='flex gap-x-7   w-full justify-between'>
                     <li className=''>Privacy Policy</li>

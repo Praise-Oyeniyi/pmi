@@ -43,7 +43,7 @@ const CertSupport = () => {
 
   return (
     <div className='top-cert-outer w-full pb-20'>
-        <div className="cert-inner w-5/6 mx-auto pb-10">
+        <div className="cert-inner w-[90%] md:w-5/6 mx-auto pb-10">
             <div className="top md:flex w-full justify-between items-center">
                 <div className='space-y-3 md:space-y-5'>
                     <h3 className='text-xl md:text-5xl font-bold w-5/6 md:w-4/6 leading-snug tracking-wider md:tracking-normal'>Top Certifications We Support</h3>
@@ -64,9 +64,9 @@ const CertSupport = () => {
         </div>
 
 
-        <div className="certBox flex w-5/6 mx-auto gap-x-4 min-h-fit justify-between items-stretch ">
+        <div className="certBox flex w-[90%] md:w-5/6 mx-auto gap-x-4 min-h-fit justify-between items-stretch overflow-x-auto">
             {supportBox.map((e,index)=>(
-                <div key={index} className="md:w-2/6 min-w-full max-w-full h-auto">
+                <div key={index} className="md:w-2/6 min-w-[90%] max-w-full h-auto">
                     <CertBox title={e.title} mainTitle={e.mainTitle} subTitle={e.subTitle} image={e.imageIcon} gradient={e.gradient} boxInfo={e.boxInfo} titleColor={e.titleColor}/>
                 </div>
             ))}

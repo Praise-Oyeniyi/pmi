@@ -11,7 +11,7 @@ const Hero = () => {
             </div>
 
             <div className="hero-text w-full md:w-4/6">
-                <div className="hero-text-inner space-y-4 pr-10 sm:w-full w-5/6 mx-auto">
+                <div className="hero-text-inner space-y-4 pr-10 sm:w-full w-[90%] md:w-5/6 mx-auto">
                     <h2 className='text-3xl md:text-6xl font-bold' >Empowering Project Professionals, One Step at a Time</h2>
                     <p className='font-medium text-sm md:text-2xl'>
                         Join a vibrant community of certified project leaders, forward-thinking professionals, 

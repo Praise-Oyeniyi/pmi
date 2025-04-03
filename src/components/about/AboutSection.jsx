@@ -5,7 +5,7 @@ import ASI from '../../assets/images/ASI.png'
 const AboutSection = () => {
   return (
     <div className='md:pt-10 pt-7 pb-7'>
-        <div className='w-5/6 mx-auto pb-10 md:flex justify-between gap-x-10 border-b border-b-[#DBD8D1]'>
+        <div className='w-[90%] md:w-5/6 mx-auto pb-10 md:flex justify-between gap-x-10 border-b border-b-[#DBD8D1]'>
             <div className='h-fit md:h-96 md:w-3/6'>
                 <img src={ASI} alt="pmi team portrait h-full w-full object-contian" />
             </div>

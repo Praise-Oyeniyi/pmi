@@ -24,7 +24,7 @@ const Engaged = () => {
 
   return (
     <div>
-        <div className="engaged-inner mx-auto w-5/6 ">
+        <div className="engaged-inner mx-auto w-[90%] md:w-5/6 ">
             <div className="head mb-2 md:mb-7">
                 <h3 className='text-2xl md:text-5xl font-bold pb-2 md:pb-1 leading-snug'>Stay Engaged. Stay Ahead</h3>
                 <p className='text-sm md:text-xl font-semibold'>
