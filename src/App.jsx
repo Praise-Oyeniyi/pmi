@@ -6,6 +6,7 @@ import EventDetails from './pages/EventDetails'
 import Certifications from './pages/Certifications'
 import About from './pages/About'
 import Training from './pages/Training'
+import Contact from './pages/Contact'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/Home/Certifications/:id' element={<Certifications/>}/>
         <Route path='/About' element={<About/>}/>
         <Route path='/Training' element={<Training/>}/>
+        <Route path='/Contact' element={<Contact/>}/>
       </Routes>
     </BrowserRouter>
   )

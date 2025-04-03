@@ -49,7 +49,6 @@ const President = () => {
                                             <FaLinkedinIn size={14}/>
                                         </button>
                                     </div>
-                                    <button className='flex gap-x-2 items-center font-bold text-xl'>View Bio <FaChevronRight size={14}/></button>
                                 </div>
                             </div>
                             

@@ -49,7 +49,9 @@ const Header = () => {
                             <div className=' flex items-center px-3 h-full border-t-5 border-t-white hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Volunteering</div>
                         </li>
                         <li className='min-w-fit h-full'>
-                            <div className=' flex items-center px-3 h-full border-t-5 border-t-white hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Contact</div>
+                            <Link to={'/Contact'}>
+                                <div className=' flex items-center px-3 h-full border-t-5 border-t-white hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Contact</div>
+                            </Link>
                         </li>
                     </ul>
                 </div>

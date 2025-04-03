@@ -5,7 +5,7 @@ const Hero = ({image, title, body, url}) => {
     <div className='hero-outer bg-hero-bg'>
         <div className="hero-inner py-7 pb-10 ">
             <div className='w-[90%] ml-auto'>
-                <h4 className='text-left font-semibold text-xl text-[#131313]'>{url}</h4>
+                <h4 className='text-left font-semibold text-xl text-[#131313] capitalize'>{url}</h4>
             </div>
             <div className='w-full pt-7 flex justify-between items-center gap-x-[4rem]'>
                 <div className="hero-image-section w-[50rem]">
