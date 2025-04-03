@@ -4,20 +4,22 @@ import ASI from '../../assets/images/ASI.png'
 
 const AboutSection = () => {
   return (
-    <div className='pt-10 pb-7'>
-        <div className='w-5/6 mx-auto pb-10 flex justify-between gap-x-10 border-b border-b-[#DBD8D1]'>
-            <div className='h-96 w-3/6'>
-                <img src={ASI} alt="pmi team portrait h-full w-full object-cover" />
+    <div className='md:pt-10 pt-7 pb-7'>
+        <div className='w-5/6 mx-auto pb-10 md:flex justify-between gap-x-10 border-b border-b-[#DBD8D1]'>
+            <div className='h-fit md:h-96 md:w-3/6'>
+                <img src={ASI} alt="pmi team portrait h-full w-full object-contian" />
             </div>
-            <div className='w-3/6 space-y-5'>
-                <p className='text-normal text-[#200F3B] text-2xl'>
+
+            
+            <div className='md:w-3/6 space-y-5 mt-10'>
+                <p className='text-normal text-[#200F3B] text-base md:text-2xl'>
                     The Bangalore Chapter of the Project Management Institute (PMI) was founded in 1998, as an autonomous, 
                     non-profit, membership association dedicated to the science of project Management.
                 </p>
                 <div className='space-y-3'>
-                    <h4 className='text-3xl font-bold pb-1 text-dark'>Objectives</h4>
-                    <p className='text-xl font-normal text-[#200F3B]'>The objectives of the Chapter supplement the purposes of PMI as set forth in the PMI by-laws.</p>
-                    <ul className='text-xl font-normal text-[#200F3B] list-disc pl-7'>
+                    <h4 className='text-2xl md:text-3xl font-bold md:pb-1 text-dark'>Objectives</h4>
+                    <p className='text-sm md:text-xl font-normal text-[#200F3B]'>The objectives of the Chapter supplement the purposes of PMI as set forth in the PMI by-laws.</p>
+                    <ul className='text-sm md:text-xl font-normal text-[#200F3B] list-disc pl-7'>
                         <li>The Chapter objectives are to encourage and facilitate education, certification and professionalism in 
                             Project Management and to provide a forum for discussion and examination of problems, solutions, applications, 
                             and ideas related to the management of projects and to foster communication between public and private sectors 
