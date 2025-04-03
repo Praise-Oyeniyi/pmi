@@ -44,26 +44,29 @@ const CertSupport = () => {
   return (
     <div className='top-cert-outer w-full pb-20'>
         <div className="cert-inner w-5/6 mx-auto pb-10">
-            <div className="top flex w-full justify-between items-center">
-                <div className='space-y-5'>
-                    <h3 className='text-5xl font-bold w-4/6 leading-snug'>Top Certifications We Support</h3>
-                    <button className='bg-white rounded-full flex justify-center items-center border border-cgray px-7 h-[3rem]'>View all certifications</button>
+            <div className="top md:flex w-full justify-between items-center">
+                <div className='space-y-3 md:space-y-5'>
+                    <h3 className='text-xl md:text-5xl font-bold w-5/6 md:w-4/6 leading-snug tracking-wider md:tracking-normal'>Top Certifications We Support</h3>
+                    <button className='bg-white hidden rounded-full md:flex justify-center items-center border border-cgray px-7 h-[3rem]'>View all certifications</button>
                 </div>
 
-                <p className='text-2xl font-semibold w-2/6 text-right'>Boost your professional credibility
+                <p className='text-sm md:text-2xl font-semibold md:w-2/6 md:text-right'>Boost your professional credibility
                     with globally recognized certifications.
                     Whether you're starting your journey
                     or upskilling for leadership, PMI
                     Bangalore offers the top programs to
                     help you stand out and succeed.
                 </p>
+
+                <button className='bg-white md:hidden text-sm rounded-full flex justify-center items-center border border-cgray px-5 h-[2.6rem] mt-4'>View all certifications</button>
+
             </div>
         </div>
 
 
         <div className="certBox flex w-5/6 mx-auto gap-x-4 min-h-fit justify-between items-stretch ">
             {supportBox.map((e,index)=>(
-                <div key={index} className="w-2/6 h-auto">
+                <div key={index} className="md:w-2/6 min-w-full max-w-full h-auto">
                     <CertBox title={e.title} mainTitle={e.mainTitle} subTitle={e.subTitle} image={e.imageIcon} gradient={e.gradient} boxInfo={e.boxInfo} titleColor={e.titleColor}/>
                 </div>
             ))}

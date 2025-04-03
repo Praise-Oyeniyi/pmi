@@ -25,9 +25,9 @@ const Engaged = () => {
   return (
     <div>
         <div className="engaged-inner mx-auto w-5/6 ">
-            <div className="head mb-7">
-                <h3 className='text-5xl font-bold pb-1 leading-snug'>Stay Engaged. Stay Ahead</h3>
-                <p className='text-xl font-semibold'>
+            <div className="head mb-2 md:mb-7">
+                <h3 className='text-2xl md:text-5xl font-bold pb-2 md:pb-1 leading-snug'>Stay Engaged. Stay Ahead</h3>
+                <p className='text-sm md:text-xl font-semibold'>
                     Be part of impactful events that connect you with industry experts and fellow professionals. From insightful webinars to in-person experiences, explore what's upcoming and revisit the highlights from our knowledge-rich archives.
                 </p>
             </div>
@@ -39,7 +39,7 @@ const Engaged = () => {
                 </div>
                 ))}
             </div>
-            <p className='text-right my-3 text-xl font-bold w-fit ml-auto cursor-pointer flex gap-x-1 items-center'>GO TO ARCHIVES <FaChevronRight size={14}/></p>
+            <p className='text-right my-2 md:my-3 text-sm md:text-xl font-bold w-fit ml-auto cursor-pointer flex gap-x-1 items-center h-fit'>GO TO ARCHIVES <FaChevronRight className='h-3 md:h-4'/></p>
         </div>
     </div>
   )
