@@ -15,7 +15,7 @@ const FaqBanner = () => {
                     </p>
                 </div>
 
-                <div className="right flex md:block w-full justify-center">
+                <div className="right flex w-full md:w-auto justify-center">
                     <img src={fImage} alt="" className='w-fit h-[14rem] md:h-[20rem] md:mr-10' />
                 </div>
             </div>

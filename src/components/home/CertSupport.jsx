@@ -66,7 +66,7 @@ const CertSupport = () => {
 
         <div className="certBox flex w-[90%] md:w-5/6 mx-auto gap-x-4 min-h-fit justify-between items-stretch overflow-x-auto">
             {supportBox.map((e,index)=>(
-                <div key={index} className="md:w-2/6 min-w-[90%] max-w-full h-auto">
+                <div key={index} className="md:max-w-2/6 md:w-2/6 w-[90%] max-w-full h-auto">
                     <CertBox title={e.title} mainTitle={e.mainTitle} subTitle={e.subTitle} image={e.imageIcon} gradient={e.gradient} boxInfo={e.boxInfo} titleColor={e.titleColor}/>
                 </div>
             ))}

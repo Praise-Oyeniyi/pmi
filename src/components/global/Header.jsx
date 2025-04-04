@@ -77,8 +77,8 @@ const Header = () => {
         </div>
 
         <div className="mobile-nav w-full relative md:hidden">
-            <div className='w-full relative'>
-                <div className={`w-full relative transition-all duration-200 ease-linear z-5 ${nav?'shadow-md':'shadow-sm'} `}>
+            <div className={`w-full transition-all duration-100 ease-in ${nav?'fixed':'relative'}`}>
+                <div className={`w-full bg-hero-bg relative transition-all duration-200 ease-linear z-5 ${nav?'shadow-md':'shadow-sm'} `}>
                     <div className='relative flex justify-between w-[90%] mx-auto h-16 items-center'>
                         <Link to={'/'}>
                             <div className="m-logo">
@@ -101,8 +101,8 @@ const Header = () => {
                 </div>
                 
 
-                <div className={`mobile-head-links-outer w-full duration-300 transition-all ease-in-out relative ${nav?'left-0':'-left-[100rem]'}`}>
-                    <div className="mobile-outer w-full h-screen bg-white absolute">
+                <div className={`mobile-head-links-outer w-full duration-200 transition-all ease-in-out relative ${nav?'left-0':'-left-[100rem]'}`}>
+                    <div className={`mobile-outer w-full h-screen bg-white absolute `}>
                         <nav className="menu w-full">
                             <ul className='text-dark w-full'>
                                 <li className='w-full h-full '>
@@ -142,7 +142,7 @@ const Header = () => {
 
                         <div className='cursor-pointer space-y-3 mt-3 '>
                             <div className='w-full bg-[#F5F5F5] py-3'>
-                                <button className='w-5/6 mx-auto flex text-sm font-normal justify-between items-center border border-[#F3EFEF] px-3 rounded-md text-[#7C7C7C] gap-x-2 bg-[#FDFDFD] h-[2.9rem]'>Change Language <span><FaCaretDown /></span></button>
+                                <button className='w-5/6 border-none outline-none mx-auto flex text-sm font-normal justify-between items-center border border-[#F3EFEF] px-3 rounded-md text-[#7C7C7C] gap-x-2 bg-[#FDFDFD] h-[2.9rem]'>Change Language <span><FaCaretDown /></span></button>
                             </div>
                             
                             <h5 className='text-base text-center font-normal text-[#7C7C7C] tracking-wide'>Log In</h5>

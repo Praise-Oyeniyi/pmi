@@ -19,12 +19,12 @@ const Contact = () => {
                 url={'Home / contact us'}
             />
             <main className="about-main-header pt-10 ">
-                <div className="main-inner w-full">
-                    <div className='w-5/6 mx-auto flex justify-between gap-x-5 overflow-hidden text-purple-light font-normal text-3xl  border-b border-b-[#DBD8D1]'>
-                        <h4 className='min-w-fit tracking-tight py-4 border-b-3  border-b-purple'>General Support</h4>
-                        <h4 className='min-w-fit tracking-tight py-4 border-b-3 border-b-transparent'>Corporate Enquiry</h4>
-                        <h4 className='min-w-fit tracking-tight py-4 border-b-3 border-b-transparent'>Individual Training Enquiry</h4>
-                        <h4 className='min-w-fit tracking-tight py-4 border-b-3 border-b-transparent'>CSR Activity Collaboration</h4>
+                <div className="main-inner overflow-x-auto min-full w-full">
+                    <div className='w-5/6 mx-auto flex justify-between gap-x-7 overflow-x-auto md:overflow-x-hidden text-purple-light text-sm md:text-3xl md:gap-x-5  border-b border-b-[#DBD8D1]'>
+                        <h4 className='w-fit text-nowrap tracking-tight md:py-4 py-2 border-b-3  border-b-purple'>General Support</h4>
+                        <h4 className='w-fit text-nowrap tracking-tight md:py-4 py-2 border-b-3 border-b-transparent'>Corporate Enquiry</h4>
+                        <h4 className='w-fit text-nowrap tracking-tight md:py-4 py-2 border-b-3 border-b-transparent'>Individual Training Enquiry</h4>
+                        <h4 className='w-fit text-nowrap tracking-tight md:py-4 py-2 border-b-3 border-b-transparent'>CSR Activity Collaboration</h4>
                     </div>      
                 </div>
                 
@@ -38,7 +38,7 @@ const Contact = () => {
                     <div className='hidden'>
                         <ITEnquiry/>
                     </div>
-                    <div className=''>
+                    <div className='hidde'>
                         <CSRForm/>
                     </div>
                 </div>
