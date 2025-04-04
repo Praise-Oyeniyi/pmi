@@ -77,8 +77,8 @@ const TrainingInfo = () => {
                 </div>
 
                 <div className='w-full md:w-[55%] '>
-                    <div className="w-full md:flex justify-around space-y-5 md:space-y-0">
-                        <div className='md:w-3/6 w-full flex gap-x-4'>
+                    <div className="w-full md:flex items-center justify-between space-y-5 md:space-y-0">
+                        <div className='md:w-4/6 w-full flex  gap-x-4'>
                             <div className='w-3/6 border-r border-r-[#DBD8D1]' >
                                 <h6 className='text-[#3A2B51] text-sm md:text-lg font-normal'>PMI Bangalore Members</h6>
                                 <h4 className='text-purple text-base md:text-2xl font-bold'>₹16,000 + Taxes</h4>
@@ -90,8 +90,9 @@ const TrainingInfo = () => {
                             </div>
                         </div>
                         
-
-                        <button className='w-fit bg-purple text-white rounded-full py-2 px-7 font-semibold text-sm md:text-lg'>Register Now</button>
+                        <div>
+                            <button className='w-fit bg-purple text-white rounded-full py-2 px-7 font-semibold text-sm md:text-lg'>Register Now</button>
+                        </div>
                     </div>
                     
                 </div>

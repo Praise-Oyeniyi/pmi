@@ -54,7 +54,7 @@ const NeedAssistance = () => {
         </div>
 
         <div className="mx-auto w-[90%] md:w-5/6 mt-20">
-            <div className="w-full md:lex justify-between items-center gap-x-10">
+            <div className="w-full md:flex justify-between items-center gap-x-10">
                 <h3 className='font-bold text-2xl md:text-5xl w-full md:w-[60%]'>
                     Want to Learn More About PMP Certification?
                 </h3>
