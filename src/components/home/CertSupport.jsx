@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { GoArrowLeft, GoArrowRight } from 'react-icons/go'
 import Box1 from '../../assets/icons/box1.svg'
 import Box2 from '../../assets/icons/box2.svg'
 import Box3 from '../../assets/icons/box3.svg'
@@ -41,6 +42,24 @@ const CertSupport = () => {
 
     ]
 
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const totalItems = supportBox.length;
+    
+    const handlePrevClick = () => {
+        if (currentIndex > 0) {
+            setCurrentIndex(currentIndex - 1);
+        }
+    };
+    
+    const handleNextClick = () => {
+        if (currentIndex < totalItems - 1) {
+            setCurrentIndex(currentIndex + 1);
+        }
+    };
+    
+    const canGoLeft = currentIndex > 0;
+    const canGoRight = currentIndex < totalItems - 1;
+
   return (
     <div className='top-cert-outer w-full pb-20'>
         <div className="cert-inner w-[90%] md:w-5/6 mx-auto pb-10">
@@ -64,12 +83,43 @@ const CertSupport = () => {
         </div>
 
 
-        <div className="certBox flex w-[90%] md:w-5/6 mx-auto gap-x-4 min-h-fit justify-between items-stretch overflow-x-auto">
+        <div className="certBox flex w-[90%] md:w-5/6 mx-auto gap-x-4 min-h-fit justify-between items-stretch overflow-x-auto md:overflow-hidden">
             {supportBox.map((e,index)=>(
-                <div key={index} className="md:max-w-2/6 md:w-2/6 w-[90%] max-w-full h-auto">
+                <div key={index} className="md:max-w-2/6 md:min-w-[20%] md:w-2/6 min-w-[90%] max-w-full h-auto transition-all duration-300 ease-in-out md:transform-none" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
                     <CertBox title={e.title} mainTitle={e.mainTitle} subTitle={e.subTitle} image={e.imageIcon} gradient={e.gradient} boxInfo={e.boxInfo} titleColor={e.titleColor}/>
                 </div>
             ))}
+        </div>
+        
+        <div className="certbox-control md:hidden mt-7">
+            <div className='w-[90%] mx-auto flex justify-between items-center'>
+                <div className='flex items-center gap-x-1'>
+                    {supportBox.map((_, index) => (
+                        <div 
+                            key={index} 
+                            className={`h-[0.15rem] transition-all duration-300 ease-in-out ${index === currentIndex ? 'w-5' : 'w-1'} bg-[#200F3B]`}
+                        ></div>
+                    ))}
+                </div>
+
+                <div className='flex w-fit items-center gap-x-3'>
+                    <button 
+                        onClick={handlePrevClick} 
+                        className={`${canGoLeft ? 'text-[#200F3B]' : 'text-cgray'}`}
+                        disabled={!canGoLeft}
+                    >
+                        <GoArrowLeft className='text-xl'/>
+                    </button>
+                    <button 
+                        onClick={handleNextClick} 
+                        className={`${canGoRight ? 'text-[#200F3B]' : 'text-cgray'}`} 
+                        disabled={!canGoRight}
+                    >
+                        <GoArrowRight className='text-xl'/>
+                    </button>
+                </div>
+            </div>
+            
         </div>
     </div>
   )
