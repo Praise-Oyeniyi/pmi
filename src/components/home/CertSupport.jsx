@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go'
 import Box1 from '../../assets/icons/box1.svg'
 import Box2 from '../../assets/icons/box2.svg'
@@ -44,21 +44,60 @@ const CertSupport = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const totalItems = supportBox.length;
+    const sliderRef = useRef(null);
+    
+    const [touchStart, setTouchStart] = useState(0);
+    const [touchEnd, setTouchEnd] = useState(0);
+    const [isSwiping, setIsSwiping] = useState(false);
+    const minSwipeDistance = 50; 
     
     const handlePrevClick = () => {
         if (currentIndex > 0) {
-            setCurrentIndex(currentIndex - 1);
+        setCurrentIndex(currentIndex - 1);
         }
     };
     
     const handleNextClick = () => {
         if (currentIndex < totalItems - 1) {
-            setCurrentIndex(currentIndex + 1);
+        setCurrentIndex(currentIndex + 1);
         }
     };
     
-    const canGoLeft = currentIndex > 0;
-    const canGoRight = currentIndex < totalItems - 1;
+    const handleTouchStart = (e) => {
+        setTouchStart(e.targetTouches[0].clientX);
+        setTouchEnd(e.targetTouches[0].clientX);
+        setIsSwiping(true);
+    };
+    
+    const handleTouchMove = (e) => {
+        if (!isSwiping) return;
+        
+        setTouchEnd(e.targetTouches[0].clientX);
+        
+        if (Math.abs(touchEnd - touchStart) > 10) {
+        e.preventDefault();
+        }
+    };
+    
+    const handleTouchEnd = () => {
+        if (!isSwiping) return;
+        setIsSwiping(false);
+        
+        if (touchStart - touchEnd > minSwipeDistance) {
+        if (currentIndex < totalItems - 1) {
+            handleNextClick();
+        }
+        }
+        
+        if (touchEnd - touchStart > minSwipeDistance) {
+        if (currentIndex > 0) {
+            handlePrevClick();
+        }
+        }
+    };
+  
+  const canGoLeft = currentIndex > 0;
+  const canGoRight = currentIndex < totalItems - 1;
 
   return (
     <div className='top-cert-outer w-full pb-20'>
@@ -83,10 +122,28 @@ const CertSupport = () => {
         </div>
 
 
-        <div className="certBox flex w-[90%] md:w-5/6 mx-auto gap-x-4 min-h-fit justify-between items-stretch overflow-x-auto md:overflow-hidden">
+        <div 
+            className="certBox flex max-w-[90%] w-[90%] md:w-5/6 mx-auto gap-x-4 min-h-fit justify-between items-stretch overflow-hidden"
+            ref={sliderRef}
+        >
             {supportBox.map((e,index)=>(
-                <div key={index} className="md:max-w-2/6 md:min-w-[20%] md:w-2/6 min-w-[90%] max-w-full h-auto transition-all duration-300 ease-in-out md:transform-none" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
-                    <CertBox title={e.title} mainTitle={e.mainTitle} subTitle={e.subTitle} image={e.imageIcon} gradient={e.gradient} boxInfo={e.boxInfo} titleColor={e.titleColor}/>
+                <div 
+                    key={index} 
+
+                    className="md:max-w-2/6 md:min-w-[20%] md:w-2/6 min-w-[90%] max-w-[90%] h-auto transition-all duration-300 ease-in-out md:transform-none" 
+                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                    onTouchStart={handleTouchStart}
+                    onTouchMove={handleTouchMove}
+                    onTouchEnd={handleTouchEnd}
+                >
+                    <CertBox title={e.title} 
+                        mainTitle={e.mainTitle} 
+                        subTitle={e.subTitle} 
+                        image={e.imageIcon} 
+                        gradient={e.gradient} 
+                        boxInfo={e.boxInfo} 
+                        titleColor={e.titleColor}
+                    />
                 </div>
             ))}
         </div>
