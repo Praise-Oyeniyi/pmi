@@ -1,6 +1,6 @@
 import Home from './pages/Home'
 import './App.css'
-import { BrowserRouter, Routes, Route} from 'react-router'
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
 import SpecialProgram from './pages/SpecialProgram'
 import EventDetails from './pages/EventDetails'
 import Certifications from './pages/Certifications'

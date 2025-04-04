@@ -3,7 +3,7 @@ import React from 'react'
 const Introduction = () => {
   return (
     <div className='md:pt-10 pt-7'>
-        <div className='w-[90%] md:w-5/6 mx-auto pb-14 border-b border-b-[#DBD8D1]'>
+        <div className='w-[90%] md:w-5/6 mx-auto pb-14 border-b border-b-[#DBD8D1]' id='intro'>
             <h3 className=' font-bold text-2xl md:text-5xl leading-snug text-center capitalize pb-3 md:pb-5'>Introduction</h3>
 
             <div className='space-y-5'>

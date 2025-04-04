@@ -34,7 +34,7 @@ const Courses = () => {
 
   return (
     <div className='w-full'>
-        <div className='w-[90%] md:w-5/6 mx-auto'>
+        <div className='w-[90%] md:w-5/6 mx-auto' id='courses'>
             <h3 className='font-bold text-2xl md:text-5xl leading-snug text-center capitalize'>courses</h3>
         
             <div className="course-body">
