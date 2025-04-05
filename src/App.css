@@ -22,6 +22,10 @@
     background-repeat: repeat-y;
 }
 
+.hide-bar::-webkit-scrollbar {
+    display: none;
+}
+
 @media (max-width:768px) {
     .sp-bg{
         background-position:center;

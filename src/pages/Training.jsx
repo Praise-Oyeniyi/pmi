@@ -37,12 +37,12 @@ const Training = () => {
                 body={'Training support extended by the Chapter for employee learning and engagement initiatives at Corporates with respect to Project Management'}
             />
             <main className="about-main-header pt-10 ">
-                <div className="main-inner overflow-x-auto min-full text-purple-light font-normal text-sm md:text-3xl gap-x-7 flex md:gap-x-12 justify-center border-b border-b-[#DBD8D1] cursor-pointer">
+                <div className="main-inner hide-bar  overflow-x-auto min-full text-purple-light font-normal text-sm md:text-3xl gap-x-7 flex md:gap-x-12 justify-center border-b border-b-[#DBD8D1] cursor-pointer">
                     {trainingNav.map((e, index)=>(
                         <a href={e.tag}>
                             <h4 
                                 key={index}
-                                className={`w-fit text-nowrap  transition-all ease-linear duration-200 border-b-3 md:py-4 py-2 font-semibold text-dark ${index === btn? "border-b-purple": 'border-b-transparent'} ${index === 0 && 'ml-24 md:ml-0'}`}
+                                className={`w-fit text-nowrap  transition-all ease-linear duration-200 border-b-3 md:py-4 py-2 font-semibold text-dark ${index === btn? "border-b-purple": 'border-b-transparent'}`}
                                 onClick={()=>setBtn(index)}
                             >
                                 {e.name}

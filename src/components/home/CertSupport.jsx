@@ -108,7 +108,7 @@ const CertSupport = () => {
                     <button className='bg-white hidden rounded-full md:flex justify-center items-center border border-cgray px-7 h-[3rem]'>View all certifications</button>
                 </div>
 
-                <p className='text-sm md:text-2xl font-semibold md:w-2/6 md:text-right'>Boost your professional credibility
+                <p className='text-sm md:text-2xl font-medium md:w-2/6 md:text-right'>Boost your professional credibility
                     with globally recognized certifications.
                     Whether you're starting your journey
                     or upskilling for leadership, PMI
@@ -130,8 +130,8 @@ const CertSupport = () => {
                 <div 
                     key={index} 
 
-                    className="md:max-w-2/6 md:min-w-[20%] md:w-2/6 min-w-[90%] max-w-[90%] h-auto transition-all duration-300 ease-in-out md:transform-none" 
-                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                    className="md:max-w-2/6 md:min-w-[20%] md:w-2/6 min-w-[80%] max-w-[80%] h-auto transition-all duration-300 ease-in-out md:transform-none" 
+                    style={{ transform: `translateX(-${currentIndex * 95}%)` }}
                     onTouchStart={handleTouchStart}
                     onTouchMove={handleTouchMove}
                     onTouchEnd={handleTouchEnd}
@@ -159,7 +159,7 @@ const CertSupport = () => {
                     ))}
                 </div>
 
-                <div className='flex w-fit items-center gap-x-3'>
+                <div className='flex w-fit items-center gap-x-3 cursor-pointer'>
                     <button 
                         onClick={handlePrevClick} 
                         className={`${canGoLeft ? 'text-[#200F3B]' : 'text-cgray'}`}

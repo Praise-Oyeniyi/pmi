@@ -20,9 +20,9 @@ const Contact = () => {
                 body={"We're here to help answer all of your questions about Project Management certification, training, membership, and more."} 
                 url={'Home / contact us'}
             />
-            <main className="about-main-header pt-10 ">
-                <div className="main-inner overflow-x-auto min-full w-full">
-                    <div className='w-5/6 mx-auto flex justify-between gap-x-7 overflow-x-auto md:overflow-x-hidden text-purple-light text-sm md:text-3xl md:gap-x-5  border-b border-b-[#DBD8D1]'>
+            <main className="about-main-header pt-10">
+                <div className="main-inner overflow-x-auto hide-bar min-full w-full  border-b border-b-[#DBD8D1]">
+                    <div className='w-[90%] md:w-5/6 mx-auto flex justify-between gap-x-7 overflow-x-auto hide-bar md:overflow-x-hidden text-purple-light text-sm md:text-3xl md:gap-x-5 '>
                         {['General Support', 'Corporate Enquiry', 'Individual Training Enquiry', 'CSR Activity Collaboration'].map((nav, index)=>(
                             <h4 
                                 key={index}

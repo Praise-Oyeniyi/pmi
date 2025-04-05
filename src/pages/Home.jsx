@@ -9,7 +9,7 @@ import Footer from '../components/global/Footer'
 
 const Home = () => {
   return (
-    <div className='w-screen h-auto bg-hero-bg font-aptos text-dark !overflow-x-hidden'>
+    <div className='w-full h-auto bg-hero-bg font-aptos text-dark !overflow-x-hidden'>
         <Header/>
         <Hero/>
         <CertNumber/>

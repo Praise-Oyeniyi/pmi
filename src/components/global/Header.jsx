@@ -21,27 +21,27 @@ const Header = () => {
 
             <div className="header-left w-3/6 flex items-center gap-x-10">
                 <Link to={'/'}>
-                    <div className="logo h-24 flex w-auto">
-                        <img src={Logo} alt="pmi-logo" className='object-contain h-full  w-full'/>
+                    <div className="logo h-16 flex w-auto">
+                        <img src={Logo} alt="pmi-logo" className='object-contain h-full  w-auto'/>
                     </div>
                 </Link>
 
                 <nav className="menu w-fit">
-                    <ul className='text-black flex items-center gap-x-1 text-xl font-semibold h-24 relative'>
+                    <ul className='text-black flex items-center gap-x-1 text-xl font-semibold h-18 relative'>
                         <li className='min-w-fit h-full'>
                             <Link to={'/About'}>
-                                <div className=' flex items-center px-3 h-full border-t-5 border-t-white hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>About Us</div>
+                                <div className=' flex items-center px-3 h-full  hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>About Us</div>
                             </Link>
                         </li>
                         <li className='min-w-fit h-full'>
                             <Link to={'/Training'}>
-                                <div className=' flex items-center px-3 h-full border-t-5 border-t-white hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Training</div>
+                                <div className=' flex items-center px-3 h-full  hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Training</div>
                             </Link>
                         </li>
                         
                         <li className='min-w-fit h-full relative group'>
                             <Link to={'/Home/Special Program/'}>
-                                <div className='relative flex items-center px-3 h-full border-t-5 border-t-white hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Special Program</div>
+                                <div className='relative flex items-center px-3 h-full  hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Special Program</div>
                             </Link>
                             <ul className='font-normal absolute space-y-1 w-[16rem] group-hover:border-t-secondary group-hover:block text-[#676767] bg-white px-4 py-3 border-t-4 border-t-transparent hidden'>
                                 <li className=''>E&C PM Footprints</li>
@@ -53,11 +53,11 @@ const Header = () => {
                             </ul>
                         </li>
                         <li className='min-w-fit h-full'>
-                            <div className=' flex items-center px-3 h-full border-t-5 border-t-white hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Volunteering</div>
+                            <div className=' flex items-center px-3 h-full  hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Volunteering</div>
                         </li>
                         <li className='min-w-fit h-full'>
                             <Link to={'/Contact'}>
-                                <div className=' flex items-center px-3 h-full border-t-5 border-t-white hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Contact</div>
+                                <div className=' flex items-center px-3 h-full  hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Contact</div>
                             </Link>
                         </li>
                     </ul>
@@ -71,7 +71,7 @@ const Header = () => {
                     <FaLinkedinIn size={15}/>
                 </div>
                 <button className='w-fit flex text-base font-normal justify-between items-center border border-[#F3EFEF] p-2 rounded-sm text-[#7C7C7C] gap-x-2'>Change Language <span><FaCaretDown /></span></button>
-                <button className='text-base font-normal text-[#7C7C7C]'>Login</button>
+                <button className='text-base font-normal text-[#7C7C7C] cursor-pointer'>Login</button>
             </div>
             
         </div>

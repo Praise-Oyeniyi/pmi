@@ -37,12 +37,12 @@ const About = () => {
         <div className='w-full bg-white'>
             <Hero image={HI} title={'Working Together to advance the project profession'} body={''} url={'Home / What We Do / PMI Leadership & Board Of Directors'}/>
             <main className="about-main-header pt-10 w-full">
-                <div className="main-inner overflow-x-auto min-full text-purple-light font-normal text-sm md:text-3xl gap-x-7 flex md:gap-x-12 justify-center border-b border-b-[#DBD8D1] cursor-pointer">
+                <div className="main-inner hide-bar pl-28 pr-5 md:px-0 overflow-x-auto min-full text-purple-light font-normal text-sm md:text-3xl gap-x-7 flex md:gap-x-12 justify-center border-b border-b-[#DBD8D1] cursor-pointer">
                   {aboutNav.map((e, index)=>(
                     <a href={e.tag}>
                       <h4 
                         key={index}
-                        className={`w-fit text-nowrap  transition-all ease-linear duration-200 border-b-3 md:py-4 py-2 font-semibold text-dark ${index === btn? "border-b-purple": 'border-b-transparent'} ${index === 0 && 'ml-24 md:ml-0'}`}
+                        className={`w-fit text-nowrap  transition-all ease-linear duration-200 border-b-3 md:py-4 py-2 font-semibold text-dark ${index === btn? "border-b-purple": 'border-b-transparent'} `}
                         onClick={()=>setBtn(index)}
                       >
                         {e.name}

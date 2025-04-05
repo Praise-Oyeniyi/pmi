@@ -7,7 +7,7 @@ const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, titleCol
         <div className="box-inner relative flex flex-col justify-between h-full">
             <div>
                 <div className='flex justify-between'>
-                    <button className={`tag my-5 md:my-6 text-white border border-white rounded-full px-3 h-[1.875rem] text-sm md:text-base flex justify-center items-center w-fit ${titleColor === 'text-[#200F3B]' && ' border !border-[#291843] !text-[#291843] '}`}>Certification</button>
+                    <button className={`tag my-5 md:my-6 text-white border border-white rounded-full px-3 h-6 md:h-[1.875rem] text-sm md:text-base flex justify-center items-center w-fit ${titleColor === 'text-[#200F3B]' && ' border !border-[#291843] !text-[#291843] '}`}>Certification</button>
                     <img src={image} alt="tag-icon" className='relative h-28 md:h-48 opacity-40'/>
                 </div>
 
@@ -22,7 +22,7 @@ const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, titleCol
             </div>
 
             <Link to={'/Home/Certifications/1'}>
-                <button className='w-fit mt-5 flex text-sm md:text-lg font-semibold justify-center items-center bg-white border border-cgray h-10 px-5 rounded-full text-black'>
+                <button className='cursor-pointer w-fit mt-5 flex text-sm md:text-lg font-semibold justify-center items-center bg-white border border-cgray h-10 px-5 rounded-full text-black'>
                     Learn More
                 </button>
             </Link>
