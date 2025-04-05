@@ -12,7 +12,7 @@ const CertSupport = () => {
         {
             imageIcon:Box1,
             title:'PMP®',
-            mainTitle:'Project Management Professional®', 
+            mainTitle:'Project Management Professional (PMP)®', 
             subTitle:'3-5 years of experience', 
             boxInfo:'The PMP® validates skills and knowledge in managing & directing people, processes, and priorities for a project team from start to finish.',
             gradient:'from-[#14062A] to-[#2B0C58]',
@@ -22,7 +22,7 @@ const CertSupport = () => {
         {
             imageIcon:Box2,
             title:'CAPM®',
-            mainTitle:'Certified Associate in project Management®', 
+            mainTitle:'Certified Associate in Project Management (CAPM)®', 
             subTitle:'No experience required', 
             boxInfo:"This certification demonstrates an understanding of the foundational skills that project teams demand.",
             gradient:'from-[#041120] to-[#02384D]',

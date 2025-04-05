@@ -16,7 +16,7 @@ const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, titleCol
                     <h4 className={`text-white text-xl md:text-4xl md:tracking-tighter font-semibold  ${titleColor === 'text-[#200F3B]' && ' !text-[#291843] '}`}>{mainTitle}</h4>
                     <div className={`mt-2 md:mt-5`}>
                         <h6 className={`text-sm md:text-xl font-semibold text-off-white pb-2 ${titleColor === 'text-[#200F3B]' && ' !text-[#291843] '}`}>{subTitle}</h6>
-                        <p className={`font-normal text-sm md:text-lg text-off-white leading-6 md:leading-normal  ${titleColor === 'text-[#200F3B]' && '!text-[#3A2B51] '}`}>{boxInfo}</p>
+                        <p className={`font-normal pr-5 md:pr-0 text-sm md:text-lg text-off-white leading-6 md:leading-normal  ${titleColor === 'text-[#200F3B]' && '!text-[#3A2B51] '}`}>{boxInfo}</p>
                     </div>
                 </div>
             </div>
