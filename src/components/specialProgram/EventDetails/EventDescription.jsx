@@ -14,7 +14,7 @@ const EventDescription = () => {
                     </div>
 
                     <div className='bg-white rounded-3xl mt-7 md:mt-0 p-3 md:p-5 md:px-7 border border-[#E8E8E8]'>
-                        <h4 className='text-2xl md:text-3xl font-bold pb-2 border-b border-b-[#DADADA]'>Description</h4>
+                        <h4 className='text-2xl md:text-3xl font-bold pb-2 border-b  border-b-[#DADADA]'>Description</h4>
                         <p className='text-sm md:text-xl font-normal pt-3'>The audience will gain a solid understanding of forensic schedule analysis, including its purpose and significance. They will learn about construction delays, various delay analysis techniques, and different types of claims. The session will cover writing effective claims presentations, key components of successful claims, and strategies for preparing and submitting extension of time and additional payment claims. This will equip them with essential knowledge and practical skills in forensic schedule analysis and claims management</p>
                     </div>
                 </div>
@@ -38,7 +38,7 @@ const EventDescription = () => {
                     <h4 className='text-lg md:text-2xl font-semibold md:pb-2 '>Key Experience:</h4>
                     <div className='pt-2'>
                         <ul className='md:flex justify-between list-disc text-[#3A2B51] text-sm md:text-xl font-normal'>
-                            <div className='w-full md:w-3/6 space-y-2 border-b border-b-[#DADADA] pb-3 md:pb-0 md:border-r border-r-[#DADADA] md:pr-10 pl-5'>
+                            <div className='w-full md:w-3/6 space-y-2 border-b md:border-b-0 border-b-[#DADADA] pb-3 md:pb-0 md:border-r border-r-[#DADADA] md:pr-10 pl-5'>
                                 <li>Proficiency in handling projects spanning both Greenfield and Brownfield environments.</li>
                                 <li>Extensive global exposure in managing various intricate, multi-billion-dollar construction projects.</li>
                                 <li>Capable of handling multi-discipline teams</li>
