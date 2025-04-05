@@ -32,7 +32,7 @@ const About = () => {
 
 
   return (
-    <div className='w-screen h-full font-aptos bg-white text-dark overflow-x-hidden scroll-smooth transition-all ease-linear duration-300'>
+    <div className='w-full h-full font-aptos bg-white text-dark overflow-x-hidden scroll-smooth transition-all ease-linear duration-300'>
         <Header/>
         <div className='w-full bg-white'>
             <Hero image={HI} title={'Working Together to advance the project profession'} body={''} url={'Home / What We Do / PMI Leadership & Board Of Directors'}/>

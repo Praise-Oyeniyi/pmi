@@ -45,7 +45,7 @@ const EventDetails = () => {
     ]
 
   return (
-    <div className='w-screen h-full font-aptos bg-hero-bg overflow-x-hidden'>
+    <div className='w-full h-full font-aptos bg-hero-bg overflow-x-hidden'>
         <Header/>
         <div className='w-full'>
             <Hero head={heroInfo.title} subhead={heroInfo.subtitle} body={heroInfo.body} subParams={heroInfo.subParams}/>

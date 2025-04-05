@@ -12,7 +12,7 @@ const Contact = () => {
     const [btn, setBtn] = useState(0);
 
   return (
-    <div className='w-screen h-full font-aptos bg-white text-dark'>
+    <div className='w-full h-full font-aptos bg-white text-dark overflow-x-hidden'>
         <Header/>
         <div className='w-full bg-white'>
             <Hero image={HI} 
@@ -22,7 +22,7 @@ const Contact = () => {
             />
             <main className="about-main-header pt-10">
                 <div className="main-inner overflow-x-auto hide-bar min-full w-full  border-b border-b-[#DBD8D1]">
-                    <div className='w-[90%] md:w-5/6 mx-auto flex justify-between gap-x-7 overflow-x-auto hide-bar md:overflow-x-hidden text-purple-light text-sm md:text-3xl md:gap-x-5 '>
+                    <div className='w-full pl-3 pr-5 md:px-0 md:w-5/6 mx-auto flex justify-between gap-x-7 overflow-x-auto hide-bar md:overflow-x-hidden text-purple-light text-sm md:text-3xl md:gap-x-5 '>
                         {['General Support', 'Corporate Enquiry', 'Individual Training Enquiry', 'CSR Activity Collaboration'].map((nav, index)=>(
                             <h4 
                                 key={index}

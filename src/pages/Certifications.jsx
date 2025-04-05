@@ -15,7 +15,7 @@ const Certifications = () => {
     }
 
   return (
-    <div className='w-screen h-full font-aptos bg-white text-dark overflow-x-hidden'>
+    <div className='w-full h-full font-aptos bg-white text-dark overflow-x-hidden'>
         <Header/>
         <div className='relative'>
             <Hero image={HeroInfo.image} title={HeroInfo.title} duration={HeroInfo.duration} body={HeroInfo.body}/>
