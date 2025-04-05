@@ -71,7 +71,9 @@ const Header = () => {
                     <FaLinkedinIn size={15}/>
                 </div>
                 <button className='w-fit flex text-base font-normal justify-between items-center border border-[#F3EFEF] p-2 rounded-sm text-[#7C7C7C] gap-x-2'>Change Language <span><FaCaretDown /></span></button>
-                <button className='text-base font-normal text-[#7C7C7C] cursor-pointer'>Login</button>
+                <Link to={'/Login'}>
+                    <button className='text-base font-normal transition-all duration-300 ease-in hover:underline hover:text-[#200F3B] text-[#7C7C7C] cursor-pointer'>Login</button>
+                </Link>
             </div>
             
         </div>
@@ -144,8 +146,10 @@ const Header = () => {
                             <div className='w-full bg-[#F5F5F5] py-3'>
                                 <button className='w-5/6 border-none outline-none mx-auto flex text-sm font-normal justify-between items-center border border-[#F3EFEF] px-3 rounded-md text-[#7C7C7C] gap-x-2 bg-[#FDFDFD] h-[2.9rem]'>Change Language <span><FaCaretDown /></span></button>
                             </div>
-                            
-                            <h5 className='text-base text-center font-normal text-[#7C7C7C] tracking-wide'>Log In</h5>
+
+                            <Link to={'/Login'}>
+                                <h5 className='text-base text-center font-normal text-[#7C7C7C] tracking-wide'>Log In</h5>
+                            </Link>
                         </div>
                     </div>
 

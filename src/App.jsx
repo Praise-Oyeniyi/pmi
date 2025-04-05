@@ -8,6 +8,10 @@ import About from './pages/About'
 import Training from './pages/Training'
 import Contact from './pages/Contact'
 import ScrollToTop from './components/global/ScrollToTop'
+import Profile from './pages/User/Dashboard/Profile'
+import Login from './pages/User/Auth/Login'
+import VDashboard from './pages/User/Dashboard/VDashboard'
+import Otp from './pages/User/Auth/Otp'
 
 function App() {
 
@@ -22,6 +26,10 @@ function App() {
           <Route path='/About' element={<About/>}/>
           <Route path='/Training' element={<Training/>}/>
           <Route path='/Contact' element={<Contact/>}/>
+          <Route path='/Profile' element={<Profile/>}/>
+          <Route path='/Login' element={<Login/>}/>
+          <Route path='/otp' element={<Otp/>}/>
+          <Route path='/Dashboard' element={<VDashboard/>}/>
         </Routes>
       </ScrollToTop>
     </BrowserRouter>
