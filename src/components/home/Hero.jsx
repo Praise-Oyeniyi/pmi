@@ -11,7 +11,7 @@ const Hero = () => {
           title: 'Empowering Project Professionals, One Step at a Time',
           description: 'Join a vibrant community of certified project leaders, forward-thinking professionals, and changemakers. Access exclusive trainings, register for events, and unlock opportunities to grow, lead, and contribute with PMI Bangalore Chapter',
           buttonText: 'Explore Training Programs',
-          buttonColor: 'bg-secondary text-white'
+          buttonColor: ' bg-secondary text-white'
         },
         {
           id: 2,
@@ -20,7 +20,7 @@ const Hero = () => {
           title: 'Advance Your Career with Industry-Leading Certifications',
           description: 'Take the next step in your professional journey with our PMP, CAPM, and Agile certifications. Our expert-led programs provide the knowledge and credentials you need to excel in today\'s competitive project management landscape.',
           buttonText: 'Explore Training Programs',
-          buttonColor: 'bg-white text-dark'
+          buttonColor: ' bg-white text-dark'
         },
         {
           id: 3,
@@ -29,7 +29,7 @@ const Hero = () => {
           title: 'Connect with a Global Network of Project Leaders',
           description: 'Expand your professional network and gain insights from industry experts worldwide. Attend our monthly meetups, annual conferences, and specialized workshops to share knowledge and build meaningful relationships.',
           buttonText: 'Join Our Community',
-          buttonColor: 'bg-secondary text-white'
+          buttonColor: ' bg-secondary text-white'
         }
     ];
     
@@ -59,7 +59,7 @@ const Hero = () => {
                     <p className={`font-medium text-sm md:text-2xl text-[#272622] ${currentContent.id == 2 && '!text-white'}`}>
                         {currentContent.description}
                     </p>
-                    <button className={`${currentContent.buttonColor} md:mt-8 w-fit flex items-center justify-center text-sm sm:text-lg font-semibold  h-[2.5rem] md:h-[3.5rem] px-3 md:px-7 rounded-full`}>
+                    <button className={`${currentContent.buttonColor} hover:opacity-70 transition-all ease-in duration-200 md:mt-8 w-fit flex items-center justify-center text-sm sm:text-lg font-semibold  h-[2.5rem] md:h-[3.5rem] px-3 md:px-7 rounded-full`}>
                         {currentContent.buttonText}
                     </button>
                 </div>

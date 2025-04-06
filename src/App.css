@@ -25,6 +25,16 @@
 .hide-bar::-webkit-scrollbar {
     display: none;
 }
+footer li:hover{
+    text-decoration: underline;
+    transition: .3s all ease-in;
+    cursor: pointer;
+}
+
+form button:hover{
+    opacity: 80%;
+}
+
 
 @media (max-width:768px) {
     .sp-bg{

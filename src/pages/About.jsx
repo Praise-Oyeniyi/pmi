@@ -42,7 +42,7 @@ const About = () => {
                     <a href={e.tag}>
                       <h4 
                         key={index}
-                        className={`w-fit text-nowrap  transition-all ease-linear duration-200 border-b-3 md:py-4 py-2 font-semibold text-dark ${index === btn? "border-b-purple": 'border-b-transparent'} `}
+                        className={`w-fit text-nowrap hover:opacity-60  transition-all ease-linear duration-200 border-b-3 md:py-4 py-2 font-semibold text-dark ${index === btn? "border-b-purple": 'border-b-transparent'} `}
                         onClick={()=>setBtn(index)}
                       >
                         {e.name}

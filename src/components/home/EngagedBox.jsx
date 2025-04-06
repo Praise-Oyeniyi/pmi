@@ -20,8 +20,13 @@ const EngagedBox = ({image, head, title, body,style}) => {
 
             <div className='md:text-xl text-sm w-full md:w-[40%]'>
                 <p className='font-medium md:text-lg md:pt-1'>{body}</p>
-                <Link to={'/Home/Special Program/1'}>
-                    <button className='w-fit font-bold pt-2 flex gap-x-1 items-center cursor-pointer'>Learn More <FaChevronRight className='md:h-3.5 h-2.5'/></button>
+                <Link to={'/Home/Special Program/1'} > 
+                    <button 
+                        className='w-fit font-bold pt-2 flex gap-x-1 items-center cursor-pointer transition-all ease-in duration-300 hover:underline  underline-offset-3'
+                    >
+                            Learn More 
+                            <FaChevronRight className='md:h-3.5 h-2.5'/>
+                    </button>
                 </Link>
             </div>
             

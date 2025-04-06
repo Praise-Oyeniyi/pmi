@@ -26,7 +26,7 @@ const Contact = () => {
                         {['General Support', 'Corporate Enquiry', 'Individual Training Enquiry', 'CSR Activity Collaboration'].map((nav, index)=>(
                             <h4 
                                 key={index}
-                                className={`w-fit text-nowrap tracking-tight transition-all ease-linear duration-200 md:py-4 py-2 border-b-3 ${index === btn? 'border-b-purple':'border-b-transparent'}`}  
+                                className={`w-fit text-nowrap tracking-tight hover:opacity-80 transition-all ease-linear duration-200 md:py-4 py-2 border-b-3 ${index === btn? 'border-b-purple':'border-b-transparent'}`}  
                                 onClick={()=>setBtn(index)}
                             >
                                 {nav}

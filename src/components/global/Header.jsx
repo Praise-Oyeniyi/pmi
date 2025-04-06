@@ -66,9 +66,9 @@ const Header = () => {
 
             <div className="header-right flex w-auto items-center gap-x-5">
                 <div className="socials flex gap-x-3 text-[#131313]">
-                    <FaFacebookF size={15}/>
-                    <FaInstagram size={15}/>
-                    <FaLinkedinIn size={15}/>
+                    <FaFacebookF size={15} className="hover:scale-105 transition-all ease-in duration-200"/>
+                    <FaInstagram size={15} className="hover:scale-105 transition-all ease-in duration-200"/>
+                    <FaLinkedinIn size={15} className="hover:scale-105 transition-all ease-in duration-200"/>
                 </div>
                 <button className='w-fit flex text-base font-normal justify-between items-center border border-[#F3EFEF] p-2 rounded-sm text-[#7C7C7C] gap-x-2'>Change Language <span><FaCaretDown /></span></button>
                 <Link to={'/Login'}>

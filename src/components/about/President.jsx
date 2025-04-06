@@ -48,7 +48,7 @@ const President = () => {
                                     <div className='flex items-center gap-x-1 md:gap-x-2'>
                                         <h6 className='border-r border-r-[#DBD8D1] pr-2'>{e.date}</h6>
                                         <button className='cursor-pointer bg-[#0077B5] text-white w-4 h-4 md:w-6 md:h-6 flex justify-center items-center rounded-full'>
-                                            <FaLinkedinIn className='h-2 md:h-3.5'/>
+                                            <FaLinkedinIn className='h-2 md:h-3.5 hover:opacity-75 transition-all ease-in duration-200'/>
                                         </button>
                                     </div>
                                 </div>

@@ -17,7 +17,7 @@ const LinkedinProfile = () => {
                </div>
             </div>
 
-            <button className='flex w-fit mx-auto justify-center items-center md:mr-3 rounded-full bg-secondary text-white px-10 py-2 text-sm md:text-2xl font-bold'>
+            <button className='flex w-fit mx-auto transition-all ease-in duration-300 hover:opacity-75 cursor-pointer justify-center items-center md:mr-3 rounded-full bg-secondary text-white px-10 py-2 text-sm md:text-2xl font-bold'>
                 Register
             </button>
         </div>

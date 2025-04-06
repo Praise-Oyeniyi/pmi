@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, titleColor}) => {
+const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, titleColor, btnHover}) => {
   return (
     <div className={`w-full h-full md:h-[38rem] overflow-hidden px-5 pb-5 md:pb-6 box-outer rounded-[1.25rem] bg-gradient-to-b ${gradient} ${titleColor === 'text-[#200F3B]' && ' border border-[#291843b4] '}`}>
         <div className="box-inner relative flex flex-col justify-between h-full">
@@ -22,7 +22,10 @@ const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, titleCol
             </div>
 
             <Link to={'/Home/Certifications/1'}>
-                <button className='cursor-pointer w-fit mt-5 flex text-sm md:text-lg font-semibold justify-center items-center bg-white border border-cgray h-10 px-5 rounded-full text-black'>
+                <button className={`
+                    ${btnHover} transition-all duration-300 ease-linear hover:text-white hover:opacity-85
+                    cursor-pointer w-fit mt-5 flex text-sm md:text-lg font-semibold justify-center items-center bg-white h-10 md:h-12 px-5 rounded-full text-black outline-none `}
+                >
                     Learn More
                 </button>
             </Link>

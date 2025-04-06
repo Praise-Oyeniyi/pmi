@@ -16,8 +16,8 @@ const CertSupport = () => {
             subTitle:'3-5 years of experience', 
             boxInfo:'The PMP® validates skills and knowledge in managing & directing people, processes, and priorities for a project team from start to finish.',
             gradient:'from-[#14062A] to-[#2B0C58]',
-            titleColor:'text-[#B365FD]'
-
+            titleColor:'text-[#B365FD]',
+            btnHover:'hover:bg-[#B365FD]',
         },
         {
             imageIcon:Box2,
@@ -26,8 +26,8 @@ const CertSupport = () => {
             subTitle:'No experience required', 
             boxInfo:"This certification demonstrates an understanding of the foundational skills that project teams demand.",
             gradient:'from-[#041120] to-[#02384D]',
-            titleColor:'text-[#05BFE0]'
-
+            titleColor:'text-[#05BFE0]',
+            btnHover:'hover:bg-[#05BFE0]',
         },
         {
             imageIcon:Box3,
@@ -36,8 +36,8 @@ const CertSupport = () => {
             subTitle:'2+ years of experience', 
             boxInfo:'This Certification validates your ability to engage stakeholders, apply agile approaches, and lead teams.',
             gradient:'from-[#FEFEFE] to-[#D3BEAE]',
-            titleColor:'text-[#200F3B]'
-
+            titleColor:'text-[#200F3B]',
+            btnHover:'hover:bg-[#200F3B]',
         }
 
     ]
@@ -105,7 +105,7 @@ const CertSupport = () => {
             <div className="top md:flex w-full justify-between items-center">
                 <div className='space-y-3 md:space-y-5'>
                     <h3 className='text-xl md:text-5xl font-bold w-5/6 md:w-4/6 leading-snug tracking-wider md:tracking-normal'>Top Certifications We Support</h3>
-                    <button className='bg-white hidden rounded-full md:flex justify-center items-center border border-cgray px-7 h-[3rem]'>View all certifications</button>
+                    <button className='bg-white hover:bg-[#200f3b31] transition-all ease-in duration-300 hidden rounded-full md:flex justify-center items-center border border-cgray px-7 h-[3rem]'>View all certifications</button>
                 </div>
 
                 <p className='text-sm md:text-2xl font-medium md:w-2/6 md:text-right'>Boost your professional credibility
@@ -143,6 +143,7 @@ const CertSupport = () => {
                         gradient={e.gradient} 
                         boxInfo={e.boxInfo} 
                         titleColor={e.titleColor}
+                        btnHover={e.btnHover}
                     />
                 </div>
             ))}

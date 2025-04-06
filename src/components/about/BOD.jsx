@@ -57,7 +57,7 @@ const BOD = () => {
                                     <h5 className=''>{e.role}</h5>
                                     <h6>{e.mail}</h6>
                                     <h6>{e.date}</h6>
-                                    <button className='flex gap-x-1 md:gap-x-2 items-center font-bold text-sm md:text-xl'>View Bio <FaChevronRight className='h-2.5 md:h-3.5'/></button>
+                                    <button className='flex gap-x-1 md:gap-x-2 items-center font-bold text-sm md:text-xl transition-all ease-in duration-300 hover:underline  underline-offset-3'>View Bio <FaChevronRight className='h-2.5 md:h-3.5'/></button>
                                 </div>
                             </div>
                             
@@ -72,7 +72,7 @@ const BOD = () => {
                     <h4 className='text-base md:text-3xl font-normal'>Past Board Members</h4>
                     <div className='text-sm  md:text-xl space-y-2 capitalize'>
                         <p className='font-semibold'>Explore the PMI Board of directors from present day to inception.</p>
-                        <button className='font-bold flex gap-x-1 md:gap-x-2 items-center'>View past PMI board members <FaChevronRight className='h-2.5 md:h-3.5'/></button>
+                        <button className='font-bold flex gap-x-1 md:gap-x-2 items-center transition-all ease-in duration-300 hover:underline  underline-offset-3'>View past PMI board members <FaChevronRight className='h-2.5 md:h-3.5'/></button>
                     </div>
                 </div>
             </div>
