@@ -17,17 +17,14 @@ const Login = () => {
   return (
     <div className='w-full h-auto bg-hero-bg font-aptos text-dark !overflow-x-hidden'>
         <Header/>
-        <div className='main w-full md:border-t border-t-[#D9D9D9] bg-white pb-20'>
+        <div className='main w-full md:border-t border-t-[#D9D9D9] bg-white'>
             <div className='flex justify-between items-center gap-x-28'> 
-                <div className="w-[45%]">
-                    <div className='left w-[80%] space-y-7 ml-auto'>
-                        <div className='h-12 relative overflow-hidden'>
-                            <img src={Logo} alt="" className='absolute h-full object-cover' />
-                        </div>
+                <div className="w-full md:w-[45%]">
+                    <div className='left w-[90%] md:w-[80%] space-y-7 md:ml-auto md:-mt-10 mx-auto py-10 md:py-0'>
 
                         <div className='space-y-2 text-[#200F3B]'>
-                            <h3 className='text-4xl font-semibold'>Login</h3>
-                            <p className='text-xl font-normal '>Welcome! please log in with your PMI account to continue</p>
+                            <h3 className='text-2xl md:text-4xl font-semibold'>Login</h3>
+                            <p className='text-lg md:text-xl font-normal '>Welcome! please log in with your PMI account to continue</p>
                         </div>
 
                         <div className="form">
@@ -44,14 +41,14 @@ const Login = () => {
                                     />
                                 </div>
 
-                                <button type="submit" className='h-[3.625rem] cursor-pointer w-full justify-center items-center tracking-wider flex text-white text-lg font-semibold bg-[#7030A0] rounded-lg'>Request OTP</button>
+                                <button type="submit" className='h-[3.625rem] hover:opacity-80 transition-all duration-200 ease-in-out cursor-pointer w-full justify-center items-center tracking-wider flex text-white text-sm md:text-lg font-semibold bg-[#7030A0] rounded-lg'>Request OTP</button>
                             </form>
                         </div>
                     </div>
                     
                 </div>
 
-                <div className="right w-[55%] relative">
+                <div className="right w-[55%] relative hidden md:block">
                     <div className='w-full min-h-[40rem] max-h-[54rem] relative'>
                         <img src={LI} alt="" className='min-h-full object-cover w-full absolute'/>
                     </div>
