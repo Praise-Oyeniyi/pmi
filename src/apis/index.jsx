@@ -1,6 +1,6 @@
 export const sendApi = async (data, endpoint) => {
     try {
-        const response = await fetch(endpoint, {
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/${endpoint}`, {
             method: "POST",
             credentials: 'include',
             headers: {
@@ -32,7 +32,7 @@ export const sendApi = async (data, endpoint) => {
 
 export const fetchApi = async (endpoint) => {
     try {
-        const response = await fetch(endpoint, {
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}${endpoint}`, {
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',

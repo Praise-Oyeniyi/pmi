@@ -4,7 +4,7 @@ import C1 from '../../assets/images/contact1.svg'
 import C2 from '../../assets/images/contact2.svg'
 
 
-const NeedAssistance = () => {
+const NeedAssistance = ({explore}) => {
     const contact = [
         {
             name:'Arun',
@@ -61,7 +61,7 @@ const NeedAssistance = () => {
 
                 <div className='font-semibold space-y-4-3  md:space-y-8 w-full md:w-[30%]'>
                     <h4 className='text-sm py-5 md:py-0 md:text-xl capitalize'>Understand the certification process and eligibility:</h4>
-                    <button className='text-sm md:text-lg capitalize text-white flex justify-center items-center rounded-full px-7 py-3 bg-purple w-fit min-w-fit'>Explore PMP Certification on pMI</button>
+                    <button className='text-sm md:text-lg capitalize text-white flex justify-center items-center rounded-full px-7 py-3 bg-purple w-fit min-w-fit'>{explore?.title}</button>
                 </div>
             </div>
         </div>

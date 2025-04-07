@@ -1,11 +1,35 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useState } from 'react';
 import { FaChevronRight } from "react-icons/fa6";
+import { Link } from 'react-router';
+import { fetchApi } from '../../apis';
 import BOD1 from '../../assets/images/BOD!.png'
 import BOD2 from '../../assets/images/BOD2.png'
 import BOD3 from '../../assets/images/BOD3.png'
 
 
 const BOD = () => {
+    const [dir, setDir] = useState([])
+
+    useEffect(() => {
+        const directors = '/custom-api/v1/directors'
+        async function fetchData(){
+              try {
+                const result = await fetchApi(directors)
+                if (result.success){        
+                  setDir(result.data)
+                  
+                } else {
+                  console.log(result)
+                }
+            } catch (error) {
+              console.log(error)
+            }
+        }
+        fetchData();
+    }, []);
+
+
     const BODS = [
         {
             name:'Ike Nwankwo, MSc, MBA, PMP, DASSM',
@@ -48,21 +72,23 @@ const BOD = () => {
 
             <div className='w-full'>
                 <div>
-                    {BODS.map((e, index) =>(
-                        <div className={`border-b py-5 border-b-[#DBD8D1] w-full flex flex-col gap-y-4 md:gap-y-0 md:flex-row  gap-x-10 justify-between items-center ${index === BODS.length-1 && 'border-none'}`} key={index}>
+                    {dir.map((e, index) =>(
+                        <div className={`border-b py-5 border-b-[#DBD8D1] w-full flex flex-col gap-y-4 md:gap-y-0 md:flex-row  gap-x-10 justify-between items-center ${index === dir?.length-1 && 'border-none'}`} key={e?.id}>
                            
                             <div className='flex flex-col md:flex-row  justify-between items-start w-full md:w-4/6 order-2 md:order-1'>
-                                <h4 className='text-lg md:text-3xl font-bold md:w-3/6 pr-10 tracking-tighter md:tracking-normal'>{e.name}</h4>
+                                <h4 className='text-lg md:text-3xl font-bold md:w-3/6 pr-10 tracking-tighter md:tracking-normal'>{e?.name}</h4>
                                 <div className="dir-info text-sm md:text-lg pt-2 md:pt-0 font-normal space-y-2 md:w-3/6">
-                                    <h5 className=''>{e.role}</h5>
-                                    <h6>{e.mail}</h6>
-                                    <h6>{e.date}</h6>
-                                    <button className='flex gap-x-1 md:gap-x-2 items-center font-bold text-sm md:text-xl transition-all ease-in duration-300 hover:underline  underline-offset-3'>View Bio <FaChevronRight className='h-2.5 md:h-3.5'/></button>
+                                    <h5 className=''>{e?.designation}</h5>
+                                    <h6 className='truncate'>{e?.email}</h6>
+                                    {/* <h6>{e?.date}</h6> */}
+                                    <Link to={e?.linkedin} target='_blank'>
+                                        <button className='flex gap-x-1 md:gap-x-2 items-center font-bold text-sm md:text-xl transition-all ease-in duration-300 hover:underline  underline-offset-3'>View Bio <FaChevronRight className='h-2.5 md:h-3.5'/></button>
+                                    </Link>
                                 </div>
                             </div>
                             
                             <div className='h-[11rem] md:w-[20rem] w-full rounded-2xl overflow-hidden relative md:h-48 order-1 md:order-2'>
-                                <img src={e.image} alt="pmi board of directors" className='h-full w-full object-cover absolute'/>
+                                <img src={e?.profile_picture?.url} alt={e?.profile_picture?.alt} className='h-full w-full object-center absolute'/>
                             </div>
                         </div>
                     ))}

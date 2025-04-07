@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Footer from '../components/global/Footer'
 import Header from '../components/global/Header'
@@ -10,16 +10,31 @@ import R2 from '../assets/images/RE2.png'
 import R3 from '../assets/images/RE3.png'
 import R4 from '../assets/images/RE4.png'
 import RelatedEvents from '../components/specialProgram/EventDetails/RelatedEvents'
+import { useState } from 'react'
+import { fetchApi } from '../apis'
 
 const EventDetails = () => {
+    const [event, setEvent] = useState(null)
     const {eventId} = useParams() ;
 
-    const heroInfo = {
-        subtitle:'E&C PM Footprints',
-        title:"Best Practices in Forensic Schedule Analysis",
-        body:'12 Apr 25 | 10.00 AM',
-        subParams: eventId,
-    }
+    useEffect(() => {
+      const eventLink = `/custom-api/v1/event/2564`
+      async function fetchData(){
+            try {
+              const result = await fetchApi(eventLink)
+              if (result.success){        
+                setEvent(result.data)
+                
+              } else {
+                console.log(result)
+              }
+          } catch (error) {
+            console.log(error)
+          }
+      }
+      fetchData();
+    }, []);
+
 
     const relatedEventsInfo=[
       {
@@ -48,9 +63,25 @@ const EventDetails = () => {
     <div className='w-full h-full font-aptos bg-hero-bg overflow-x-hidden'>
         <Header/>
         <div className='w-full'>
-            <Hero head={heroInfo.title} subhead={heroInfo.subtitle} body={heroInfo.body} subParams={heroInfo.subParams}/>
-            <LinkedinProfile/>
-            <EventDescription/>
+            <Hero head={event?.event_title} subhead={event?.event_category[0]?.name} body={event?.date_time} subParams={event?.event_id}/>
+              {event?.speakers?.map((speaker, index)=>(
+                <LinkedinProfile 
+                  name={speaker?.name}
+                  link={speaker?.linkedin}
+                  role={speaker?.designation}
+                  image={speaker?.image}
+              />))}
+            <EventDescription
+              image={event?.featured_image?.url}
+              desc={event?.description}
+              audTitle={event?.audience?.title} 
+              audContent={event?.audience?.content}
+              profCert={event?.professional_certifications?.certifications}
+              keyExpTitle={event?.key_experience?.title}
+              profCertTitle={event?.professional_certifications?.title}
+              keyExpPoints={event?.key_experience?.points}
+              aboutSpeaker={event?.about_speaker}
+            />
 
             <div className='w-full mt-16 md:mt-20 mb-10'>
               <div className='md:max-w-5/6 mx-auto md:w-5/6 w-[90%]'>

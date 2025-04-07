@@ -1,19 +1,24 @@
 import React from 'react'
 import { FaLinkedin } from "react-icons/fa";
+import { Link } from 'react-router';
 import EDA from '../../../assets/images/ed-avatara.png'
 
-const LinkedinProfile = () => {
+const LinkedinProfile = ({name,link, role, image}) => {
   return (
     <div className='w-full my-16 md:my-20'>
         <div className="mx-auto w-[90%] md:w-5/6 bg-white space-y-3 md:space-y-0 rounded-3xl border border-[#E8E8E8] p-3 md:p-4 md:flex justify-between items-center">
             
             <div className='flex items-center gap-x-5'>
-                <div className="avatar w-fit">
-                    <img src={EDA} alt="" className='w-12 md:w-[6.25rem]'/>
+                <div className="avatar h-12 md:h-[6.25rem]">
+                    <img src={image} alt="" className='w-full h-full object-cover'/>
                 </div>
                 <div className="bio">
-                    <h4 className='text-xl md:text-3xl font-bold flex items-center gap-x-3'>Ravindar Ponnan <FaLinkedin className='text-[#0077B5] mt-1' size={20}/></h4>
-                    <h6 className='capitalize text-sm md:text-xl font-semibold'>manager – planning & scheduling, atkinsRealis</h6>
+                    <h4 className='text-xl md:text-3xl font-bold flex items-center gap-x-3'>{name} 
+                        <Link to={link} target={'_blank'}>
+                            <FaLinkedin className='text-[#0077B5] mt-1' size={20}/>
+                        </Link>
+                    </h4>
+                    <h6 className='capitalize text-sm md:text-xl font-semibold'>{role}</h6>
                </div>
             </div>
 

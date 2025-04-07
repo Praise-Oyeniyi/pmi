@@ -13,7 +13,7 @@ const EngagedBox = ({image, head, title, body,style}) => {
                 </div>
                 
                 <div className='space-y-1 md:space-y-0'>
-                    <h6 className='text-sm md:text-base font-normal'>{head}</h6>
+                    <h6 className='text-sm md:text-base font-normal truncate'>{head}</h6>
                     <h4 className='text-lg md:text-3xl font-bold leading-tight'>{title}</h4>
                 </div>
             </div>

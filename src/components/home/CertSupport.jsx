@@ -1,5 +1,6 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go'
+import { fetchApi } from '../../apis'
 import Box1 from '../../assets/icons/box1.svg'
 import Box2 from '../../assets/icons/box2.svg'
 import Box3 from '../../assets/icons/box3.svg'
@@ -8,42 +9,31 @@ import CertBox from './CertBox'
 
 
 const CertSupport = () => {
-    const supportBox = [
-        {
-            imageIcon:Box1,
-            title:'PMP®',
-            mainTitle:'Project Management Professional (PMP)®', 
-            subTitle:'3-5 years of experience', 
-            boxInfo:'The PMP® validates skills and knowledge in managing & directing people, processes, and priorities for a project team from start to finish.',
-            gradient:'from-[#14062A] to-[#2B0C58]',
-            titleColor:'text-[#B365FD]',
-            btnHover:'hover:bg-[#B365FD]',
-        },
-        {
-            imageIcon:Box2,
-            title:'CAPM®',
-            mainTitle:'Certified Associate in Project Management (CAPM)®', 
-            subTitle:'No experience required', 
-            boxInfo:"This certification demonstrates an understanding of the foundational skills that project teams demand.",
-            gradient:'from-[#041120] to-[#02384D]',
-            titleColor:'text-[#05BFE0]',
-            btnHover:'hover:bg-[#05BFE0]',
-        },
-        {
-            imageIcon:Box3,
-            title:'PMI-ACP®',
-            mainTitle:'PMI Agile Certified Practitioner (PMI-ACP)®', 
-            subTitle:'2+ years of experience', 
-            boxInfo:'This Certification validates your ability to engage stakeholders, apply agile approaches, and lead teams.',
-            gradient:'from-[#FEFEFE] to-[#D3BEAE]',
-            titleColor:'text-[#200F3B]',
-            btnHover:'hover:bg-[#200F3B]',
-        }
+    const [cert,setCert] = useState([])
 
-    ]
+    useEffect(() => {
+        const certification = '/custom/v1/certifications-listing/'
+        async function fetchData(){
+              try {
+                const result = await fetchApi(certification)
+                if (result.success){        
+                  setCert(result.data)
+                  
+                } else {
+                  console.log(result)
+                }
+            } catch (error) {
+              console.log(error)
+            }
+        }
+        fetchData();
+    }, []);
+
+
+    
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const totalItems = supportBox.length;
+    const totalItems = cert.length;
     const sliderRef = useRef(null);
     
     const [touchStart, setTouchStart] = useState(0);
@@ -123,10 +113,10 @@ const CertSupport = () => {
 
 
         <div 
-            className="certBox flex max-w-[90%] w-[90%] md:w-5/6 mx-auto gap-x-4 min-h-fit justify-between items-stretch overflow-hidden"
+            className="certBox flex flex-row-reverse max-w-[90%] w-[90%] md:w-5/6 mx-auto gap-x-4 min-h-fit justify-between items-stretch overflow-hidden"
             ref={sliderRef}
         >
-            {supportBox.map((e,index)=>(
+            {cert.map((e,index)=>(
                 <div 
                     key={index} 
 
@@ -136,14 +126,15 @@ const CertSupport = () => {
                     onTouchMove={handleTouchMove}
                     onTouchEnd={handleTouchEnd}
                 >
-                    <CertBox title={e.title} 
-                        mainTitle={e.mainTitle} 
-                        subTitle={e.subTitle} 
-                        image={e.imageIcon} 
-                        gradient={e.gradient} 
-                        boxInfo={e.boxInfo} 
-                        titleColor={e.titleColor}
-                        btnHover={e.btnHover}
+                    <CertBox title={e?.shortform} 
+                        mainTitle={e?.certification_name} 
+                        subTitle={e?.experience} 
+                        image={e?.right_corner_icon?.url} 
+                        gradient={e?.background_image?.url} 
+                        boxInfo={e?.short_description} 
+                        pLink={e?.permalink}
+                        index={index}
+                        id={e?.cert_id}
                     />
                 </div>
             ))}
@@ -152,7 +143,7 @@ const CertSupport = () => {
         <div className="certbox-control md:hidden mt-7">
             <div className='w-[90%] mx-auto flex justify-between items-center'>
                 <div className='flex items-center gap-x-1'>
-                    {supportBox.map((_, index) => (
+                    {cert.map((_, index) => (
                         <div 
                             key={index} 
                             className={`h-[0.15rem] transition-all duration-300 ease-in-out ${index === currentIndex ? 'w-5' : 'w-1'} bg-[#200F3B]`}
@@ -184,3 +175,41 @@ const CertSupport = () => {
 }
 
 export default CertSupport
+
+
+
+
+
+// const cert = [
+//     {
+//         imageIcon:Box1,
+//         title:'PMP®',
+//         mainTitle:'Project Management Professional (PMP)®', 
+//         subTitle:'3-5 years of experience', 
+//         boxInfo:'The PMP® validates skills and knowledge in managing & directing people, processes, and priorities for a project team from start to finish.',
+//         gradient:'from-[#14062A] to-[#2B0C58]',
+//         titleColor:'text-[#B365FD]',
+//         btnHover:'hover:bg-[#B365FD]',
+//     },
+//     {
+//         imageIcon:Box2,
+//         title:'CAPM®',
+//         mainTitle:'Certified Associate in Project Management (CAPM)®', 
+//         subTitle:'No experience required', 
+//         boxInfo:"This certification demonstrates an understanding of the foundational skills that project teams demand.",
+//         gradient:'from-[#041120] to-[#02384D]',
+//         titleColor:'text-[#05BFE0]',
+//         btnHover:'hover:bg-[#05BFE0]',
+//     },
+//     {
+//         imageIcon:Box3,
+//         title:'PMI-ACP®',
+//         mainTitle:'PMI Agile Certified Practitioner (PMI-ACP)®', 
+//         subTitle:'2+ years of experience', 
+//         boxInfo:'This Certification validates your ability to engage stakeholders, apply agile approaches, and lead teams.',
+//         gradient:'from-[#FEFEFE] to-[#D3BEAE]',
+//         titleColor:'text-[#200F3B]',
+//         btnHover:'hover:bg-[#200F3B]',
+//     }
+
+// ]

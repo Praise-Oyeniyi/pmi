@@ -4,52 +4,10 @@ import NeedAssistance from './NeedAssistance';
 
 
 
-const ReceiveCert = () => {
-    const whatReceive = [
-        {
-            num:'01',
-            what:'35 Hours of Instructor-led Training (mandatory requirement)',
-
-        },
-        {
-            num:'02',
-            what:'PMI-Authorized Student Manual',
-
-        },
-        {
-            num:'03',
-            what:'Spotlight Videos & Media',
-
-        },
-        {
-            num:'04',
-            what:'Spotlight Videos & Media',
-
-        },
-        {
-            num:'05',
-            what:'35 Hours of Instructor-led Training (mandatory requirement)',
-
-        },
-        {
-            num:'06',
-            what:'PMI-Authorized Student Manual',
-
-        },
-        {
-            num:'07',
-            what:'Spotlight Videos & Media',
-
-        },
-        {
-            num:'08',
-            what:'Spotlight Videos & Media',
-
-        },
-    ]
+const ReceiveCert = ({explore, whatReceive}) => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const totalItems = whatReceive.length;
+    const totalItems = whatReceive?.length;
     const sliderRef = useRef(null);
     
     const [touchStart, setTouchStart] = useState(0);
@@ -105,6 +63,10 @@ const ReceiveCert = () => {
   const canGoLeft = currentIndex > 0;
   const canGoRight = currentIndex < totalItems - 1;
 
+  const formatIndex = (index) => {
+    return index.toString().padStart(2, '0');
+  };
+
 
   return (
     <div className='w-full my-20 overflow-x-hidden'>
@@ -117,7 +79,7 @@ const ReceiveCert = () => {
         <div className='w-full overflow-x-hidden  mt-7'>
             <div className='mx-auto md:ml-[5%] w-[90%]'>  
                 <div className="w-full flex justify-between hide-bar h-full gap-x-5 " ref={sliderRef}>
-                    {whatReceive.map((e, index) => (
+                    {whatReceive?.map((e, index) => (
                         <div key={index}
                             className='md:min-w-[20rem] min-w-[90%] max-w-[90%] md:max-w-[20rem] flex-shrink-0 flex-grow-0 flex rounded-2xl p-5 px-7 md:px-10 py-6 bg-[#F7F5EF] items-baseline transition-all duration-300 ease-in-out'
                             style={{ transform: `translateX(-${currentIndex * 105}%)` }}
@@ -126,8 +88,8 @@ const ReceiveCert = () => {
                             onTouchEnd={handleTouchEnd}
                         >
                             <div className='w-full self-stretch font-semibold px-7 md:px-0 text-center space-y-5 flex flex-col justify-center items-center'>
-                                <h3 className='text-purple text-4xl md:text-5xl h-1/4'>{e.num}</h3>
-                                <p className='text-lg md:-2xl h-2/4'>{e.what}</p>
+                                <h3 className='text-purple text-4xl md:text-5xl h-1/4'>{formatIndex(index + 1)}</h3>
+                                <p className='text-lg md:-2xl h-2/4'>{e && e}</p>
                             </div>
                         </div>
                     ))}
@@ -137,7 +99,7 @@ const ReceiveCert = () => {
             <div className="certbox-control mt-7 w-[90%] mx-auto">
                 <div className='w-full mx-auto flex justify-between items-center'>
                     <div className='flex items-center gap-x-[2px]'>
-                        {whatReceive.map((_, index) => (
+                        {whatReceive?.map((_, index) => (
                             <div 
                                 key={index} 
                                 className={`h-[0.15rem] transition-all duration-300 ease-in-out ${index === currentIndex ? 'w-5' : 'w-1'} bg-[#200F3B]`}
@@ -165,7 +127,7 @@ const ReceiveCert = () => {
                 
             </div>
         </div>
-        <NeedAssistance/>
+        <NeedAssistance explore={explore}/>
     </div>
   )
 }

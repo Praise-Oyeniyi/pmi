@@ -1,24 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
+import { fetchApi } from '../../apis'
 import E1 from '../../assets/images/Enagaged1.png'
 import EngagedBox from '../home/EngagedBox'
 
 
 
 const PastEvents = () => {
-    const stayEngaged = [
-        {
-          head:'E&C PM FOOTPRINTS | 12 APR 2025',
-          title:'Best Practices in Forensic Schedule Analysis',
-          body:'The audience will gain a solid understanding of forensic schedule analysis, including its purpose and significance. They will learn about construction delays, various delay analysis techniques, and different types of claims.',
-          image:E1
-        },
-        {
-            head:'E&C PM FOOTPRINTS | 12 APR 2025',
-            title:'Best Practices in Forensic Schedule Analysis',
-            body:'The audience will gain a solid understanding of forensic schedule analysis, including its purpose and significance. They will learn about construction delays, various delay analysis techniques, and different types of claims.',
-            image:E1
-          },
-       ]
+    const [related, setRelated] = useState(null)
+
+    useEffect(() => {
+        const relatedAPi = `/custom/v1/past-events/?year=2025&category_id=55`
+        async function fetchData(){
+              try {
+                const result = await fetchApi(relatedAPi)
+                if (result.success){        
+                  setRelated(result.data)
+                  
+                } else {
+                  console.log(result)
+                }
+            } catch (error) {
+              console.log(error)
+            }
+        }
+        fetchData();
+    }, []);
+
 
   return (
     <div className='w-full mt-16 mb-7 md:my-20 overflow-x-hidden'>
@@ -29,9 +37,15 @@ const PastEvents = () => {
             </div>
 
             <div>
-                {stayEngaged.map((e, index)=>(
+                {related && related.map((event, index)=>(
                     <div key={index}>
-                        <EngagedBox title={e.title} head={e.head} body={e.body} image={e.image} style={'border-b text-black'}/>
+                        <EngagedBox image={event?.featured_image?.url} 
+                        // id={event?.id} 
+                            head={`${event?.event_category[0]?.name} | ${event?.event_time}`} 
+                            title={event?.title} 
+                            body={event?.brief_content} 
+                            style={'border-b text-black'}
+                        />
                     </div>
                 ))}
             </div>

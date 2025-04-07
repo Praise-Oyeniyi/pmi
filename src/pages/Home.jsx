@@ -10,24 +10,24 @@ import { fetchApi } from '../apis'
 
 const Home = () => {
 
-  useEffect(() => {
-    const banner = 'https://www.staging.pmibangalorechapter.in/wp-json/custom/v1/matrices/'
-    async function fetchData(){
-          try {
-            const result = await fetchApi(banner)
-            if (result){        
-              console.log(result)
-            } else {
-              console.log(result)
-            }
-            setLoad(true); 
-        } catch (error) {
-          console.log(error)
-            // toast.error(error)
-        }
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const banner = 'https://www.staging.pmibangalorechapter.in/wp-json/custom/v1/matrices/'
+  //   async function fetchData(){
+  //         try {
+  //           const result = await fetchApi(banner)
+  //           if (result){        
+  //             console.log(result)
+  //           } else {
+  //             console.log(result)
+  //           }
+  //           setLoad(true); 
+  //       } catch (error) {
+  //         console.log(error)
+  //           // toast.error(error)
+  //       }
+  //   }
+  //   fetchData();
+  // }, []);
 
 
   return (

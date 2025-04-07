@@ -1,26 +1,64 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Hero from '../components/certifications/Hero'
 import Footer from '../components/global/Footer'
 import Header from '../components/global/Header'
 import HeroImage from '../assets/icons/CertHero1.svg'
 import TrainingInfo from '../components/certifications/TrainingInfo'
 import ReceiveCert from '../components/certifications/ReceiveCert'
+import { useParams } from 'react-router'
+import { useState } from 'react'
+import { fetchApi } from '../apis'
 
 const Certifications = () => {
+  const [cert, setCert] = useState([])
+  const {id} = useParams();
+    
+
+  useEffect(() => {
+    const certification = `/custom/v1/certification/${id}`
+    async function fetchData(){
+          try {
+            const result = await fetchApi(certification)
+            if (result.success){        
+              setCert(result.data)
+              
+            } else {
+              console.log(result)
+            }
+        } catch (error) {
+          console.log(error)
+        }
+    }
+    fetchData();
+  }, []);
+
     const HeroInfo = {
         image: HeroImage, 
-        title:'PMP Certification Training',
-        duration:'3-5 years of experience', 
-        body:`PMI Bangalore Chapter proudly presents <b>PMP QUEST</b>, a comprehensive 35-hour mandatory training program designed for professionals aspiring to earn the globally recognized <b>Project Management Professional (PMP®)</b> certification. As an <b>Authorized Training Partner (ATP)</b> of PMI, we provide official PMI courseware and instruction that meets the <b>mandatory 35 contact hours</b> requirement for <b>PMP®</b> exam eligibility <br/><br/> Delivered by certified instructors, PMP QUEST helps you master the core concepts, tools, and frameworks required to lead successful projects in any industry.`,
     }
+    console.log(cert)
 
   return (
     <div className='w-full h-full font-aptos bg-white text-dark overflow-x-hidden'>
         <Header/>
         <div className='relative'>
-            <Hero image={HeroInfo.image} title={HeroInfo.title} duration={HeroInfo.duration} body={HeroInfo.body}/>
-            <TrainingInfo/>
-            <ReceiveCert/>
+            <Hero image={cert?.inner_icon?.url} title={cert?.certification_name} duration={cert?.experience} body={cert?.long_description}/>
+            <TrainingInfo 
+              schTitle={cert?.schedule_title} 
+              schDesc={cert?.schedule_description} 
+              whyTitle ={cert?.why_pmp_title}
+              feeM={cert?.fees_for_members}
+              feeNM={cert?.fees_for_non_members}
+              trainFeeTitle ={cert?.training_fees_title}
+              whyDesc={cert?.why_pmp_description}
+              whyImage={cert?.why_pmp_image}
+              dates={cert?.upcoming_batches_dates}
+            />
+
+
+            <ReceiveCert
+              whatReceive={cert?.what_you_receive_points}
+              explore={cert?.explore_pmp_certification_on_pmi}
+            />
         </div>
 
         <Footer/>
