@@ -14,6 +14,7 @@ import Otp from './pages/User/Auth/Otp'
 import Volunteering from './pages/Volunteering'
 import NonProfit from './pages/SpecialPrograms/NonProfit'
 import AcademicRelations from './pages/SpecialPrograms/AcademicRelations'
+import Membership from './pages/Membership'
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
           <Route path='/Volunteer' element={<Volunteering/>}/>
           <Route path='/non-profit' element={<NonProfit/>}/>
           <Route path='/academic-relations' element={<AcademicRelations/>}/>
+          <Route path='/membership' element={<Membership/>}/>
         </Routes>
       </ScrollToTop>
     </BrowserRouter>

@@ -61,7 +61,9 @@ const Header = () => {
                                 <div className='relative flex items-center  px-3 h-full  hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Volunteering</div>
                             </Link>
                             <ul className='font-normal absolute space-y-1 w-[16rem] z-50 group-hover:border-t-secondary group-hover:block text-[#676767] bg-white border border-hero-bg px-4 py-3 border-t-4 border-t-transparent hidden'>
-                                <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Membership</li>
+                                <Link to={'/membership'}>
+                                    <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Membership</li>
+                                </Link>
                                 <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Volunteering</li>
                             </ul>
 
@@ -89,7 +91,7 @@ const Header = () => {
             
         </div>
 
-        <div className="mobile-nav w-full relative md:hidden">
+        <div className="mobile-nav w-full relative md:hidden z-50">
             <div className={`w-full transition-all duration-100 ease-in ${nav?'fixed':'relative'}`}>
                 <div className={`w-full bg-hero-bg relative transition-all duration-200 ease-linear z-5 ${nav?'shadow-md':'shadow-sm'} `}>
                     <div className='relative flex justify-between w-[90%] mx-auto h-16 items-center'>
@@ -146,7 +148,7 @@ const Header = () => {
                                     <Link to={'/Volunteer'}>
                                         <div className='text-sm font-medium flex justify-between px-5 pr-7 py-3 border-b border-b-[#BFBFBF] items-center'>Volunteering <FaChevronRight size={10}/></div>
                                         <ul className='font-normal w-full space-y-2 hidden  text-[#676767] bg-white px-5 pr-7 py-3 border-t-4 border-t-transparent'>
-                                            <li className=''>Membership</li>
+                                            <Link to={'/membership'}><li className=''>Membership</li></Link>
                                             <li>Volunteering</li>
                                         </ul>
                                     </Link>
