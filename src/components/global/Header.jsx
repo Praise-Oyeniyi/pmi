@@ -12,6 +12,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 const Header = () => {
     const [nav,setNav] = useState(false)
+    const [menu, setMenu] = useState(null)
 
 
   return (
@@ -94,7 +95,7 @@ const Header = () => {
         <div className="mobile-nav w-full relative md:hidden z-50">
             <div className={`w-full transition-all duration-100 ease-in ${nav?'fixed':'relative'}`}>
                 <div className={`w-full bg-hero-bg relative transition-all duration-200 ease-linear z-5 ${nav?'shadow-md':'shadow-sm'} `}>
-                    <div className='relative flex justify-between w-[90%] mx-auto h-16 items-center'>
+                    <div className='relative flex justify-between w-[90%] mx-auto h-16 max-h-16 items-center'>
                         <Link to={'/'}>
                             <div className="m-logo">
                                 <img src={mLogo} alt="PMI logo" />
@@ -132,10 +133,19 @@ const Header = () => {
                                 </li>
                                 
                                 <li className='w-full h-full   relative'>
-                                    <Link to={'/Home/Special Program/'}>
-                                        <div className='text-sm font-medium px-5 pr-7 py-3 border-b border-b-[#BFBFBF] flex justify-between items-center'>Special Program <FaChevronRight size={10}/></div>
-                                    </Link>
-                                    <ul className='font-normal w-full space-y-2 hidden  text-[#676767] bg-white px-5 pr-7 py-3 border-t-4 border-t-transparent'>
+                                    
+                                        <div 
+                                            className='text-sm font-medium px-5 pr-7 py-3 border-b border-b-[#BFBFBF] flex justify-between items-center'
+                                        >
+                                            <Link to={'/Home/Special Program/'}>
+                                                Special Program 
+                                            </Link>
+                                            <span className="  h-5 z-30" onClick={()=>setMenu(0)}>
+                                                <FaChevronRight size={10}/>
+                                            </span>
+                                    </div>
+                                    
+                                    <ul className={`font-normal w-full space-y-2 border-b border-b-[#BFBFBF]  text-[#676767] bg-white px-5 pr-7 py-3 border-t-4 border-t-transparent transition-all ease-linear duration-300 ${menu === 0? 'block':'hidden'}`}>
                                         <li className=''>E&C PM Footprints</li>
                                         <li>PM Footprints</li>
                                         <li>PM Enrich</li>
@@ -145,13 +155,22 @@ const Header = () => {
                                     </ul>
                                 </li>
                                 <li className='w-full h-full'>
-                                    <Link to={'/Volunteer'}>
-                                        <div className='text-sm font-medium flex justify-between px-5 pr-7 py-3 border-b border-b-[#BFBFBF] items-center'>Volunteering <FaChevronRight size={10}/></div>
-                                        <ul className='font-normal w-full space-y-2 hidden  text-[#676767] bg-white px-5 pr-7 py-3 border-t-4 border-t-transparent'>
-                                            <Link to={'/membership'}><li className=''>Membership</li></Link>
-                                            <li>Volunteering</li>
-                                        </ul>
-                                    </Link>
+                                    <div 
+                                        className='text-sm font-medium flex justify-between px-5 pr-7 py-3 border-b border-b-[#BFBFBF] items-center'
+                                        
+                                    >
+                                        <Link to={'/Volunteer'}>
+                                            Volunteering
+                                        </Link>
+                                        <span className=" h-5 z-30" onClick={()=>setMenu(1)}>
+                                            <FaChevronRight size={10}  className="w-fit"/>
+                                        </span> 
+                                    </div>
+                                    <ul className={`font-normal w-full space-y-2 border-b border-b-[#BFBFBF]  text-[#676767] bg-white px-5 pr-7 py-3 border-t-4 border-t-transparent transition-all ease-linear duration-300 ${menu === 1? 'block':'hidden'}`}>
+                                        <Link to={'/membership'}><li className=''>Membership</li></Link>
+                                        <li>Volunteering</li>
+                                    </ul>
+                                    
                                 </li>
                                 <li className='w-full h-full'>
                                     <Link to={'/Contact'}>
