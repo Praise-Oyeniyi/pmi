@@ -1,10 +1,10 @@
 import React from 'react'
 import { useSearchParams } from 'react-router-dom'
-import Footer from '../components/global/Footer'
-import Header from '../components/global/Header'
-import Hero from '../components/specialProgram/Hero'
-import PastEvents from '../components/specialProgram/PastEvents'
-import Upcoming from '../components/specialProgram/Upcoming'
+import Footer from '../../components/global/Footer'
+import Header from '../../components/global/Header'
+import Hero from '../../components/specialProgram/Hero'
+import PastEvents from '../../components/specialProgram/PastEvents'
+import Upcoming from '../../components/specialProgram/Upcoming'
 
 const SpecialProgram = () => {
     const [searchParams] = useSearchParams();

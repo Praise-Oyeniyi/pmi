@@ -3,7 +3,7 @@ import React from 'react'
 const CSRForm = () => {
   return (
     <div className='w-full'>
-        <div className="w-[90%] md:w-3/6 mx-auto md:pt-5">
+        <div className="w-[90%] md:w-3/6 mx-auto md:pt-5" id='csr'>
             <h4 className='font-bold text-2xl md:text-3xl'>CSR Activity Collaboration Request Form</h4>
 
             <form action="#" onSubmit={(e)=>iEnquire(e)} className="py-5 w-full space-y-5">

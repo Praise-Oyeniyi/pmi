@@ -2,11 +2,11 @@ import React from 'react'
 
 const HeroSkeleton = () => {
   return (
-    <div className="hero-outer transition-all ease-linear duration-300 bg-gray-100">
+    <div className="hero-outer transition-all ease-linear duration-300 bg-hero-bg">
       <div className="hero-inner py-7 space-y-7 sm:space-y-0 sm:py-10 block md:flex justify-between items-center">
         <div className="hero-image-section w-5/6 md:w-[50rem] relative overflow-hidden">
           {/* Image skeleton with blur effect */}
-          <div className="h-64 md:h-80 w-full bg-gray-200 animate-pulse relative overflow-hidden">
+          <div className="h-64 md:h-96 w-full bg-gray-200 animate-pulse relative overflow-hidden rounded-r-full">
             {/* Blur overlay */}
             <div className="absolute inset-0 backdrop-blur-lg bg-gray-200/50"></div>
             

@@ -34,6 +34,26 @@ footer li:hover{
 form button:hover{
     opacity: 80%;
 }
+.volunteer-banner{
+    position: relative;
+    background-image: url('./assets/images/vol-banner.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    pointer-events: auto;
+    z-index: 6;
+}
+.volunteer-banner::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background:#f8f5f02d;
+    background-blend-mode:darken ;
+    z-index: -1;
+}
 
 @keyframes shimmer {
     0% {

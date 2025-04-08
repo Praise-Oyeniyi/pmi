@@ -1,7 +1,7 @@
 import Home from './pages/Home'
 import './App.css'
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
-import SpecialProgram from './pages/SpecialProgram'
+import SpecialProgram from './pages/SpecialPrograms/SpecialProgram'
 import EventDetails from './pages/EventDetails'
 import Certifications from './pages/Certifications'
 import About from './pages/About'
@@ -11,6 +11,9 @@ import ScrollToTop from './components/global/ScrollToTop'
 import Profile from './pages/User/Dashboard/Profile'
 import Login from './pages/User/Auth/Login'
 import Otp from './pages/User/Auth/Otp'
+import Volunteering from './pages/Volunteering'
+import NonProfit from './pages/SpecialPrograms/NonProfit'
+import AcademicRelations from './pages/SpecialPrograms/AcademicRelations'
 
 function App() {
 
@@ -28,6 +31,9 @@ function App() {
           <Route path='/Profile' element={<Profile/>}/>
           <Route path='/Login' element={<Login/>}/>
           <Route path='/otp' element={<Otp/>}/>
+          <Route path='/Volunteer' element={<Volunteering/>}/>
+          <Route path='/non-profit' element={<NonProfit/>}/>
+          <Route path='/academic-relations' element={<AcademicRelations/>}/>
         </Routes>
       </ScrollToTop>
     </BrowserRouter>

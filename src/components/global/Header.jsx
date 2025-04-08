@@ -47,13 +47,24 @@ const Header = () => {
                                 <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>E&C PM Footprints</li>
                                 <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>PM Footprints</li>
                                 <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>PM Enrich</li>
-                                <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Academic Relations</li>
-                                <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Non-Profits and NGOs</li>
+                                <Link to={'/academic-relations'}>
+                                    <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Academic Relations</li>
+                                </Link>
+                                <Link to={"/non-profit"}>
+                                    <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Non-Profits and NGOs</li>
+                                </Link>
                                 <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>PM Open Space</li>
                             </ul>
                         </li>
-                        <li className='min-w-fit h-full'>
-                            <div className=' flex items-center px-3 h-full  hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Volunteering</div>
+                        <li className='min-w-fit h-full group'>
+                            <Link to={'/Volunteer'}>
+                                <div className='relative flex items-center  px-3 h-full  hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Volunteering</div>
+                            </Link>
+                            <ul className='font-normal absolute space-y-1 w-[16rem] z-50 group-hover:border-t-secondary group-hover:block text-[#676767] bg-white border border-hero-bg px-4 py-3 border-t-4 border-t-transparent hidden'>
+                                <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Membership</li>
+                                <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Volunteering</li>
+                            </ul>
+
                         </li>
                         <li className='min-w-fit h-full'>
                             <Link to={'/Contact'}>
@@ -126,13 +137,19 @@ const Header = () => {
                                         <li className=''>E&C PM Footprints</li>
                                         <li>PM Footprints</li>
                                         <li>PM Enrich</li>
-                                        <li>Academic Relations</li>
-                                        <li>Non-Profits and NGOs</li>
+                                        <Link to={'/academic-relations'}><li>Academic Relations</li></Link>
+                                        <Link to={"/non-profit"}><li>Non-Profits and NGOs</li></Link>
                                         <li>PM Open Space</li>
                                     </ul>
                                 </li>
-                                <li className='w-full h-full '>
-                                    <div className='text-sm font-medium flex justify-between px-5 pr-7 py-3 border-b border-b-[#BFBFBF] items-center'>Volunteering <FaChevronRight size={10}/></div>
+                                <li className='w-full h-full'>
+                                    <Link to={'/Volunteer'}>
+                                        <div className='text-sm font-medium flex justify-between px-5 pr-7 py-3 border-b border-b-[#BFBFBF] items-center'>Volunteering <FaChevronRight size={10}/></div>
+                                        <ul className='font-normal w-full space-y-2 hidden  text-[#676767] bg-white px-5 pr-7 py-3 border-t-4 border-t-transparent'>
+                                            <li className=''>Membership</li>
+                                            <li>Volunteering</li>
+                                        </ul>
+                                    </Link>
                                 </li>
                                 <li className='w-full h-full'>
                                     <Link to={'/Contact'}>

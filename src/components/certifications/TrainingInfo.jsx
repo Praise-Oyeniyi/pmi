@@ -11,7 +11,7 @@ const TrainingInfo = ({schTitle, schDesc, whyTitle, feeM, feeNM,trainFeeTitle, w
                 
                 <div className='font-semibold space-y-5 md:space-y-3 w-full md:w-3/6'>
                     <p className='text-sm md:text-2xl'>{schDesc}</p>
-                    <button className='text-sm md:text-lg py-3 px-7 rounded-full bg-purple text-white'>Click Here To Register</button>
+                    <button className='text-sm md:text-lg py-3 px-7 rounded-full bg-purple text-white cursor-pointer hover:opacity-85 transition-all ease-in duration-200'>Click Here To Register</button>
                 </div>
             </div>
 
