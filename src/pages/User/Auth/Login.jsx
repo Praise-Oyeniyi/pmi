@@ -1,7 +1,6 @@
 import React from 'react'
 import Footer from '../../../components/global/Footer'
 import Header from '../../../components/global/Header'
-import Logo from '../../../assets/images/logo.png'
 import LI from '../../../assets/images/LoginImg.png'
 import { useNavigate } from 'react-router-dom'
 

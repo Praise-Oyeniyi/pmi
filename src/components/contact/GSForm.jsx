@@ -40,7 +40,7 @@ const GSForm = () => {
                         <label htmlFor="storage" className='text-sm font-normal text-[#6B5E64]'>By using this form, you agree with the storage and handling of your data by this website in accordance with our <span className='underline underline-offset-1 text-purple-light'>Privacy Policy</span> </label>
                     </div>
 
-                    <button className='text-sm md:text-lg font-semibold text-white px-7 py-3 bg-purple rounded-full mt-1 my-3'>Submit</button>
+                    <button type='submit' className='text-sm md:text-lg font-semibold text-white px-7 py-3 bg-purple rounded-full mt-1 my-3'>Submit</button>
 
                 </form>
             </div>
