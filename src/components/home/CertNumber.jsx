@@ -5,7 +5,7 @@ import CertNo from '../global/Skeleton/CertNo';
 const CertNumber = () => {
   const {data, isPending} = useQuery({
     queryKey: ['matrices'],
-    queryFn: getMatrix
+    queryFn: getMatrix,
   }) 
 
 

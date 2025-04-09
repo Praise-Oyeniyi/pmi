@@ -8,7 +8,7 @@ const Hero = () => {
 
   const {data, isPending} = useQuery({
     queryKey: ['homeHero'],
-    queryFn: getHero
+    queryFn: getHero,
   }) 
 
 

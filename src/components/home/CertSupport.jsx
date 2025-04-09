@@ -10,7 +10,7 @@ import CertList from '../global/Skeleton/CertList'
 const CertSupport = () => {
     const {data, isPending} = useQuery({
         queryKey:['certlist'],
-        queryFn: getCert
+        queryFn: getCert,
     })
 
     const [currentIndex, setCurrentIndex] = useState(0);
