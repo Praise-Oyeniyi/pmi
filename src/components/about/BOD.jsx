@@ -3,9 +3,6 @@ import { useState } from 'react';
 import { FaChevronRight } from "react-icons/fa6";
 import { Link } from 'react-router';
 import { fetchApi } from '../../apis';
-import BOD1 from '../../assets/images/BOD!.png'
-import BOD2 from '../../assets/images/BOD2.png'
-import BOD3 from '../../assets/images/BOD3.png'
 
 
 const BOD = () => {
@@ -28,32 +25,6 @@ const BOD = () => {
         }
         fetchData();
     }, []);
-
-
-    const BODS = [
-        {
-            name:'Ike Nwankwo, MSc, MBA, PMP, DASSM',
-            role:'PMI Board of Directors Chair',
-            mail:'Ike.Nwankwo@bod.pmi.org',
-            date:'2021-2026',
-            image:BOD1,
-        },
-        {
-            name:'Diane Alsing, D.Eng, PMP, PMI-ACP',
-            role:'Compensation and Talent Committee Chair',
-            mail:'Diane.Alsing@bod.pmi.org',
-            date:'2023-2025',
-            image:BOD2,
-        },
-        {
-            name:'Pat Lucey, M.Eng, PMI-ACP, PMP, CDir',
-            role:'Audit and Risk Committee Chair',
-            mail:'Pat.Lucey@bod.pmi.org',
-            date:'2024-2026',
-            image:BOD3,
-        },
-
-    ]
 
     
 
@@ -88,7 +59,7 @@ const BOD = () => {
                             </div>
                             
                             <div className='h-[11rem] md:w-[20rem] w-full rounded-2xl overflow-hidden relative md:h-48 order-1 md:order-2'>
-                                <img src={e?.profile_picture?.url} alt={e?.profile_picture?.alt} className='h-full w-full object-center absolute'/>
+                                <img src={e?.profile_picture?.url} alt={e?.profile_picture?.alt} className='h-full w-full object-cover object-top absolute'/>
                             </div>
                         </div>
                     ))}

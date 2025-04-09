@@ -58,7 +58,7 @@ const Courses = () => {
                             </div>
                             
                             <div className='md:min-w-[20rem] w-full md:w-[20rem] h-[11rem] rounded-2xl overflow-hidden my-3'>
-                                <img src={e.image} alt="" className='w-full h-full object-cover'/>
+                                <img src={e.image} alt="" className='w-full h-full object-cover object-top'/>
                             </div>
                         </div>
                     ))}

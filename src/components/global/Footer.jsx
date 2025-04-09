@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router';
 import Logo from '../../assets/images/logo.png';
 
 
@@ -24,10 +25,10 @@ const Footer = () => {
                         <div className=''>
                             <h5 className='font-medium text-lg md:text-2xl pb-2'>Explore</h5>
                             <ul className="text-sm md:text-lg font-normal space-y-2">
-                                <li>Home</li>
-                                <li>About Us</li>
-                                <li>Brand Of Directors</li>
-                                <li>Mission & Vision</li>
+                                <Link to={'/'}><li>Home</li></Link>
+                                <Link to={'/About'}><li>About Us</li></Link>
+                                <Link to={'/About#bod'}><li>Board Of Directors</li></Link>
+                                <Link to={'/About#mission'}><li>Mission & Vision</li></Link>
                             </ul>
                         </div>
                         <div>
@@ -42,16 +43,16 @@ const Footer = () => {
                         <div>
                             <h5 className='font-medium text-lg md:text-2xl pb-2'>Membership</h5>
                             <ul className="text-sm md:text-lg font-normal space-y-2">
-                                <li>Mebership Benefits</li>
-                                <li>Volunteer With Us</li>
-                                <li>Memeber Dashboard</li>
+                                <Link to={'/membershipt#benefits'}><li>Membership Benefits</li></Link>
+                                <Link to={'/Volunteer'}><li>Volunteer With Us</li></Link>
+                                <Link to={'/Login'}><li>Member Dashboard</li></Link>
                             </ul>
                         </div>
                         <div>
                             <h5 className='font-medium text-lg md:text-2xl pb-2'>Resources</h5>
                             <ul className="text-sm md:text-lg font-normal space-y-2">
                                 <li>PM Essence</li>
-                                <li>Events Archive</li>
+                                <Link to={'/Home/Special Program/'}><li>Events Archive</li></Link>
                                 <li>FAQ</li>
                             </ul>
                         </div>

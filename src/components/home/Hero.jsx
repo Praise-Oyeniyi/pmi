@@ -1,47 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import { fetchApi } from '../../apis';
-import heroBg from '../../assets/images/hero-image.png';
 import HeroSkeleton from '../global/Skeleton/HeroSkeleton';
-
+import {useQuery} from "@tanstack/react-query"
 
 const Hero = () => {
-  const [heroData, setHeroData] = useState(null)
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  useEffect(() => {
-    const banner = '/custom/v1/home-banner/'
-    async function fetchData(){
-          try {
-            const result = await fetchApi(banner)
-            if (result.success){        
-              setHeroData(result.data)
-              
-            } else {
-              console.log(result)
-            }
-        } catch (error) {
-          console.log(error)
-        }
-    }
-    fetchData();
-  }, []);
+  const {data, isPending} = useQuery({
+    queryKey: ['homeHero'],
+    queryFn: getHero
+  }) 
 
 
   useEffect(() => {
-  const interval = setInterval(() => {
-    heroData && setCurrentSlide((prevSlide) => (prevSlide + 1) % heroData.length);
-  }, 5000);
+    const interval = setInterval(() => {
+      data && setCurrentSlide((prevSlide) => (prevSlide + 1) % data.data.length);
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [data && data.data.length]);
   
-  return () => clearInterval(interval);
-  }, [heroData && heroData.length]);
-
-  const currentContent = heroData && heroData[currentSlide];
-
+  const currentContent = data && data.data[currentSlide];
 
   return (
     <div>
     {
-      !heroData?
+      isPending?
         <HeroSkeleton/>
       :
       <div className={`hero-outer transition-all ease-linear duration-300 ${currentContent?.bgColor}`} style={{backgroundImage: currentContent?.background_image}}>
@@ -67,6 +51,12 @@ const Hero = () => {
     }
     </div>
   )
+}
+
+const getHero = async () =>{
+  const banner = '/custom/v1/home-banner/'
+  const result = await fetchApi(banner)
+  return result;
 }
 
 export default Hero

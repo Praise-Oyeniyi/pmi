@@ -80,7 +80,7 @@ const President = () => {
                             </div>
                             
                             <div className=' h-[11rem] md:w-[20rem] w-full rounded-2xl overflow-hidden md:h-48 order-1 md:order-2 relative'>
-                                <img src={e?.profile_picture?.url} alt={e?.profile_picture?.alt} className='h-full w-full object-top absolute'/>
+                                <img src={e?.profile_picture?.url} alt={e?.profile_picture?.alt} className='h-full w-full object-cover object-top absolute'/>
                             </div>
                         </div>
                     ))}

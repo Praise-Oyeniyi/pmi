@@ -1,39 +1,21 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go'
 import { fetchApi } from '../../apis'
-import Box1 from '../../assets/icons/box1.svg'
-import Box2 from '../../assets/icons/box2.svg'
-import Box3 from '../../assets/icons/box3.svg'
+import {useQuery} from '@tanstack/react-query'
 import CertBox from './CertBox'
+import CertList from '../global/Skeleton/CertList'
 
 
 
 const CertSupport = () => {
-    const [cert,setCert] = useState([])
-
-    useEffect(() => {
-        const certification = '/custom/v1/certifications-listing/'
-        async function fetchData(){
-              try {
-                const result = await fetchApi(certification)
-                if (result.success){        
-                  setCert(result.data)
-                  
-                } else {
-                  console.log(result)
-                }
-            } catch (error) {
-              console.log(error)
-            }
-        }
-        fetchData();
-    }, []);
-
-
-    
+    const {data, isPending} = useQuery({
+        queryKey:['certlist'],
+        queryFn: getCert
+    })
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const totalItems = cert.length;
+    if(data)
+    var totalItems = data.data.length;
     const sliderRef = useRef(null);
     
     const [touchStart, setTouchStart] = useState(0);
@@ -90,7 +72,7 @@ const CertSupport = () => {
   const canGoRight = currentIndex < totalItems - 1;
 
   return (
-    <div className='top-cert-outer w-full pb-20'>
+    <div className='top-dada-outer w-full pb-20'>
         <div className="cert-inner w-[90%] md:w-5/6 mx-auto pb-10">
             <div className="top md:flex w-full justify-between items-center">
                 <div className='space-y-3 md:space-y-5'>
@@ -116,7 +98,12 @@ const CertSupport = () => {
             className="certBox flex md:flex-row-reverse max-w-[90%] w-[90%] md:w-5/6 mx-auto gap-x-4 min-h-fit justify-between items-stretch overflow-hidden"
             ref={sliderRef}
         >
-            {cert.map((e,index)=>(
+            {isPending?
+                 [...Array(3)].map((_, index)=>(
+                    <CertList index={index}/>
+                ))
+            :
+            data&& data.data.map((e,index)=>(
                 <div 
                     key={index} 
 
@@ -140,10 +127,10 @@ const CertSupport = () => {
             ))}
         </div>
         
-        <div className="certbox-control md:hidden mt-7">
+        <div className={`certbox-control md:hidden mt-7 ${isPending && 'hidden'}`}>
             <div className='w-[90%] mx-auto flex justify-between items-center'>
                 <div className='flex items-center gap-x-1'>
-                    {cert.map((_, index) => (
+                    {data&& data.data.map((_, index) => (
                         <div 
                             key={index} 
                             className={`h-[0.15rem] transition-all duration-300 ease-in-out ${index === currentIndex ? 'w-5' : 'w-1'} bg-[#200F3B]`}
@@ -151,7 +138,7 @@ const CertSupport = () => {
                     ))}
                 </div>
 
-                <div className='flex w-fit items-center gap-x-3 cursor-pointer'>
+                <div className={`flex w-fit items-center gap-x-3 cursor-pointer `}>
                     <button 
                         onClick={handlePrevClick} 
                         className={`${canGoLeft ? 'text-[#200F3B]' : 'text-cgray'}`}
@@ -174,42 +161,11 @@ const CertSupport = () => {
   )
 }
 
+const getCert = async () =>{
+    const certification = '/custom/v1/certifications-listing/'
+    const result = await fetchApi(certification)
+    return result
+}
+
 export default CertSupport
 
-
-
-
-
-// const cert = [
-//     {
-//         imageIcon:Box1,
-//         title:'PMP®',
-//         mainTitle:'Project Management Professional (PMP)®', 
-//         subTitle:'3-5 years of experience', 
-//         boxInfo:'The PMP® validates skills and knowledge in managing & directing people, processes, and priorities for a project team from start to finish.',
-//         gradient:'from-[#14062A] to-[#2B0C58]',
-//         titleColor:'text-[#B365FD]',
-//         btnHover:'hover:bg-[#B365FD]',
-//     },
-//     {
-//         imageIcon:Box2,
-//         title:'CAPM®',
-//         mainTitle:'Certified Associate in Project Management (CAPM)®', 
-//         subTitle:'No experience required', 
-//         boxInfo:"This certification demonstrates an understanding of the foundational skills that project teams demand.",
-//         gradient:'from-[#041120] to-[#02384D]',
-//         titleColor:'text-[#05BFE0]',
-//         btnHover:'hover:bg-[#05BFE0]',
-//     },
-//     {
-//         imageIcon:Box3,
-//         title:'PMI-ACP®',
-//         mainTitle:'PMI Agile Certified Practitioner (PMI-ACP)®', 
-//         subTitle:'2+ years of experience', 
-//         boxInfo:'This Certification validates your ability to engage stakeholders, apply agile approaches, and lead teams.',
-//         gradient:'from-[#FEFEFE] to-[#D3BEAE]',
-//         titleColor:'text-[#200F3B]',
-//         btnHover:'hover:bg-[#200F3B]',
-//     }
-
-// ]
