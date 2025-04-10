@@ -40,9 +40,9 @@ const Inner = () => {
                     </div>
                 </div>
 
-                <div className='w-4/6 mx-auto my-7'>
-                    <div className='h-[33rem] relative flex justify-center items-center'>
-                        <img src={innerImage} alt="" className='absolute h-full w-auto object-cover'/>
+                <div className='md:w-4/6 w-full mx-auto my-7'>
+                    <div className='h-56 md:h-[33rem] relative flex justify-center items-center'>
+                        <img src={innerImage} alt="" className='absolute h-full w-auto object-center object-cover'/>
                     </div>
                 </div>
             </div>

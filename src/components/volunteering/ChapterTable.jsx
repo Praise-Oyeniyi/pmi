@@ -29,7 +29,7 @@ const ChapterTable = ({item}) => {
                     <td className=" py-3 uppercase border-r border-r-[#BFBFBF] whitespace-nowrap">
                         {e?.portfolio}
                     </td>
-                    <td className=" whitespace-nowrap text-left p">
+                    <td className=" whitespace-nowrap text-left ">
                        {e.Name.map((name, pos)=>(
                         <p key={pos} className={`border-b-[#BFBFBF] py-3  pl-3 md:pl-5 ${pos === e.Name.length-1? 'border-0':'border-b'}`}>{name}</p>
                        ))}

@@ -140,7 +140,7 @@ const Header = () => {
                                             <Link to={'/Special Program/'}>
                                                 Special Program 
                                             </Link>
-                                            <span className="  h-5 z-30" onClick={()=>setMenu(0)}>
+                                            <span className="  h-5 z-30 flex justify-end items-center" onClick={()=>setMenu(0)}>
                                                 <FaChevronRight size={10}/>
                                             </span>
                                     </div>
@@ -162,11 +162,11 @@ const Header = () => {
                                         <Link to={'/Volunteer'}>
                                             Volunteering
                                         </Link>
-                                        <span className=" h-5 z-30" onClick={()=>setMenu(1)}>
+                                        <span className=" h-5 z-30 flex justify-end items-center" onClick={()=>setMenu(1)}>
                                             <FaChevronRight size={10}  className="w-fit"/>
                                         </span> 
                                     </div>
-                                    <ul className={`font-normal w-full space-y-2 border-b border-b-[#BFBFBF]  text-[#676767] bg-white px-5 pr-7 py-3 border-t-4 border-t-transparent transition-all ease-linear duration-300 ${menu === 1? 'block':'hidden'}`}>
+                                    <ul className={`font-normal w-full space-y-2 border-b  border-b-[#BFBFBF]  text-[#676767] bg-white px-5 pr-7 py-3 border-t-4 border-t-transparent transition-all ease-linear duration-300 ${menu === 1? 'block':'hidden'}`}>
                                         <Link to={'/membership'}><li className=''>Membership</li></Link>
                                         <li>Volunteering</li>
                                     </ul>
