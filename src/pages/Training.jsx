@@ -27,7 +27,7 @@ const Training = () => {
 
 
   return (
-    <div className='w-screen h-full font-aptos bg-white text-dark overflow-x-hidden'>
+    <div className='w-full h-full font-aptos bg-white text-dark overflow-x-hidden'>
         <Header/>
         <div className='w-full bg-white'>
             <Hero

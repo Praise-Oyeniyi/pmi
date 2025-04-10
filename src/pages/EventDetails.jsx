@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router'
 import Footer from '../components/global/Footer'
 import Header from '../components/global/Header'
 import EventDescription from '../components/specialProgram/EventDetails/EventDescription'
@@ -12,29 +12,26 @@ import R4 from '../assets/images/RE4.png'
 import RelatedEvents from '../components/specialProgram/EventDetails/RelatedEvents'
 import { useState } from 'react'
 import { fetchApi } from '../apis'
+import { useQuery } from '@tanstack/react-query'
+import LinkedinSkeleton from '../components/global/Skeleton/LinkedinSkeleton'
+import EventDescriptionLoader from '../components/global/Skeleton/EventDescriptionLoader'
 
 const EventDetails = () => {
     const [event, setEvent] = useState(null)
-    const {eventId} = useParams() ;
+    const {id} = useParams()
 
-    useEffect(() => {
-      const eventLink = `/custom-api/v1/event/2564`
-      async function fetchData(){
-            try {
-              const result = await fetchApi(eventLink)
-              if (result.success){        
-                setEvent(result.data)
-                
-              } else {
-                console.log(result)
-              }
-          } catch (error) {
-            console.log(error)
-          }
-      }
-      fetchData();
-    }, []);
 
+    const {data, isPending} = useQuery({
+      queryKey: ['eventsdesc', id],
+      queryFn: ()=>getEvent(id)
+    })
+
+    useEffect(()=>{
+      if(data)
+      setEvent(data.data)
+    }, [data])
+
+    
 
     const relatedEventsInfo=[
       {
@@ -63,25 +60,39 @@ const EventDetails = () => {
     <div className='w-full h-full font-aptos bg-hero-bg overflow-x-hidden'>
         <Header/>
         <div className='w-full'>
-            <Hero head={event?.event_title} subhead={event?.event_category[0]?.name} body={event?.date_time} subParams={event?.event_id}/>
-              {event?.speakers?.map((speaker, index)=>(
-                <LinkedinProfile 
-                  name={speaker?.name}
-                  link={speaker?.linkedin}
-                  role={speaker?.designation}
-                  image={speaker?.image}
-              />))}
-            <EventDescription
-              image={event?.featured_image?.url}
-              desc={event?.description}
-              audTitle={event?.audience?.title} 
-              audContent={event?.audience?.content}
-              profCert={event?.professional_certifications?.certifications}
-              keyExpTitle={event?.key_experience?.title}
-              profCertTitle={event?.professional_certifications?.title}
-              keyExpPoints={event?.key_experience?.points}
-              aboutSpeaker={event?.about_speaker}
-            />
+            <Hero head={event?.event_title} subhead={event?.event_category[0]?.name} body={event?.date_time} />
+
+            <div className='my-16 md:my-20 space-y-5'>
+              {isPending?
+                <LinkedinSkeleton/>
+                :
+                event?.speakers?.map((speaker, index)=>(
+                  <div key={index}>
+                    <LinkedinProfile 
+                      name={speaker?.name}
+                      link={speaker?.linkedin}
+                      role={speaker?.designation}
+                      image={speaker?.image}
+                    />
+                  </div>
+                ))}
+            </div>
+
+            {isPending?
+              <EventDescriptionLoader/>
+              :
+              <EventDescription
+                image={event?.featured_image?.url}
+                desc={event?.description}
+                audTitle={event?.audience?.title} 
+                audContent={event?.audience?.content}
+                profCert={event?.professional_certifications?.certifications}
+                keyExpTitle={event?.key_experience?.title}
+                profCertTitle={event?.professional_certifications?.title}
+                keyExpPoints={event?.key_experience?.points}
+                aboutSpeaker={event?.about_speaker}
+              />
+            }
 
             <div className='w-full mt-16 md:mt-20 mb-10'>
               <div className='md:max-w-5/6 mx-auto md:w-5/6 w-[90%]'>
@@ -102,6 +113,12 @@ const EventDetails = () => {
         <Footer/>
     </div>
   )
+}
+
+const getEvent = async (id) =>{
+  const eventLink = `/custom-api/v1/event/${id}`
+  const result = await fetchApi(eventLink)
+  return result;
 }
 
 export default EventDetails

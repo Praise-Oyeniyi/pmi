@@ -5,7 +5,6 @@ import PI from '../../assets/icons/play-icon.svg'
 const Videos = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   
-  // Sample video data with YouTube video IDs
   const videoData = [...Array(8)].map((_, index) => ({
     id: index,
     title: "The world is your playground",

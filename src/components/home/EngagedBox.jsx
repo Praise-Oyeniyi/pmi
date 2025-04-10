@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { FaChevronRight } from "react-icons/fa6";
 
 
-const EngagedBox = ({image, head, title, body,style}) => {
+const EngagedBox = ({image, head, title, body,style, id}) => {
   return (
     <div className={`${style} border-b-[#00000054] py-2`}>
         <div className='md:flex items-center justify-between gap-x-14'>
@@ -20,7 +20,7 @@ const EngagedBox = ({image, head, title, body,style}) => {
 
             <div className='md:text-xl text-sm w-full md:w-[40%]'>
                 <p className='font-medium md:text-lg md:pt-1'>{body}</p>
-                <Link to={'/Home/Special Program/1'} > 
+                <Link to={`/Special Program/${id}`} > 
                     <button 
                         className='w-fit font-bold pt-2 flex gap-x-1 items-center cursor-pointer transition-all ease-in duration-300 hover:underline  underline-offset-3'
                     >

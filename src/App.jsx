@@ -23,9 +23,9 @@ function App() {
       <ScrollToTop>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path ='/Home/Special Program/' element={<SpecialProgram/>}/>
-          <Route path ='/Home/Special Program/:id' element={<EventDetails/>}/>
-          <Route path='/Home/Certifications/:id' element={<Certifications/>}/>
+          <Route path ='/Special Program/' element={<SpecialProgram/>}/>
+          <Route path ='/Special Program/:id' element={<EventDetails/>}/>
+          <Route path='/Certifications/:id' element={<Certifications/>}/>
           <Route path='/About' element={<About/>}/>
           <Route path='/Training' element={<Training/>}/>
           <Route path='/Contact' element={<Contact/>}/>

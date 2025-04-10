@@ -3,14 +3,14 @@ import { FaLinkedin } from "react-icons/fa";
 import { Link } from 'react-router';
 import EDA from '../../../assets/images/ed-avatara.png'
 
-const LinkedinProfile = ({name,link, role, image}) => {
+const LinkedinProfile = ({name,link, role, image,}) => {
   return (
-    <div className='w-full my-16 md:my-20'>
+    <div className='w-full'>
         <div className="mx-auto w-[90%] md:w-5/6 bg-white space-y-3 md:space-y-0 rounded-3xl border border-[#E8E8E8] p-3 md:p-4 md:flex justify-between items-center">
             
             <div className='flex items-center gap-x-5'>
-                <div className="avatar h-12 md:h-[6.25rem]">
-                    <img src={image} alt="" className='w-full h-full object-cover'/>
+                <div className="avatar h-12 w-12 md:w-[6.25rem] md:h-[6.25rem] rounded-full overflow-hidden">
+                    <img src={image} alt="" className='w-full h-full object-cover object-top'/>
                 </div>
                 <div className="bio">
                     <h4 className='text-xl md:text-3xl font-bold flex items-center gap-x-3'>{name} 

@@ -1,7 +1,7 @@
 import React from 'react'
-import DI from '../../../assets/images/descriptionImage.png'
 
 const EventDescription = ({image, desc, audTitle, audContent, profCert, keyExpTitle, profCertTitle, keyExpPoints, aboutSpeaker}) => {
+
   return (
     <div className='w-full'>
         <div className='mx-auto w-[90%] md:w-5/6 space-y-10'>
@@ -9,8 +9,8 @@ const EventDescription = ({image, desc, audTitle, audContent, profCert, keyExpTi
 
                 <div className='md:flex items-stretch gap-x-7 justify-between w-full'> 
                     
-                    <div className="image md:min-w-[30rem] max-h-[22r] rounded-3xl overflow-hidden md:max-w-[30rem]">
-                        <img src={image} alt="" className='h-full w-full object-cover'/>
+                    <div className="image md:min-w-[30rem] max-h-[22rem] rounded-3xl overflow-hidden md:max-w-[30rem]">
+                        <img src={image} alt="" className='h-full w-full object-cover object-top'/>
                     </div>
 
                     <div className='bg-white rounded-3xl mt-7 md:mt-0 p-3 md:p-5 md:px-7 border border-[#E8E8E8]'>
@@ -34,7 +34,8 @@ const EventDescription = ({image, desc, audTitle, audContent, profCert, keyExpTi
                 <p className='text-sm md:text-xl font-normal' dangerouslySetInnerHTML={{ __html: aboutSpeaker }}/>
 
 
-                <div className='bg-white rounded-xl md:rounded-3xl p-3 md:p-5 md:px-7 border border-[#E8E8E8] mt-7'>
+                {keyExpPoints !== [] || profCert !== [] && 
+                    <div className='bg-white rounded-xl md:rounded-3xl p-3 md:p-5 md:px-7 border border-[#E8E8E8] mt-7'>
                     <h4 className='text-lg md:text-2xl font-semibold md:pb-2 '>{keyExpTitle}:</h4>
                     <div className='pt-2'>
                         <ul className='md:flex justify-between list-disc text-[#3A2B51] text-sm md:text-xl font-normal'>
@@ -54,7 +55,7 @@ const EventDescription = ({image, desc, audTitle, audContent, profCert, keyExpTi
                             
                         </ul>
                     </div>
-                </div>
+                </div>}
             
             </div>
         </div>

@@ -99,11 +99,15 @@ const CertSupport = () => {
             ref={sliderRef}
         >
             {isPending?
-                 [...Array(3)].map((_, index)=>(
-                    <CertList index={index}/>
+                [...Array(3)].map((_, index)=>(
+                    <div key={index} className="md:max-w-2/6 md:min-w-[20%] md:w-2/6 min-w-[80%] max-w-[80%] h-auto transition-all duration-300 ease-in-out md:transform-none" 
+                        style={{ transform: `translateX(-${currentIndex * 95}%)` }}
+                    >
+                        <CertList index={index}/>
+                    </div>
                 ))
-            :
-            data&& data.data.map((e,index)=>(
+                :
+                data.data.map((e,index)=>(
                 <div 
                     key={index} 
 

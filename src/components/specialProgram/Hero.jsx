@@ -1,12 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router'
 
-const Hero = ({head, body, subParams, subhead}) => {
+const Hero = ({head, body, subhead}) => {
   
-    // const name = searchParams.get('name');
   return (
     <div className='w-full sp-bg bg-center bg-contain bg-no-repeat'>
         <div className="inner w-[90%] md:w-5/6 mx-auto py-5 pb-14">
-            <h4 className='text-white font-semibold  text-sm md:text-xl'> Home / {subParams}</h4>
+            <h4 className='text-white font-semibold  text-sm md:text-xl'><Link to={'/'} className="hover:underline">Home</Link> / <Link to={'/Special Program'} className="hover:underline">Special Program / </Link></h4>
             <div className='text-center my-7'> 
                 {subhead && <h4 className='text-lg md:text-3xl py-1 font-bold'>{subhead}</h4>}
                 <h3 className={`text-3xl md:text-7xl font-bold pb-3 mx-auto w-5/6 `}> {head}</h3>

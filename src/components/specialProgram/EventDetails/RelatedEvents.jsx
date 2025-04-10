@@ -9,7 +9,7 @@ const RelatedEvents = ({image, date, title,}) => {
     <div className='w-full border bg-[#FBFBFB] rounded-xl md:rounded-3xl overflow-hidden p-3 md:p-4 border-[#E8E8E8]'>
         <div className="inner flex w-full gap-x-3 md:gap-x-4">
           <div className="image rounded-lg md:rounded-3xl overflow-hidden">
-            <img src={image} alt="" className='md:h-[10.72rem] md:min-w-[14rem] object-cover'/>
+            <img src={image} alt="" className='md:h-[10.72rem] md:min-w-[14rem] object-cover object-top'/>
           </div>
 
           <div className='flex flex-col justify-between w-4/6'>

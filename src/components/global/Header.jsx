@@ -41,7 +41,7 @@ const Header = () => {
                         </li>
                         
                         <li className='min-w-fit h-full relative group'>
-                            <Link to={'/Home/Special Program/'}>
+                            <Link to={'/Special Program/'}>
                                 <div className='relative flex items-center px-3 h-full  hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Special Program</div>
                             </Link>
                             <ul className='font-normal absolute space-y-1 w-[16rem] z-50 group-hover:border-t-secondary group-hover:block text-[#676767] bg-white border border-hero-bg px-4 py-3 border-t-4 border-t-transparent hidden'>
@@ -137,7 +137,7 @@ const Header = () => {
                                         <div 
                                             className='text-sm font-medium px-5 pr-7 py-3 border-b border-b-[#BFBFBF] flex justify-between items-center'
                                         >
-                                            <Link to={'/Home/Special Program/'}>
+                                            <Link to={'/Special Program/'}>
                                                 Special Program 
                                             </Link>
                                             <span className="  h-5 z-30" onClick={()=>setMenu(0)}>
