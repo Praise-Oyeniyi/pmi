@@ -18,7 +18,7 @@ const Contact = () => {
             <Hero image={HI} 
                 title={'How can we help?'} 
                 body={"We're here to help answer all of your questions about Project Management certification, training, membership, and more."} 
-                url={'Home / contact us'}
+                url={"<a href='/' className='hover:underline'>Home</a> / Contact Us"}
             />
             <main className="about-main-header pt-10">
                 <div className="main-inner overflow-x-auto hide-bar min-full w-full  border-b border-b-[#DBD8D1]">

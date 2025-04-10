@@ -27,7 +27,7 @@ const CSRForm = () => {
         } catch (error) {
             console.log(error)
         }
-}
+    }
 
     
 

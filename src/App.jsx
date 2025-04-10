@@ -15,6 +15,7 @@ import Volunteering from './pages/Volunteering'
 import NonProfit from './pages/SpecialPrograms/NonProfit'
 import AcademicRelations from './pages/SpecialPrograms/AcademicRelations'
 import Membership from './pages/Membership'
+import NotFound from './pages/NotFound'
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
           <Route path='/non-profit' element={<NonProfit/>}/>
           <Route path='/academic-relations' element={<AcademicRelations/>}/>
           <Route path='/membership' element={<Membership/>}/>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </ScrollToTop>
     </BrowserRouter>

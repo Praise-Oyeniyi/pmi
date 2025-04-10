@@ -1,18 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { fetchApi } from '../../apis';
 import EngagedLoader from '../global/Skeleton/EngagedLoader';
 import EngagedBox from '../home/EngagedBox'
+import createUpcomingQueryOptions from '../queryOptions/QueryOptions';
 
 
 const Upcoming = () => {
  const [coming, setComing] = useState([]);
 
-  const {data, isPending} = useQuery({
-    queryKey: ['coming'],
-    queryFn: getComing,
-  })
+  const {data, isPending} = useQuery(createUpcomingQueryOptions())
 
   useEffect(()=>{
     if(data){
@@ -42,10 +39,6 @@ const Upcoming = () => {
   )
 }
 
-const getComing = async () =>{
-  const comingLink = `/custom/v1/upcoming-events?category_id=55`
-  const result = await fetchApi(comingLink)
-  return result;
-}
+
 
 export default Upcoming

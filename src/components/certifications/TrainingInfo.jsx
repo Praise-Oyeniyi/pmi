@@ -5,6 +5,7 @@ import DI from '../../assets/images/whycert.png'
 const TrainingInfo = ({schTitle, schDesc, whyTitle, feeM, feeNM,trainFeeTitle, whyDesc, whyImage, dates}) => {
   return (
     <div className='w-full text-dark'>
+        {schTitle !== null && schDesc !== null && 
         <div className="mx-auto w-[90%] md:w-5/6 my-10 py-10 space-y-14">
             <div className="training-dates md:flex space-y-4 md:space-y-0 justify-between items-center gap-x-16">
                 <h3 className='text-2xl md:text-4xl font-bold leading-snug w-full md:w-3/6'>{schTitle}</h3>
@@ -73,7 +74,7 @@ const TrainingInfo = ({schTitle, schDesc, whyTitle, feeM, feeNM,trainFeeTitle, w
                         </div>
                         
                         <div>
-                            <button className='w-fit bg-purple text-white rounded-full py-2 px-7 font-semibold text-sm md:text-lg'>Register Now</button>
+                            <button className='w-fit bg-purple text-white rounded-full py-2 px-7 font-semibold text-sm md:text-lg cursor-pointer hover:opacity-85 transition-all ease-in duration-200'>Register Now</button>
                         </div>
                     </div>
                     
@@ -105,7 +106,7 @@ const TrainingInfo = ({schTitle, schDesc, whyTitle, feeM, feeNM,trainFeeTitle, w
 
             </div>
             
-        </div>
+        </div>}
 
     </div>
   )

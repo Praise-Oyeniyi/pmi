@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Hero = ({image, title, duration, body}) => {
+const Hero = ({image, title, duration, body, url}) => {
   return (
     <div className='w-full bg-[#330F6F] hero-cert relative h-auto text-white overflow-hidden py-7' >
         <div className="mx-auto w-[90%] md:w-5/6 ">
-            <h4 className='text-sm md:text-xl text-nowrap w-5/6 truncate md:w-full font-semibold'>Home / Certifications / Project Management Professional®</h4>
+            <h4 className='text-sm md:text-xl hero-link text-nowrap w-5/6 truncate md:w-full font-semibold' dangerouslySetInnerHTML={{ __html: `<a href='/' className='hover:underline'>Home</a> / Certifications / ${url}`}}/>
 
             <div className='w-full md:flex gap-x-10 space-y-7 md:space-y-0'>
                 <div className='w-full md:w-3/6 flex justify-center px-10 md:px-0'>
@@ -16,7 +16,7 @@ const Hero = ({image, title, duration, body}) => {
                     <h3 className='font-bold text-3xl w-5/6 md:w-full md:text-5xl'>{title}</h3>
                     <h4 className='text-base md:text-3xl font-semibold'>{duration}</h4>
                     <p className='text-sm md:text-lg font-normal text-[#ffffffc0]' dangerouslySetInnerHTML={{ __html: body }}/>
-                    <button className='mt-5 bg-white rounded-full flex justify-center items-center text-sm md:text-lg font-semibold text-[#040301] px-7 py-3'>Click Here To Register</button>
+                    <button className='mt-5 bg-white rounded-full transition-all ease-linear duration-300 hover:bg-[#0003] hover:text-white flex justify-center items-center text-sm md:text-lg font-semibold text-[#040301] px-7 py-3'>Click Here To Register</button>
                 </div> 
             </div>
             

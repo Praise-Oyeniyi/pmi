@@ -33,13 +33,15 @@ const Volunteering = () => {
     <div className='w-full h-full font-aptos overflow-x-hidden'>
         <Header/>
         <div className='w-full'>
-            <Hero image={HI} title={'Volunteering'} body={'The purpose of life is not to be happy, but to matter- to be productive, to be useful, to have it make some difference that you have lived at all." - Leo Rosten'} url={'Home / What We Do / PMI Leadership & Board Of Directors'}/>
+            <Hero image={HI} title={'Volunteering'} body={'The purpose of life is not to be happy, but to matter- to be productive, to be useful, to have it make some difference that you have lived at all." - Leo Rosten'} 
+              url={"<a href='/' className='hover:underline'>Home</a> / Volunteering"}
+            />
+
             <main className="about-main-header pt-10 w-full">
                 <div className="main-inner hide-bar md:px-0 overflow-x-auto min-full text-purple-light font-normal text-sm md:text-3xl gap-x-7 flex md:gap-x-12 justify-center border-b border-b-[#DBD8D1] cursor-pointer">
                   {volunteerNav.map((e, index)=>(
-                    <a href={e.tag}>
-                      <h4 
-                        key={index}
+                    <a href={e.tag} key={index}>
+                      <h4
                         className={`w-fit text-nowrap hover:opacity-60  transition-all ease-linear duration-200 border-b-3 md:py-4 py-2 font-semibold text-dark ${index === btn? "border-b-purple": 'border-b-transparent'} `}
                         onClick={()=>setBtn(index)}
                       >

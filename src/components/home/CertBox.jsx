@@ -24,7 +24,7 @@ const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, pLink, i
                 </div>
             </div>
 
-            <Link to={`/Home/Certifications/${id}`}>
+            <Link to={`/Certifications/${id}`}>
                 <button className={`
                     ${index === 2? 'hover:bg-[#B365FD]': index ===1 ? 'hover:bg-[#05BFE0]':'hover:bg-[#200F3B]'} transition-all duration-300 ease-linear hover:text-white hover:opacity-85
                     cursor-pointer w-fit mt-5 flex text-sm md:text-lg font-semibold justify-center items-center bg-white h-10 md:h-12 px-5 rounded-full text-black outline-none `}

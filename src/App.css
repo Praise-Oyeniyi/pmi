@@ -34,6 +34,14 @@ footer li:hover{
 form button:hover{
     opacity: 80%;
 }
+.hero-link{
+    transition: .3s all ease;
+}
+.hero-link a:hover{
+    text-decoration: underline;
+    text-underline-offset: .4rem;
+}
+
 .volunteer-banner{
     position: relative;
     background-image: url('./assets/images/vol-banner.png');

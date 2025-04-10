@@ -53,18 +53,20 @@ const NeedAssistance = ({explore}) => {
             </div>
         </div>
 
-        <div className="mx-auto w-[90%] md:w-5/6 mt-20">
-            <div className="w-full md:flex justify-between items-center gap-x-10">
-                <h3 className='font-bold text-2xl md:text-5xl w-full md:w-[60%]'>
-                    Want to Learn More About PMP Certification?
-                </h3>
+        {explore != [] || null && 
+            <div className="mx-auto w-[90%] md:w-5/6 mt-20">
+                <div className="w-full md:flex justify-between items-center gap-x-10">
+                    <h3 className='font-bold text-2xl md:text-5xl w-full md:w-[60%]'>
+                        Want to Learn More About PMP Certification?
+                    </h3>
 
-                <div className='font-semibold space-y-4-3  md:space-y-8 w-full md:w-[30%]'>
-                    <h4 className='text-sm py-5 md:py-0 md:text-xl capitalize'>Understand the certification process and eligibility:</h4>
-                    <button className='text-sm md:text-lg capitalize text-white flex justify-center items-center rounded-full px-7 py-3 bg-purple w-fit min-w-fit'>{explore?.title}</button>
+                    <div className='font-semibold space-y-4-3  md:space-y-8 w-full md:w-[30%]'>
+                        <h4 className='text-sm py-5 md:py-0 md:text-xl capitalize'>Understand the certification process and eligibility:</h4>
+                        <button className='text-sm md:text-lg capitalize text-white flex justify-center items-center rounded-full px-7 py-3 bg-purple w-fit min-w-fit'>{explore?.title}</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
 
     </div>
   )

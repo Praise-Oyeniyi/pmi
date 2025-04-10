@@ -1,11 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router'
 
 const Hero = ({image, title, body, url}) => {
+    console.log(url)
   return (
     <div className='hero-outer bg-hero-bg'>
         <div className="hero-inner py-7 pb-10 ">
             <div className='w-[90%] md:w-5/6 mx-auto'>
-                <h4 className='text-left font-semibold text-sm md:text-xl text-[#131313] capitalize'>{url}</h4>
+                <h4 className='text-left hero-link font-semibold cursor-pointer text-sm md:text-xl text-[#131313] capitalize' 
+                    dangerouslySetInnerHTML={{ __html: url }}
+                />
             </div>
 
             <div className='w-full pt-7 md:flex space-y-7 sm:space-y-0 justify-between items-center gap-x-[4rem]'>

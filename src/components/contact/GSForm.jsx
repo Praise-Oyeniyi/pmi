@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { sendApi } from '../../apis';
 
 const GSForm = () => {
-    const general = (e) =>{
+    const [sending, setSending] = useState(false)
+
+    const general = async (e) =>{
         e.preventDefault();
+        setSending(true)
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const subject = e.target.subject.value;
+        const message = e.target.message.value;
+        const data = {name, phone, email, subject, message};
+        const dataEnpoint = '/customforms/v1/general-support';
+
+       try {
+            const result = await sendApi(data, dataEnpoint)
+            if (result.success){        
+                console.log(result)
+                setSending(false)   
+            } else {
+                console.log(result)
+                setSending(null)
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
 
   return (
@@ -36,11 +59,11 @@ const GSForm = () => {
                     </div>
 
                     <div className='flex gap-x-3 items-center'>
-                        <input type="checkbox" name="storage" id="storage" className='accent-purple border-[#E4E2DE]'/>
+                        <input required type="checkbox" name="storage" id="storage" className='accent-purple border-[#E4E2DE]'/>
                         <label htmlFor="storage" className='text-sm font-normal text-[#6B5E64]'>By using this form, you agree with the storage and handling of your data by this website in accordance with our <span className='underline underline-offset-1 text-purple-light'>Privacy Policy</span> </label>
                     </div>
 
-                    <button type='submit' className='text-sm md:text-lg font-semibold text-white px-7 py-3 bg-purple rounded-full mt-1 my-3'>Submit</button>
+                    <button type='submit' className='text-sm md:text-lg font-semibold text-white px-7 py-3 bg-purple rounded-full mt-1 my-3'>{sending === null? 'Please try again':sending?'Submitting...':'Submit'} </button>
 
                 </form>
             </div>

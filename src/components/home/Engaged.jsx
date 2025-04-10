@@ -3,10 +3,17 @@ import E1 from '../../assets/images/Enagaged1.png'
 import E2 from '../../assets/images/Enagaged2.png'
 import EngagedBox from './EngagedBox'
 import { FaChevronRight } from "react-icons/fa6";
+import { useQuery } from '@tanstack/react-query';
+import createUpcomingQueryOptions from '../queryOptions/QueryOptions';
+import { Link } from 'react-router';
+import EngagedLoader from '../global/Skeleton/EngagedLoader';
 
 
 
 const Engaged = () => {
+  const {data, isPending} = useQuery(createUpcomingQueryOptions())
+
+
     const stayEngaged = [
         {
           head:'E&C PM FOOTPRINTS | 12 APR 2025',
@@ -33,13 +40,26 @@ const Engaged = () => {
             </div>
 
             <div className="body">
-                {stayEngaged.map((e, index)=>(
-                <div key={index}>
-                    <EngagedBox title={e.title} head={e.head} body={e.body} image={e.image} style={'border-b'}/>
-                </div>
-                ))}
+              {isPending?
+                <EngagedLoader count={1}/>
+                :
+                  data.data.map((e, index)=>(
+                    <div key={index}>
+                        <EngagedBox 
+                          image={e.featured_image?.url} 
+                          id={e.id} 
+                          head={`${e.event_category[0]?.name} | ${e.event_time}`} 
+                          title={e.title} 
+                          body={e.brief_content}
+                          style={'border-b'}
+                        />
+                    </div>
+                  ))
+              }
             </div>
-            <p className='text-right my-2 md:my-3 text-sm md:text-xl font-bold w-fit ml-auto cursor-pointer flex gap-x-1 items-center h-fit'>GO TO ARCHIVES <FaChevronRight className='h-3 md:h-4'/></p>
+            <Link to="/Special Program">
+              <p className='text-right my-2 md:my-3 text-sm md:text-xl font-bold w-fit ml-auto cursor-pointer flex gap-x-1 items-center h-fit'>GO TO ARCHIVES <FaChevronRight className='h-3 md:h-4'/></p>
+            </Link>
         </div>
     </div>
   )
