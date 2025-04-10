@@ -14,7 +14,7 @@ const Login = () => {
     }
 
   return (
-    <div className='w-full h-auto bg-hero-bg font-aptos text-dark !overflow-x-hidden'>
+    <div className='w-full h-auto bg-hero-bg font-aeonik text-dark !overflow-x-hidden'>
         <Header/>
         <div className='main w-full md:border-t border-t-[#D9D9D9] bg-white'>
             <div className='flex justify-between items-center gap-x-28'> 

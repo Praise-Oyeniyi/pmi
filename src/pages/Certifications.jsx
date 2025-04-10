@@ -29,7 +29,7 @@ const Certifications = () => {
 
 
   return (
-    <div className='w-full h-full font-aptos bg-white text-dark overflow-x-hidden'>
+    <div className='w-full h-full font-aeonik bg-white text-dark overflow-x-hidden'>
         <Header/>
         {isPending?
           <div>

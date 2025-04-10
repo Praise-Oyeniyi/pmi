@@ -30,7 +30,7 @@ const Volunteering = () => {
     
 
   return (
-    <div className='w-full h-full font-aptos overflow-x-hidden'>
+    <div className='w-full h-full font-aeonik overflow-x-hidden'>
         <Header/>
         <div className='w-full'>
             <Hero image={HI} title={'Volunteering'} body={'The purpose of life is not to be happy, but to matter- to be productive, to be useful, to have it make some difference that you have lived at all." - Leo Rosten'} 

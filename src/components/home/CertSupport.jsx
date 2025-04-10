@@ -76,7 +76,7 @@ const CertSupport = () => {
         <div className="cert-inner w-[90%] md:w-5/6 mx-auto pb-10">
             <div className="top md:flex w-full justify-between items-center">
                 <div className='space-y-3 md:space-y-5'>
-                    <h3 className='text-xl md:text-5xl font-bold w-5/6 md:w-4/6 leading-snug tracking-wider md:tracking-normal'>Top Certifications We Support</h3>
+                    <h3 className='text-xl md:text-6xl font-bold w-5/6 md:w-4/6 leading-snug tracking-wider md:tracking-normal'>Top Certifications We Support</h3>
                     <button className='bg-white hover:bg-[#200f3b31] transition-all ease-in duration-300 hidden rounded-full md:flex justify-center items-center border border-cgray px-7 h-[3rem]'>View all certifications</button>
                 </div>
 
@@ -88,7 +88,7 @@ const CertSupport = () => {
                     help you stand out and succeed.
                 </p>
 
-                <button className='bg-white md:hidden text-sm rounded-full flex justify-center items-center border border-cgray px-5 h-[2.6rem] mt-4'>View all certifications</button>
+                <button className='bg-white md:hidden text-sm md:text-xl rounded-full flex justify-center items-center border border-cgray px-5 h-[2.6rem] mt-4'>View all certifications</button>
 
             </div>
         </div>

@@ -58,7 +58,7 @@ const EventDetails = () => {
     ]
 
   return (
-    <div className='w-full h-full font-aptos bg-hero-bg overflow-x-hidden'>
+    <div className='w-full h-full font-aeonik bg-hero-bg overflow-x-hidden'>
         <Header/>
         {id === 'undefined' || data?.error?
           <NotFound/>

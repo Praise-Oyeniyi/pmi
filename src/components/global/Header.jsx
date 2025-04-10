@@ -40,9 +40,9 @@ const Header = () => {
                             </Link>
                         </li>
                         
-                        <li className='min-w-fit h-full relative group'>
+                        <li className='min-w-fit h-full relative group '>
                             <Link to={'/Special Program/'}>
-                                <div className='relative flex items-center px-3 h-full  hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Special Program</div>
+                                <div className='relative flex items-center px-3 h-full  group-hover:bg-secondary group-hover:text-white duration-300 transition-all ease-linear'>Special Program</div>
                             </Link>
                             <ul className='font-normal absolute space-y-1 w-[16rem] z-50 group-hover:border-t-secondary group-hover:block text-[#676767] bg-white border border-hero-bg px-4 py-3 border-t-4 border-t-transparent hidden'>
                                 <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>E&C PM Footprints</li>
@@ -58,14 +58,14 @@ const Header = () => {
                             </ul>
                         </li>
                         <li className='min-w-fit h-full group'>
-                            <Link to={'/Volunteer'}>
-                                <div className='relative flex items-center  px-3 h-full  hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Volunteering</div>
-                            </Link>
+                            <div className='relative flex items-center  px-3 h-full  group-hover:bg-secondary group-hover:text-white duration-300 transition-all ease-linear'>Volunteering</div>
                             <ul className='font-normal absolute space-y-1 w-[16rem] z-50 group-hover:border-t-secondary group-hover:block text-[#676767] bg-white border border-hero-bg px-4 py-3 border-t-4 border-t-transparent hidden'>
                                 <Link to={'/membership'}>
                                     <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Membership</li>
                                 </Link>
-                                <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Volunteering</li>
+                                <Link to={'/Volunteer'}>
+                                    <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Volunteering</li>
+                                </Link>
                             </ul>
 
                         </li>
@@ -154,21 +154,18 @@ const Header = () => {
                                         <li>PM Open Space</li>
                                     </ul>
                                 </li>
-                                <li className='w-full h-full'>
+                                <li className='w-full h-full' onClick={()=>setMenu(1)}>
                                     <div 
-                                        className='text-sm font-medium flex justify-between px-5 pr-7 py-3 border-b border-b-[#BFBFBF] items-center'
-                                        
+                                        className='text-sm font-medium flex justify-between px-5 pr-7 py-3 border-b border-b-[#BFBFBF] items-center' 
                                     >
-                                        <Link to={'/Volunteer'}>
-                                            Volunteering
-                                        </Link>
-                                        <span className=" h-5 z-30 flex justify-end items-center" onClick={()=>setMenu(1)}>
+                                        Volunteering
+                                        <span className=" h-5 z-30 flex justify-end items-center" >
                                             <FaChevronRight size={10}  className="w-fit"/>
                                         </span> 
                                     </div>
                                     <ul className={`font-normal w-full space-y-2 border-b  border-b-[#BFBFBF]  text-[#676767] bg-white px-5 pr-7 py-3 border-t-4 border-t-transparent transition-all ease-linear duration-300 ${menu === 1? 'block':'hidden'}`}>
                                         <Link to={'/membership'}><li className=''>Membership</li></Link>
-                                        <li>Volunteering</li>
+                                        <Link to={'/Volunteer'}><li>Volunteering</li></Link>
                                     </ul>
                                     
                                 </li>

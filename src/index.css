@@ -8,6 +8,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Aeonik';
+  src: url('./assets/fonts/AeonikTRIAL-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-primary: #121063;
   --color-secondary: #4F17A8;
@@ -19,5 +27,6 @@
   --color-off-white:#DBD7D3;
   --color-dark:#040301;
   --font-aptos: "Aptos", "sans-serif"; 
+  --font-aeonik: "Aeonik","Aptos", "sans-serif"
 }
 

@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router'
 
 const Hero = ({image, title, body, url}) => {
-    console.log(url)
   return (
     <div className='hero-outer bg-hero-bg'>
         <div className="hero-inner py-7 pb-10 ">
@@ -18,8 +17,8 @@ const Hero = ({image, title, body, url}) => {
                 </div>
 
                 <div className="hero-text w-[90%] mx-auto md:w-4/6">
-                    <div className="hero-text-inner space-y-3 md:space-y-4 pr-10">
-                        <h2 className='text-3xl md:text-6xl font-bold' >{title}</h2>
+                    <div className="hero-text-inner space-y-3 md:space-y-4 pr-10 md:pr-14">
+                        <h2 className='text-3xl md:text-6xl font-bold leading-[1.2]' >{title}</h2>
                         <p className='font-semibold text-sm md:text-2xl'>
                             {body}
                         </p>

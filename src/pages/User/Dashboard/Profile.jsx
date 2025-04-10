@@ -9,7 +9,7 @@ const Profile = () => {
     const [tabbed, setTabbed] = useState(0)
 
   return (
-    <div className='w-full h-auto bg-hero-bg font-aptos text-dark !overflow-x-hidden'>
+    <div className='w-full h-auto bg-hero-bg font-aeonik text-dark !overflow-x-hidden'>
         <Header/>
         <div className='main w-full bg-white md:pb-16'>
             <div className="p-head w-full h-14 bg-purple flex items-center">

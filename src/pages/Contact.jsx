@@ -12,7 +12,7 @@ const Contact = () => {
     const [btn, setBtn] = useState(0);
 
   return (
-    <div className='w-full h-full font-aptos bg-white text-dark overflow-x-hidden'>
+    <div className='w-full h-full font-aeonik bg-white text-dark overflow-x-hidden'>
         <Header/>
         <div className='w-full bg-white'>
             <Hero image={HI} 

@@ -6,7 +6,6 @@ import Hero from '../components/global/Hero'
 import Introduction from '../components/training/Introduction'
 import Support from '../components/training/Support'
 import Courses from '../components/training/Courses'
-import { Link } from 'react-router'
 
 const Training = () => {
     const [btn, setBtn] = useState(0);
@@ -28,7 +27,7 @@ const Training = () => {
 
 
   return (
-    <div className='w-full h-full font-aptos bg-white text-dark overflow-x-hidden'>
+    <div className='w-full h-full font-aeonik bg-white text-dark overflow-x-hidden'>
         <Header/>
         <div className='w-full bg-white'>
             <Hero

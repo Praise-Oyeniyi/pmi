@@ -21,7 +21,7 @@ const BOD = () => {
     <div className='w-full'>
         <div className="mx-auto w-[90%] md:w-5/6 text-dark border-b border-b-[#DBD8D1] mb-10 pb-12" id='bod'>
             <h3 className='font-bold text-2xl md:text-5xl md:leading-snug text-center capitalize'>Board of Directors</h3>
-            <p className='text-sm md:text-xl font-normal py-3 md:pb-7 text-center'>
+            <p className='text-sm md:text-xl font-normal py-3 md:pb-7 text-center text-[#200F3B]'>
                 PMI is governed by a Board comprised of member-elected directors who serve three-year 
                 terms. The Board Chair serves as an Elected Officer of the Board per the PMI Bylaws. The collective wisdom, 
                 experience, diversity and passion of the Board ultimately sets and executes our core ideology, purpose and 

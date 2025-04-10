@@ -11,7 +11,7 @@ const Home = () => {
 
 
   return (
-    <div className='w-full h-auto bg-hero-bg font-aptos text-dark !overflow-x-hidden'>
+    <div className='w-full h-auto bg-hero-bg font-aeonik text-dark !overflow-x-hidden'>
         <Header/>
         <Hero/>
         <CertNumber/>

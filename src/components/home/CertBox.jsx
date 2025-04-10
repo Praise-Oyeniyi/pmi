@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 
 const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, pLink, index, id}) => {
   return (
-    <div className={`w-full h-full md:h-[38rem] overflow-hidden px-5 pb-5 md:pb-6 box-outer rounded-[1.25rem] bg-cover ${index === 0 && ' border border-[#291843b4] '}`} style={{background:`url(${gradient})`}}>
+    <div className={`w-full group h-full md:h-[38rem] overflow-hidden px-5 pb-5 md:pb-6 box-outer rounded-[1.25rem] bg-cover ${index === 0 && ' border border-[#291843b4] '}`} style={{background:`url(${gradient})`}}>
         <div className="box-inner relative flex flex-col justify-between h-full">
-            <div>
+            <div className=''>
                 <div className='flex justify-between'>
                     <button className={`tag my-5 md:my-6 text-white border border-white rounded-full px-3 h-6 md:h-[1.875rem] text-sm md:text-base flex justify-center items-center w-fit ${index === '2' && ' border !border-[#291843] !text-[#291843] '}`}>Certification</button>
                     
                     <div className='relative h-28 object-cover md:h-44 w-56'>
-                        <img src={image} alt="tag-icon" className='w-full h-full absolute'/>
+                        <img src={image} alt="tag-icon" className='w-full h-full absolute group-hover:scale-105 transition-all ease-linear duration-300'/>
                     </div>
                 </div>
 

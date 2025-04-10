@@ -33,7 +33,7 @@ const Membership = () => {
 
     ''
   return (
-    <div className='w-full h-full font-aptos overflow-x-hidden'>
+    <div className='w-full h-full font-aeonik overflow-x-hidden'>
         <Header/>
         <div className='w-full'>
             <Hero image={TI} 

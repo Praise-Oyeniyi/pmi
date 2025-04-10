@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'; // Assuming you're using React Router
 
 const NotFound = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center px-4">
+    <div className="min-h-screen font-aeonik bg-gradient-to-b from-blue-50 to-white flex items-center justify-center px-4">
       <div className="max-w-3xl w-full text-center">
         {/* SVG Illustration */}
         <div className="mb-8 flex justify-center">

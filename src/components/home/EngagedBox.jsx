@@ -19,7 +19,7 @@ const EngagedBox = ({image, head, title, body,style, id}) => {
             </div>
 
             <div className='md:text-xl text-sm w-full md:w-[40%]'>
-                <p className='font-medium md:text-lg md:pt-1'>{body}</p>
+                <p className='font-medium md:text-xl md:pt-1'>{body}</p>
                 <Link to={`/Special Program/${id}`} > 
                     <button 
                         className='w-fit font-bold pt-2 flex gap-x-1 items-center cursor-pointer transition-all ease-in duration-300 hover:underline  underline-offset-3'
