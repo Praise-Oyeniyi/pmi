@@ -3,13 +3,13 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import EngagedLoader from '../global/Skeleton/EngagedLoader';
 import EngagedBox from '../home/EngagedBox'
-import createUpcomingQueryOptions from '../queryOptions/QueryOptions';
+import {createUpcomingQueryOptions} from '../queryOptions/QueryOptions';
 
 
-const Upcoming = () => {
+const Upcoming = ({id}) => {
  const [coming, setComing] = useState([]);
 
-  const {data, isPending} = useQuery(createUpcomingQueryOptions())
+  const {data, isPending} = useQuery(createUpcomingQueryOptions({id}))
 
   useEffect(()=>{
     if(data){
@@ -25,14 +25,18 @@ const Upcoming = () => {
             <h4 className='uppercase text-white font-semibold tracking-wider text-2xl md:text-4xl '>upcoming events</h4>
             {isPending?
               <EngagedLoader count={1}/>
+              : 
+              Array.isArray(data?.data) && data.data.length > 0 ? (
+                <EngagedBox 
+                  image={coming[0]?.featured_image?.url} 
+                  id={coming[0]?.id} 
+                  head={`${coming[0]?.event_category[0]?.name} | ${coming[0]?.event_time}`} 
+                  style={'text-white'} 
+                  title={coming[0]?.title} 
+                  body={coming[0]?.brief_content}/>
+              )
               :
-              <EngagedBox 
-                image={coming[0]?.featured_image?.url} 
-                id={coming[0]?.id} 
-                head={`${coming[0]?.event_category[0]?.name} | ${coming[0]?.event_time}`} 
-                style={'text-white'} 
-                title={coming[0]?.title} 
-                body={coming[0]?.brief_content}/>
+              <h3 className='text-base md:text-xl font-bold leading-tight text-white py-5 pl-7'>No Upcoming Events</h3>
             }
         </div>
     </div>

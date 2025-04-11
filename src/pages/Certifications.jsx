@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import Hero from '../components/certifications/Hero'
 import Footer from '../components/global/Footer'
 import Header from '../components/global/Header'
-import HeroImage from '../assets/icons/CertHero1.svg'
 import TrainingInfo from '../components/certifications/TrainingInfo'
 import ReceiveCert from '../components/certifications/ReceiveCert'
 import { useParams } from 'react-router'
@@ -17,7 +16,7 @@ const Certifications = () => {
   const {id} = useParams();
   
 
-  const {data, isPending, isError} = useQuery({
+  const {data, isPending} = useQuery({
     queryKey: ['certdetails', id],
     queryFn: ()=>getCertDetails(id),
   })
@@ -47,6 +46,7 @@ const Certifications = () => {
                 duration={cert?.experience} 
                 body={cert?.long_description}
                 url={cert.certification_name}
+                id={id}
               />
               <TrainingInfo 
                 schTitle={cert?.schedule_title} 

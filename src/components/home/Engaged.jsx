@@ -1,33 +1,17 @@
-import React from 'react'
-import E1 from '../../assets/images/Enagaged1.png'
-import E2 from '../../assets/images/Enagaged2.png'
 import EngagedBox from './EngagedBox'
 import { FaChevronRight } from "react-icons/fa6";
 import { useQuery } from '@tanstack/react-query';
-import createUpcomingQueryOptions from '../queryOptions/QueryOptions';
 import { Link } from 'react-router';
 import EngagedLoader from '../global/Skeleton/EngagedLoader';
 
 
 
 const Engaged = () => {
-  const {data, isPending} = useQuery(createUpcomingQueryOptions())
+  const {data, isPending} = useQuery({
+    queryKey: ['activeEvents'],
+    queryFn: getActive
+  })
 
-
-    const stayEngaged = [
-        {
-          head:'E&C PM FOOTPRINTS | 12 APR 2025',
-          title:'Best Practices in Forensic Schedule Analysis',
-          body:'The audience will gain a solid understanding of forensic schedule analysis, including its purpose and significance. They will learn about construction delays, various delay analysis techniques, and different types of claims.',
-          image:E1
-        },
-        {
-          head:'PM FOOTPRINTS | 12 APR 2025',
-          title:'Enhancing business agility in pharmaceutical Industry', 
-          body:'The pharmaceutical sector needs to be ready to react and adjust swiftly to addressing a variety of issues in the ever-evolving global and complex regulatory landscape presently.',
-          image:E2
-        },
-      ]
 
   return (
     <div>
@@ -42,19 +26,23 @@ const Engaged = () => {
             <div className="body">
               {isPending?
                 <EngagedLoader count={1}/>
+                : 
+                  Array.isArray(data?.data) && data.data.length > 0 ? (
+                    data.data.map((e, index)=>(
+                      <div key={index}>
+                          <EngagedBox 
+                            image={e.featured_image.url} 
+                            id={e.event_id} 
+                            head={`${e?.event_category[0]?.name} | ${e?.event_time}`} 
+                            title={e.title} 
+                            body={e.brief_content}
+                            style={'border-b'}
+                          />
+                      </div>
+                    ))
+                  )
                 :
-                  data.data.map((e, index)=>(
-                    <div key={index}>
-                        <EngagedBox 
-                          image={e.featured_image?.url} 
-                          id={e.id} 
-                          head={`${e.event_category[0]?.name} | ${e.event_time}`} 
-                          title={e.title} 
-                          body={e.brief_content}
-                          style={'border-b'}
-                        />
-                    </div>
-                  ))
+                <h3 className='text-lg md:text-3xl font-bold leading-tight text-center'>No Active Events</h3>
               }
             </div>
             <Link to="/Special Program">
@@ -63,6 +51,12 @@ const Engaged = () => {
         </div>
     </div>
   )
+}
+
+const getActive = async () =>{
+  const activeLink = `/custom/v1/active-events/`
+    const result = await fetchApi(activeLink)
+    return result;
 }
 
 export default Engaged

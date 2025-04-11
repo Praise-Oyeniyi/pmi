@@ -1,5 +1,5 @@
 .sp-bg{
-    background: url("./assets/images/sp-bg.png");
+    /* background: url("./assets/images/sp-bg.png"); */
     background-position: center center;
     background-size: cover;
 }
@@ -15,7 +15,7 @@
     height: 100vh;
     left: 0;
     top: 0;
-    background: url('./assets/images/heroOverlay.png');
+    /* background: url('./assets/images/heroOverlay.png'); */
     background-position: center center;
     background-size: cover;
     background-blend-mode:multiply;

@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import { FaChevronRight } from 'react-icons/fa6';
 import { useState } from 'react';
 import { AiOutlineClose } from "react-icons/ai";
+import { useQuery } from '@tanstack/react-query';
+import { createSpecialQueryOptions } from '../queryOptions/QueryOptions';
 
 
 
@@ -13,6 +15,8 @@ import { AiOutlineClose } from "react-icons/ai";
 const Header = () => {
     const [nav,setNav] = useState(false)
     const [menu, setMenu] = useState(null)
+    const {data, isPending} = useQuery(createSpecialQueryOptions())
+    
 
 
   return (
@@ -41,20 +45,22 @@ const Header = () => {
                         </li>
                         
                         <li className='min-w-fit h-full relative group '>
-                            <Link to={'/Special Program/'}>
-                                <div className='relative flex items-center px-3 h-full  group-hover:bg-secondary group-hover:text-white duration-300 transition-all ease-linear'>Special Program</div>
-                            </Link>
+                            <div className='relative flex items-center px-3 h-full  group-hover:bg-secondary group-hover:text-white duration-300 transition-all ease-linear'>Special Program</div>
                             <ul className='font-normal absolute space-y-1 w-[16rem] z-50 group-hover:border-t-secondary group-hover:block text-[#676767] bg-white border border-hero-bg px-4 py-3 border-t-4 border-t-transparent hidden'>
-                                <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>E&C PM Footprints</li>
-                                <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>PM Footprints</li>
-                                <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>PM Enrich</li>
+                                {isPending?
+                                    <li className='animate-pulse '>Loading Menus...</li>
+                                    :
+                                    data.data.map((item, index)=>(
+                                    <Link to={`/Special Program/${item.id}`} key={index}>
+                                        <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>{item.name}</li>
+                                    </Link>
+                                ))}
                                 <Link to={'/academic-relations'}>
                                     <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Academic Relations</li>
                                 </Link>
                                 <Link to={"/non-profit"}>
                                     <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Non-Profits and NGOs</li>
                                 </Link>
-                                <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>PM Open Space</li>
                             </ul>
                         </li>
                         <li className='min-w-fit h-full group'>
@@ -80,9 +86,15 @@ const Header = () => {
 
             <div className="header-right flex w-auto items-center gap-x-5">
                 <div className="socials flex gap-x-3 text-[#131313]">
-                    <FaFacebookF size={15} className="hover:scale-105 transition-all ease-in duration-200"/>
-                    <FaInstagram size={15} className="hover:scale-105 transition-all ease-in duration-200"/>
-                    <FaLinkedinIn size={15} className="hover:scale-105 transition-all ease-in duration-200"/>
+                    <Link to={'https://www.facebook.com/PMIBDChapter/'} target='_blank'>
+                        <FaFacebookF size={15} className="hover:scale-105 transition-all ease-in duration-200"/>
+                    </Link>
+                    <Link to={'https://www.instagram.com/pmi_bangladesh?igsh=b3JiN29uNGo5aDAz'} target='_blank'>
+                        <FaInstagram size={15} className="hover:scale-105 transition-all ease-in duration-200"/>
+                    </Link>
+                    <Link to={'https://www.linkedin.com/company/pmi-bangladesh-chapter/'} target='_blank'>
+                        <FaLinkedinIn size={15} className="hover:scale-105 transition-all ease-in duration-200"/>
+                    </Link>
                 </div>
                 <button className='w-fit flex text-base font-normal justify-between items-center border border-[#F3EFEF] p-2 rounded-sm text-[#7C7C7C] gap-x-2'>Change Language <span><FaCaretDown /></span></button>
                 <Link to={'/Login'}>
@@ -132,26 +144,26 @@ const Header = () => {
                                     </Link>
                                 </li>
                                 
-                                <li className='w-full h-full   relative'>
+                                <li className='w-full h-full relative' onClick={()=>setMenu(0)}>
                                     
                                         <div 
                                             className='text-sm font-medium px-5 pr-7 py-3 border-b border-b-[#BFBFBF] flex justify-between items-center'
                                         >
-                                            <Link to={'/Special Program/'}>
-                                                Special Program 
-                                            </Link>
-                                            <span className="  h-5 z-30 flex justify-end items-center" onClick={()=>setMenu(0)}>
+                                            Special Program 
+                                            <span className="  h-5 z-30 flex justify-end items-center">
                                                 <FaChevronRight size={10}/>
                                             </span>
                                     </div>
                                     
                                     <ul className={`font-normal w-full space-y-2 border-b border-b-[#BFBFBF]  text-[#676767] bg-white px-5 pr-7 py-3 border-t-4 border-t-transparent transition-all ease-linear duration-300 ${menu === 0? 'block':'hidden'}`}>
-                                        <li className=''>E&C PM Footprints</li>
-                                        <li>PM Footprints</li>
-                                        <li>PM Enrich</li>
+                                        {isPending?
+                                            <li className='animate-pulse '>Loading Menus...</li>
+                                            :
+                                            data.data.map((item, index)=>(
+                                            <Link to={`/Special Program/${item.id}`} key={index}><li>{item. name}</li></Link>
+                                        ))}
                                         <Link to={'/academic-relations'}><li>Academic Relations</li></Link>
                                         <Link to={"/non-profit"}><li>Non-Profits and NGOs</li></Link>
-                                        <li>PM Open Space</li>
                                     </ul>
                                 </li>
                                 <li className='w-full h-full' onClick={()=>setMenu(1)}>

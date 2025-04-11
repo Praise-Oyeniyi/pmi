@@ -1,19 +1,31 @@
 import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { fetchApi } from '../../apis'
 import EngagedLoader from '../global/Skeleton/EngagedLoader'
 import EngagedBox from '../home/EngagedBox'
 
 
 
-const PastEvents = () => {
+const PastEvents = ({id}) => {
   const [year, setYear] = useState(2025)
+  const [info, setInfo] = useState([])
 
 const {data, isPending} = useQuery({
-  queryKey: ['past', year],
-  queryFn: ()=> getPast(year),
+  queryKey: ['past', year, id],
+  queryFn: ()=> getPast(year, id),
 })
 
+useEffect(()=>{
+  if(data){
+    setInfo(data.data)
+  }
+}, [data])
+
+const getPast = async (year, id) =>{
+  const relatedAPi = `/custom/v1/past-events/?year=${year}&category_id=${id}`
+  const result = await fetchApi(relatedAPi)
+  return result
+}
 
 
 
@@ -36,20 +48,25 @@ const {data, isPending} = useQuery({
 
             {isPending?
               <EngagedLoader/>
+              : 
+               Array.isArray(info) && info.length > 0 ? (
+                <div>
+                    {info.map((event, index)=>(
+                        <div key={index}>
+                            <EngagedBox image={event?.featured_image.url} 
+                                id={event?.event_id} 
+                                name={event?.event_category[0]?.name}
+                                head={`${event?.event_category[0]?.name} | ${event?.event_time}`} 
+                                title={event?.title} 
+                                body={event?.brief_content} 
+                                style={'border-b text-black'}
+                            />
+                        </div>
+                    ))}
+                </div>
+              )
               :
-              <div>
-                  {data.data.map((event, index)=>(
-                      <div key={index}>
-                          <EngagedBox image={event?.featured_image.url} 
-                              id={event?.event_id} 
-                              head={`${event?.event_category[0]?.name} | ${event?.event_time}`} 
-                              title={event?.title} 
-                              body={event?.brief_content} 
-                              style={'border-b text-black'}
-                          />
-                      </div>
-                  ))}
-              </div>
+              <h3 className='text-base md:text-xl font-bold leading-tight'>No Past Events</h3>
             }
             
         </div>
@@ -57,10 +74,6 @@ const {data, isPending} = useQuery({
   )
 }
 
-const getPast = async (year) =>{
-  const relatedAPi = `/custom/v1/past-events/?year=${year}&category_id=55`
-  const result = await fetchApi(relatedAPi)
-  return result
-}
+
 
 export default PastEvents

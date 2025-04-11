@@ -1,15 +1,19 @@
 import React from 'react'
 import { BsArrowUpRight } from "react-icons/bs";
 import { FaCalendar } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 
 
 
-const RelatedEvents = ({image, date, title,}) => {
+const RelatedEvents = ({image, date, title, id, name}) => {
+  const navigate = useNavigate();
+
+
   return (
-    <div className='w-full border bg-[#FBFBFB] rounded-xl md:rounded-3xl overflow-hidden p-3 md:p-4 border-[#E8E8E8]'>
+    <div className='w-full border bg-[#FBFBFB] rounded-xl md:rounded-3xl overflow-hidden p-3 md:p-4 border-[#E8E8E8] cursor-pointer' onClick={()=>navigate(`/Special Program/${name}/${id}`)}>
         <div className="inner flex w-full gap-x-3 md:gap-x-4">
           <div className="image rounded-lg md:rounded-3xl overflow-hidden">
-            <img src={image} alt="" className='md:h-[10.72rem] md:min-w-[14rem] object-cover object-top'/>
+            <img src={image} alt="" className='md:h-[10.72rem] md:min-w-[14rem] max-w-[14rem] object-cover object-center'/>
           </div>
 
           <div className='flex flex-col justify-between w-4/6'>
@@ -26,7 +30,7 @@ const RelatedEvents = ({image, date, title,}) => {
               </div>
             </div>
 
-            <h4 className='text-base md:text-3xl font-bold capitalize pb-1'>{title}</h4>
+            <h4 className='text-base md:text-3xl font-bold capitalize pb-1 line-clamp-3 overflow-hidden'>{title}</h4>
           </div>
         </div>
     </div>
