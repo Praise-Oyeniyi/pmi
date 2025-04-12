@@ -15,74 +15,67 @@ const Header = () => {
     const { data, isPending } = useQuery(createSpecialQueryOptions());
     
     useEffect(() => {
-        // Remove any existing Google Translate elements to avoid duplicates
-        const existingElements = document.querySelectorAll('.google-translate-element, #google_translate_script');
-        existingElements.forEach(el => el.remove());
+    // Remove any existing Google Translate elements to avoid duplicates
+    const existingElements = document.querySelectorAll('.google-translate-element, #google_translate_script');
+    existingElements.forEach(el => el.remove());
+    
+    // Define the initialization function
+    window.googleTranslateElementInit = () => {
+        // Initialize only one element
+        if (document.getElementById('google_translate_element')) {
+            new window.google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'ar,de,en,es,fr,zh-CN', 
+                layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    };
+    
+    // Create script element
+    const script = document.createElement('script');
+    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    script.id = 'google_translate_script';
+    document.body.appendChild(script);
+    
+    // Function to move the translator between containers
+    const moveTranslator = (isMobile) => {
+        const sourceId = isMobile ? 'google_translate_element' : 'google_translate_element_mobile';
+        const targetId = isMobile ? 'google_translate_element_mobile' : 'google_translate_element';
         
-        // Define the initialization function
-        window.googleTranslateElementInit = () => {
-            // Initialize only one element
-            if (document.getElementById('google_translate_element')) {
-                new window.google.translate.TranslateElement({
-                    pageLanguage: 'en',
-                    includedLanguages: 'ar,de,en,es,fr,zh-CN', 
-                    layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-                    autoDisplay: false
-                }, 'google_translate_element');
-                
-                // Clone the first element's content to the mobile version
-                const observer = new MutationObserver(() => {
-                    const originalElement = document.getElementById('google_translate_element');
-                    const mobileElement = document.getElementById('google_translate_element_mobile');
-                    
-                    if (originalElement && mobileElement && originalElement.children.length > 0) {
-                        // Clear mobile element first
-                        mobileElement.innerHTML = '';
-                        // Clone children from original to mobile
-                        Array.from(originalElement.children).forEach(child => {
-                            mobileElement.appendChild(child.cloneNode(true));
-                        });
-                        
-                        // Add event listeners to the cloned elements if needed
-                        const selects = mobileElement.querySelectorAll('select');
-                        selects.forEach(select => {
-                            select.addEventListener('change', (e) => {
-                                // Find the corresponding select in the original and trigger the same change
-                                const originalSelect = originalElement.querySelector('select');
-                                if (originalSelect) {
-                                    originalSelect.value = e.target.value;
-                                    originalSelect.dispatchEvent(new Event('change'));
-                                }
-                            });
-                        });
-                        
-                        // We can disconnect once we've cloned the content
-                        observer.disconnect();
-                    }
-                });
-                
-                // Observe the original element for changes
-                observer.observe(document.getElementById('google_translate_element'), { 
-                    childList: true, 
-                    subtree: true 
-                });
+        const sourceElement = document.getElementById(sourceId);
+        const targetElement = document.getElementById(targetId);
+        
+        if (sourceElement && targetElement && sourceElement.firstChild) {
+            // Move all children from source to target
+            while (sourceElement.firstChild) {
+                targetElement.appendChild(sourceElement.firstChild);
             }
-        };
-        
-        // Create script element
-        const script = document.createElement('script');
-        script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        script.id = 'google_translate_script';
-        document.body.appendChild(script);
-        
-        // Cleanup on unmount
-        return () => {
-            delete window.googleTranslateElementInit;
-            if (document.getElementById('google_translate_script')) {
-                document.getElementById('google_translate_script').remove();
-            }
-        };
-    }, []);
+        }
+    };
+    
+    // Set up a way to detect mobile vs desktop view
+    // This is an example - adjust based on how you determine mobile vs desktop in your app
+    const handleResize = () => {
+        const isMobile = window.innerWidth < 768; // Example breakpoint
+        moveTranslator(isMobile);
+    };
+    
+    // Initial check and add resize listener
+    window.addEventListener('resize', handleResize);
+    
+    // Run once after translator is likely loaded
+    setTimeout(handleResize, 1000);
+    
+    // Cleanup on unmount
+    return () => {
+        window.removeEventListener('resize', handleResize);
+        delete window.googleTranslateElementInit;
+        if (document.getElementById('google_translate_script')) {
+            document.getElementById('google_translate_script').remove();
+        }
+    };
+}, []);
     
     // Toggle language dropdown
     const toggleLanguageDropdown = () => {
