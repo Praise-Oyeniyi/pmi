@@ -24,10 +24,13 @@ const NonProfit = () => {
 
 
   return (
-    <div className='w-full h-full font-aptos overflow-x-hidden'>
+    <div className='w-full h-full font-aeonik overflow-x-hidden'>
         <Header/>
         <div className='w-full'>
-            <Hero image={TI} title={'Non-Profits and NGOs'} body={'Over the years, the Chapter has been contributing its mite to the Development Sector by collaborating with Not for profit organizations and getting involved in outreach activities with these Not for profit organizations. Below are some of the initiatives of the Chapter.'} url={'Home / Training / Corporate Training'}/>
+            <Hero image={TI} title={'Non-Profits and NGOs'} 
+              body={'Over the years, the Chapter has been contributing its mite to the Development Sector by collaborating with Not for profit organizations and getting involved in outreach activities with these Not for profit organizations. Below are some of the initiatives of the Chapter.'} 
+              url={"<a href='/' className='hover:underline'>Home</a> / Non-Profits"}
+            />
             <main className="about-main-header pt-10 w-full">
                 <div className="main-inner hide-bar md:px-0 overflow-x-auto min-full text-purple-light font-normal text-sm md:text-3xl gap-x-7 flex md:gap-x-12 justify-center border-b border-b-[#DBD8D1] cursor-pointer">
                   {tabs.map((e, index)=>(

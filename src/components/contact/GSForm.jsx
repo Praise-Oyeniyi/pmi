@@ -4,26 +4,41 @@ import { sendApi } from '../../apis';
 const GSForm = () => {
     const [sending, setSending] = useState(false)
 
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject:'',
+        phone: '',
+        message: '',
+    });
+
+    const handleChange = (e) => {
+        setFormData(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value,
+        }));
+    };
+
+      
     const general = async (e) =>{
         e.preventDefault();
         setSending(true)
-        const name = e.target.name.value;
-        const email = e.target.email.value;
-        const subject = e.target.subject.value;
-        const message = e.target.message.value;
-        const data = {name, phone, email, subject, message};
+
         const dataEnpoint = '/customforms/v1/general-support';
 
-       try {
-            const result = await sendApi(data, dataEnpoint)
+        try {
+            const result = await sendApi(formData, dataEnpoint)
             if (result.success){        
-                console.log(result)
                 setSending(false)   
-            } else {
+                console.log(formData)
+                setFormData({name: '',email: '',subject:'',phone: '',message: '',})
+
+            } else {    
                 console.log(result)
                 setSending(null)
             }
-        } catch (error) {
+        } 
+        catch (error) {
             console.log(error)
         }
     }
@@ -38,23 +53,36 @@ const GSForm = () => {
                     <div className='w-full md:flex gap-x-5 space-y-5 md:space-y-0'>
                         <div className="name-input w-full md:w-3/6">
                             <label htmlFor="name" className=' text-sm md:text-xl font-normal text-[#6B5E64] block capitalize mb-1'>Name*</label>
-                            <input required type="text" name="name" id="name" className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'/>
+                            <input required 
+                                type="text" name="name" id="name" 
+                                className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
+                                value={formData.name} onChange={handleChange}
+                            />
                         </div>
 
                         <div className="email-input w-full md:w-3/6">
                             <label htmlFor="email" className=' text-sm md:text-xl font-normal text-[#6B5E64] block capitalize mb-1'>Email*</label>
-                            <input required type="email" name="email" id="email" className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'/>
+                            <input required type="email" name="email" id="email" 
+                                className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
+                                value={formData.email} onChange={handleChange}
+                            />
                         </div>
                     </div>
 
                     <div className="subj-input">
                         <label htmlFor="subject" className=' text-sm md:text-xl font-normal text-[#6B5E64] block capitalize mb-1'>Subject*</label>
-                        <input required type="text" name="subject" id="subject" className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'/>
+                        <input required type="text" name="subject" id="subject" 
+                            className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
+                            value={formData.subject} onChange={handleChange}
+                        />
                     </div>
 
                     <div className="subj-input">
                         <label htmlFor="message" className=' text-sm md:text-xl font-normal text-[#6B5E64] block capitalize mb-1'>Message</label>
-                        <textarea name="message" id="" cols="30" rows="10" className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-24'>
+                        <textarea name="message" id="" cols="30" rows="10" 
+                            className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-24'
+                            value={formData.message} onChange={handleChange}
+                        >
                         </textarea>
                     </div>
 

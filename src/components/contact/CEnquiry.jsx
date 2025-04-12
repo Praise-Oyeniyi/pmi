@@ -4,24 +4,34 @@ import { sendApi } from '../../apis';
 const CEnquiry = () => {
     const [sending, setSending] = useState(false)
 
+    const [formData, setFormData] = useState({
+        name: '',
+        phone:'',
+        email: '',
+        orgName:'',
+        trainingSubject:'',
+        date : {dateYear:'',dateMonth: '',dateWeek:''},
+        message: '',
+    });
+
+    const handleChange = (e) => {
+        setFormData(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value,
+        }));
+    };
+
+
     const cEnquire = async (e) =>{
         e.preventDefault();
         setSending(true)
-        const name = e.target.name.value;
-        const phone = e.target.tel.value;
-        const email = e.target.email.value;
-        const organization = e.target.orgName.value;
-        const trainingSubj = e.target.trainingSubj.value;
-        const message = e.target.message.value;
-        const date = e.target.dateWeek.value + e.target.dateMonth.value + e.target.dateYear.value
-        const data = {name, phone, email, organization, trainingSubj, date, message};
         const dataEnpoint = '/customforms/v1/corporate-bulk-training-enquiry';
 
        try {
-            const result = await sendApi(data, dataEnpoint)
+            const result = await sendApi(formData, dataEnpoint)
             if (result.success){        
-                console.log(result)
-                setSending(false)   
+                setSending(false)
+                setFormData({name: '', phone:'', email: '', orgName:'',trainingSubject:'',dateYear:'',dateMonth: '', dateWeek:'',message: '',})    
             } else {
                 console.log(result)
                 setSending(null)
@@ -37,32 +47,47 @@ const CEnquiry = () => {
         <div className="w-[90%] md:w-3/6 mx-auto md:pt-5">
             <h4 className='font-bold text-2xl md:text-3xl'>Corporate (Bulk Training) Enquiry </h4>
 
-            <form action="#" onSubmit={(e)=>cEnquire(e)} className="py-5 w-full space-y-5">
+            <form action="#" onSubmit={cEnquire} className="py-5 w-full space-y-5">
                 <div className='w-full md:flex gap-x-5 space-y-5 md:space-y-0'>
                     <div className="name-input w-full md:w-3/6">
                         <label htmlFor="name" className='text-sm md:text-xl font-normal text-[#6B5E64] block capitalize mb-1'>Name  of Requestor*</label>
-                        <input required type="text" name="name" id="name" className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'/>
+                        <input required type="text" name="name" id="name" 
+                            className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
+                            value={formData.name} onChange={handleChange}
+                        />
                     </div>
 
                     <div className="tel-input w-full md:w-3/6">
                         <label htmlFor="tel" className='text-sm md:text-xl font-normal text-[#6B5E64] block capitalize mb-1'>Mobile No of Requestor*</label>
-                        <input required type="tel" name="tel" id="tel" className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'/>
+                        <input required type="tel" name="tel" id="tel" 
+                            className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
+                            value={formData.phone} onChange={handleChange}
+                        />
                     </div>
                 </div>
 
                 <div className="email-input">
                     <label htmlFor="email" className='text-sm md:text-xl font-normal text-[#6B5E64] block capitalize mb-1'>email ID of Requested*</label>
-                    <input required type="email" name="email" id="email" className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'/>
+                    <input required type="email" name="email" id="email" 
+                        className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
+                        value={formData.email} onChange={handleChange}
+                    />
                 </div>
 
                 <div className="org-name">
                     <label htmlFor="orgName" className='text-sm md:text-xl font-normal text-[#6B5E64] block capitalize mb-1'>Name of organization</label>
-                    <input type="text" name="orgName" id="org-name" className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'/>
+                    <input type="text" name="orgName" id="org-name" 
+                        className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
+                        value={formData.orgName} onChange={handleChange}
+                    />
                 </div>
 
                 <div className="training-subj">
                     <label htmlFor="trainingSubj" className='text-sm md:text-xl font-normal text-[#6B5E64] block capitalize mb-1'>Training Subjects</label>
-                    <select name="trainingSubj" id="training-subj"  className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12 accent-[#6B5E64]'>
+                    <select name="trainingSubject" id="training-subj"  
+                        className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12 accent-[#6B5E64]'
+                        value={formData.trainingSubject} onChange={handleChange}
+                    >
                         <option value={'PMP Training(ATP Accredited)'} disabled>PMP Training(ATP Accredited)</option>
                     </select>
                 </div>
@@ -70,22 +95,34 @@ const CEnquiry = () => {
                 <div className='items-end w-full md:flex gap-x-5 space-y-5 md:space-y-0'>
                     <div className="date-input w-full md:w-2/6 ">
                         <label htmlFor="date" className='text-sm md:text-xl font-normal text-[#6B5E64] block mb-1'>Preferred training date</label>
-                        <input type="number" min="1900" max="2099" step="1" placeholder='Year'  name="dateYear" id="date-year" className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'/>
+                        <input type="number" min="1900" max="2099" step="1" placeholder='Year'  name="dateYear" id="date-year" 
+                            className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
+                            value={formData.dateYear} onChange={handleChange}
+                        />
                     </div>
 
                     <div className="date-input w-full md:w-2/6">
-                        <input required type="number" min="1" max="12" step="1" name="dateMonth" id="date-month" placeholder='Month' className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'/>
+                        <input required type="number" min="1" max="12" step="1" name="dateMonth" id="date-month" placeholder='Month' 
+                            className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
+                            value={formData.dateMonth} onChange={handleChange}
+                        />
                     </div>
 
                     <div className="date-input w-full md:w-2/6">
-                        <input required type="number" min="1" max="4" step="1" placeholder='Week' name="dateWeek" id="date-week" className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'/>
+                        <input required type="number" min="1" max="4" step="1" placeholder='Week' name="dateWeek" id="date-week" 
+                            className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
+                            value={formData.dateWeek} onChange={handleChange}
+                        />
                     </div>
                 </div>
 
 
                 <div className="subj-input">
                     <label htmlFor="message" className='text-sm md:text-xl font-normal text-[#6B5E64] block capitalize mb-1'>Additional Information (1000 characters)</label>
-                    <textarea name="message" id="" cols="30" rows="10" className='w-full py-1 block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-24'>
+                    <textarea name="message" id="" cols="30" rows="10" 
+                        className='w-full py-1 block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-24'
+                        value={formData.message} onChange={handleChange}
+                    >
                     </textarea>
                 </div>
 

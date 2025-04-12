@@ -4,65 +4,92 @@ import { sendApi } from '../../apis';
 const CSRForm = () => {
     const [sending, setSending] = useState(false)
 
-    const iEnquire = async (e)=>{
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        orgName:'',
+        phone: '',
+        message: '',
+    });
+
+    const handleChange = (e) => {
+        setFormData(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value,
+        }));
+    };
+
+      
+    const iEnquire = async (e) =>{
         e.preventDefault();
         setSending(true)
-        const name = e.target.name.value;
-        const phone = e.target.tel.value;
-        const email = e.target.email.value;
-        const organization = e.target.orgName.value;
-        const message = e.target.message.value;
-        const data = {name, phone, email, organization, message};
+
         const dataEnpoint = '/customforms/v1/csr-activity-collaboration';
 
-       try {
-            const result = await sendApi(data, dataEnpoint)
+        try {
+            const result = await sendApi(formData, dataEnpoint)
             if (result.success){        
-                console.log(result)
                 setSending(false)   
-            } else {
+                console.log(formData)
+                setFormData({name: '',email: '',orgName:'',phone: '',message: '',})
+
+            } else {    
                 console.log(result)
                 setSending(null)
             }
-        } catch (error) {
+        } 
+        catch (error) {
             console.log(error)
         }
     }
 
     
-
-
   return (
     <div className='w-full'>
         <div className="w-[90%] md:w-3/6 mx-auto md:pt-5" id='csr'>
             <h4 className='font-bold text-2xl md:text-3xl'>CSR Activity Collaboration Request Form</h4>
 
-            <form action="#" onSubmit={(e)=>iEnquire(e)} className="py-5 w-full space-y-5">
+            <form action="#" onSubmit={iEnquire} className="py-5 w-full space-y-5">
                 <div className='w-full md:flex gap-x-5 space-y-5 md:space-y-0'>
                     <div className="name-input w-full md:w-3/6">
                         <label htmlFor="name" className=' text-sm md:text-xl font-normal text-[#6B5E64] block capitalize mb-1'>Name  of Requestor*</label>
-                        <input required type="text" name="name" id="name" className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'/>
+                        <input required type="text" name="name" id="name" 
+                            className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
+                            value={formData.name} onChange={handleChange}
+                        />
                     </div>
 
                     <div className="tel-input w-full md:w-3/6">
                         <label htmlFor="tel" className=' text-sm md:text-xl font-normal text-[#6B5E64] block capitalize mb-1'>Mobile No of Requestor*</label>
-                        <input required type="tel" name="tel" id="tel" className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'/>
+                        <input required type="tel" name="tel" id="tel" 
+                            className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
+                            value={formData.phone} onChange={handleChange}
+                        />
                     </div>
                 </div>
 
                 <div className="email-input">
                     <label htmlFor="email" className=' text-sm md:text-xl font-normal text-[#6B5E64] block capitalize mb-1'>email ID of Requested*</label>
-                    <input required type="email" name="email" id="email" className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'/>
+                    <input required type="email" name="email" id="email" 
+                        className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
+                        value={formData.email} onChange={handleChange}
+                    />
                 </div>
 
                 <div className="org-name">
                     <label htmlFor="org-name" className=' text-sm md:text-xl font-normal text-[#6B5E64] block capitalize mb-1'>Name of organization</label>
-                    <input type="text" name="orgName" id="org-name" className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'/>
+                    <input type="text" name="orgName" id="org-name" 
+                        className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
+                        value={formData.orgName} onChange={handleChange}
+                    />
                 </div>
                 
                 <div className="subj-input">
                     <label htmlFor="message" className=' text-sm md:text-xl font-normal text-[#6B5E64] block capitalize mb-1'>Additional Information (1000 characters)</label>
-                    <textarea name="message" id="" cols="30" rows="10" className='w-full py-1 block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-24'>
+                    <textarea name="message" id="" cols="30" rows="10" 
+                        className='w-full py-1 block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-24'
+                        value={formData.message} onChange={handleChange}
+                    >
                     </textarea>
                 </div>
 
