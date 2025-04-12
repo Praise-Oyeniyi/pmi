@@ -7,7 +7,7 @@ const Hero = ({image, title, duration, body, url, id}) => {
         <div className="mx-auto w-[90%] md:w-5/6 ">
             <h4 className='text-sm md:text-xl hero-link text-nowrap w-5/6 truncate md:w-full font-semibold' dangerouslySetInnerHTML={{ __html: `<a href='/' className='hover:underline'>Home</a> / Certifications / ${url}`}}/>
 
-            <div className='w-full md:flex gap-x-10 space-y-7 md:space-y-0'>
+            <div className='w-full md:flex gap-x-10 space-y-7 md:space-y-0 mt-7'>
                 <div className='w-full md:w-3/6 flex justify-center px-10 md:px-0'>
                     <img src={image} alt="" className=' py-10'/>
                 </div>

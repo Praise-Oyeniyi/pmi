@@ -2,14 +2,15 @@ import { useQueries } from '@tanstack/react-query';
 import React from 'react'
 import { Link } from 'react-router';
 import Logo from '../../assets/images/logo.png';
-import { createCertQueryOptions } from '../queryOptions/QueryOptions';
+import { createCertQueryOptions, createSpecialQueryOptions } from '../queryOptions/QueryOptions';
 
 
 const Footer = () => {
 
-    const [training] = useQueries({  
+    const [training, special] = useQueries({  
         queries:[
             createCertQueryOptions(),
+            createSpecialQueryOptions(),
         ]
     })
 
@@ -56,8 +57,8 @@ const Footer = () => {
                                     :
                                     <li>Please reload page</li>
                                 }
-                                <li>PM Footprints</li>
-                                <li>PM Enrich</li>
+                                <Link to={`/Special Program/${special?.data?.data && special?.data.data[3].id}`}><li>{special?.data?.data && special?.data.data[3].name}</li></Link>
+                                <Link to={`/Special Program/${special?.data?.data && special?.data.data[2].id}`}><li>{special?.data?.data && special?.data.data[2].name}</li></Link>
                             </ul>
                         </div>
                         <div>
@@ -71,7 +72,7 @@ const Footer = () => {
                         <div>
                             <h5 className='font-medium text-lg md:text-2xl pb-2'>Resources</h5>
                             <ul className="text-sm md:text-lg font-normal space-y-2">
-                                <li>PM Essence</li>
+                                <Link to={`/Special Program/${special && special?.data?.data[4].id}`}><li>{special && special?.data?.data[4].name}</li></Link>
                                 <Link to={'/Special Program/56'}><li>Events Archive</li></Link>
                                 <li>FAQ</li>
                             </ul>

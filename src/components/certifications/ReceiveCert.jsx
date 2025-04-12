@@ -80,10 +80,10 @@ const ReceiveCert = ({explore, whatReceive}) => {
             </div>
             <div className='w-full overflow-x-hidden  mt-7'>
                 <div className='mx-auto md:ml-[5%] w-[90%]'>  
-                    <div className="w-full flex justify-between hide-bar h-full gap-x-5 " ref={sliderRef}>
+                    <div className="w-full flex hide-bar h-full gap-x-5 " ref={sliderRef}>
                         {whatReceive?.map((e, index) => (
                             <div key={index}
-                                className='md:min-w-[20rem] min-w-[90%] max-w-[90%] md:max-w-[20rem] flex-shrink-0 flex-grow-0 flex rounded-2xl p-5 px-7 md:px-10 py-6 bg-[#F7F5EF] items-baseline transition-all duration-300 ease-in-out'
+                                className='md:min-w-[20rem] min-w-[90%] max-w-[90%] md:max-w-[20rem] flex-shrink-0 flex-grow-0 flex rounded-2xl pt-5 px-7 md:px-10 py-6 bg-[#F7F5EF] items-baseline transition-all duration-300 ease-in-out'
                                 style={{ transform: `translateX(-${currentIndex * 105}%)` }}
                                 onTouchStart={handleTouchStart}
                                 onTouchMove={handleTouchMove}
@@ -99,7 +99,7 @@ const ReceiveCert = ({explore, whatReceive}) => {
                 </div>
             </div>
 
-            <div className="certbox-control mt-7 w-[90%] mx-auto">
+            <div className={`${whatReceive?.length > 4 ? 'block' :'xl:hidden'} certbox-control mt-7 w-[90%] mx-auto `}>
                 <div className='w-full mx-auto flex justify-between items-center'>
                     <div className='flex items-center gap-x-[2px]'>
                         {whatReceive?.map((_, index) => (

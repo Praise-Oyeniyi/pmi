@@ -86,10 +86,10 @@ const Header = () => {
         <header className='w-full bg-white max-h-24 flex items-center cursor-pointer'>
             <div className="header-inner w-full justify-between items-center px-7 hidden md:flex">
 
-                <div className="header-left w-3/6 flex items-center gap-x-10">
+                <div className="header-left w-3/6 flex items-center gap-x-8">
                     <Link to={'/'}>
-                        <div className="logo h-16 max-h-16 overflow-hidden flex w-auto">
-                            <img src={Logo} alt="pmi-logo" className='object-contain h-full w-auto'/>
+                        <div className="logo w-[6.5rem] h-16 max-h-16 overflow-hidden flex">
+                            <img src={Logo} alt="pmi-logo" className='object-contain w-full h-full z-[9999999]'/>
                         </div>
                     </Link>
 
