@@ -42,10 +42,10 @@ const Engaged = () => {
                     ))
                   )
                 :
-                <h3 className='text-lg md:text-3xl font-bold leading-tight text-center'>No Active Events</h3>
+                <h3 className='text-base md:text-xl font-bold leading-tight'>No Active Events</h3>
               }
             </div>
-            <Link to="/Special Program">
+            <Link to="/Special Program/56'">
               <p className='text-right my-2 md:my-3 text-sm md:text-xl font-bold w-fit ml-auto cursor-pointer flex gap-x-1 items-center h-fit'>GO TO ARCHIVES <FaChevronRight className='h-3 md:h-4'/></p>
             </Link>
         </div>

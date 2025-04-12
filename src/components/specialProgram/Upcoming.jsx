@@ -36,7 +36,7 @@ const Upcoming = ({id}) => {
                   body={coming[0]?.brief_content}/>
               )
               :
-              <h3 className='text-base md:text-xl font-bold leading-tight text-white py-5 pl-7'>No Upcoming Events</h3>
+              <h3 className='text-base md:text-xl font-bold leading-tight text-white py-5'>No Upcoming Events</h3>
             }
         </div>
     </div>

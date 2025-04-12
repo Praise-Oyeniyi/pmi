@@ -1,9 +1,18 @@
+import { useQueries } from '@tanstack/react-query';
 import React from 'react'
 import { Link } from 'react-router';
 import Logo from '../../assets/images/logo.png';
+import { createCertQueryOptions } from '../queryOptions/QueryOptions';
 
 
 const Footer = () => {
+
+    const [training] = useQueries({  
+        queries:[
+            createCertQueryOptions(),
+        ]
+    })
+
   return (
     <footer className="footer-outer w-full pt-5 md:pt-20 bg-[#F5F5F5]">
         <div className='w-[90%] md:w-5/6 mx-auto'>
@@ -34,8 +43,19 @@ const Footer = () => {
                         <div>
                             <h5 className='font-medium text-lg md:text-2xl pb-2'>Programs</h5>
                             <ul className="text-sm md:text-lg font-normal space-y-2">
-                                <li>PMP Certification</li>
-                                <li>PMP-ACP Training</li>
+                                {training.isPending ?
+                                    <li className='animate-pulse'>Loading Menus...</li>
+                                    :
+                                    Array.isArray(training.data?.data) && training.data.data.length > 0 ? (
+                                        training.data.data.map((item, index) => (
+                                            <Link to={`/Certifications/${item.cert_id}`} key={index}>
+                                                <li key={index} className={`${index ===1 && 'hidden'}`}>{index ===2? item.shortform+' Certfication': item.shortform+' Training'}</li>
+                                            </Link>
+                                        ))
+                                    )
+                                    :
+                                    <li>Please reload page</li>
+                                }
                                 <li>PM Footprints</li>
                                 <li>PM Enrich</li>
                             </ul>
@@ -43,7 +63,7 @@ const Footer = () => {
                         <div>
                             <h5 className='font-medium text-lg md:text-2xl pb-2'>Membership</h5>
                             <ul className="text-sm md:text-lg font-normal space-y-2">
-                                <Link to={'/membershipt#benefits'}><li>Membership Benefits</li></Link>
+                                <Link to={'/membership#benefits'}><li>Membership Benefits</li></Link>
                                 <Link to={'/Volunteer'}><li>Volunteer With Us</li></Link>
                                 <Link to={'/Login'}><li>Member Dashboard</li></Link>
                             </ul>
@@ -52,7 +72,7 @@ const Footer = () => {
                             <h5 className='font-medium text-lg md:text-2xl pb-2'>Resources</h5>
                             <ul className="text-sm md:text-lg font-normal space-y-2">
                                 <li>PM Essence</li>
-                                <Link to={'/Home/Special Program/'}><li>Events Archive</li></Link>
+                                <Link to={'/Special Program/56'}><li>Events Archive</li></Link>
                                 <li>FAQ</li>
                             </ul>
                         </div>

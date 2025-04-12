@@ -1,17 +1,14 @@
 import React, { useRef, useState } from 'react'
 import { GoArrowLeft, GoArrowRight } from 'react-icons/go'
-import { fetchApi } from '../../apis'
 import {useQuery} from '@tanstack/react-query'
 import CertBox from './CertBox'
 import CertList from '../global/Skeleton/CertList'
+import { createCertQueryOptions } from '../queryOptions/QueryOptions'
 
 
 
 const CertSupport = () => {
-    const {data, isPending} = useQuery({
-        queryKey:['certlist'],
-        queryFn: getCert,
-    })
+    const {data, isPending} = useQuery(createCertQueryOptions())
 
     const [currentIndex, setCurrentIndex] = useState(0);
     if(data)
@@ -165,11 +162,7 @@ const CertSupport = () => {
   )
 }
 
-const getCert = async () =>{
-    const certification = '/custom/v1/certifications-listing/'
-    const result = await fetchApi(certification)
-    return result
-}
+
 
 export default CertSupport
 

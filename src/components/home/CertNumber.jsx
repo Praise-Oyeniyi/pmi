@@ -15,7 +15,7 @@ const CertNumber = () => {
         {isPending?
         <CertNo/>
         :
-        <div className="cert-no-inner text-white w-[90%] md:w-5/6 mx-auto bg-secondary rounded-lg md:rounded-[1.25rem]">
+        <div className="cert-no-inner text-white w-[90%] md:w-5/6 mx-auto bg-purple rounded-lg md:rounded-[1.25rem]">
             <div className="h-fit md:h-28 cert-inner-top md:flex justify-between w-full">
                 <div className='flex items-start md:items-center md:px-7 px-5 border-b md:border-b-0 border-b-[#ffffffa4]  py-3 justify-start gap-x-7 md:w-3/6 md:border-r border-r-[#ffffffa4]'>
                     <h4 className='text-lg md:text-3xl font-bold'>{data.data[0].number}</h4>

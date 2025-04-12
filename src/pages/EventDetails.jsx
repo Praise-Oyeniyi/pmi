@@ -90,7 +90,7 @@ const EventDetails = () => {
                           </div>
                         )))
                       :
-                      <h3 className='text-base text-dark md:text-xl font-bold leading-tight text-white py-5 pl-7'>No Related Events</h3>
+                      <h3 className='text-base text-dark md:text-xl font-bold leading-tight py-5'>No Related Events</h3>
                     }
                   </div>
                 </div>

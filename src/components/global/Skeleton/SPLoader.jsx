@@ -13,8 +13,8 @@ const SPLoader = () => {
                 
                 <div className="flex flex-col items-center">
                 <div className="bg-gray-300 animate-pulse h-5 md:h-7 w-[90%] md:w-[75%] rounded mb-2"></div>
-                <div className="bg-gray-300 animate-pulse h-5 md:h-7 w-[85%] md:w-[70%] rounded mb-2"></div>
-                <div className="bg-gray-300 animate-pulse h-5 md:h-7 w-[80%] md:w-[65%] rounded"></div>
+                {/* <div className="bg-gray-300 animate-pulse h-5 md:h-7 w-[85%] md:w-[70%] rounded mb-2"></div>
+                <div className="bg-gray-300 animate-pulse h-5 md:h-7 w-[80%] md:w-[65%] rounded"></div> */}
                 </div>
             </div>
         </div>

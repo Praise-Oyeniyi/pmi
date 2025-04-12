@@ -10,6 +10,14 @@ export  function createUpcomingQueryOptions(id){
     })
 }
 
+export function createCertQueryOptions(){
+    return queryOptions({
+        queryKey:['certlist'],
+        queryFn: getCert,
+    })
+}
+
+
 export function createSpecialQueryOptions(){
     return queryOptions({
         queryKey: ['specialMenu'],
@@ -54,4 +62,10 @@ const getRelated = async (id) =>{
     const relatedLink = `/custom/v1/related-past-events/${id}`
     const result = await fetchApi(relatedLink)
     return result;
+}
+
+const getCert = async () =>{
+    const certification = '/custom/v1/certifications-listing/'
+    const result = await fetchApi(certification)
+    return result
 }

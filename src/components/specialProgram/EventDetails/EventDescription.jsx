@@ -15,7 +15,7 @@ const EventDescription = ({image, desc, audTitle, audContent, profCert, keyExpTi
 
                     <div className='bg-white rounded-3xl mt-7 md:mt-0 p-3 md:p-5 md:px-7 border border-[#E8E8E8]'>
                         <h4 className='text-2xl md:text-3xl font-bold pb-2 border-b  border-b-[#DADADA]'>Description</h4>
-                        <p className='text-sm md:text-xl font-normal pt-3'>{desc}</p>
+                        <div className='text-sm md:text-xl font-normal pt-3 space-y-2'>{desc}</div>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@ const EventDescription = ({image, desc, audTitle, audContent, profCert, keyExpTi
 
             <div className="speaker">
                 <h4 className='text-2xl md:text-3xl font-bold pb-2'>About the speaker</h4>
-                <p className='text-sm md:text-xl font-normal' dangerouslySetInnerHTML={{ __html: aboutSpeaker }}/>
+                <div className='text-sm md:text-xl font-light space-y-2 list-disc' dangerouslySetInnerHTML={{ __html: aboutSpeaker }}/>
 
 
                 {keyExpPoints !== [] || profCert !== [] && 

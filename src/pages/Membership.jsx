@@ -37,7 +37,7 @@ const Membership = () => {
         <Header/>
         <div className='w-full'>
             <Hero image={TI} 
-              title={'Academic Relations'} 
+              title={'Membership'} 
               body={'PMI Bengaluru Chapter Academic relations portfolio aims to build relationships with academic institutions in Bangalore & Karnataka, partnering in the area of project management through certifications, awareness, events, research et al'} 
               url={"<a href='/' className='hover:underline'>Home</a> / <a to='volunteer'>Volunteering</a> / Membership"}
             />

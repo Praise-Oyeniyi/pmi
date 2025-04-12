@@ -1,3 +1,4 @@
+
 .sp-bg{
     /* background: url("./assets/images/sp-bg.png"); */
     background-position: center center;
@@ -155,7 +156,16 @@ span img{
     position: absolute;
     top: -1000rem;
  }
-
+ #goog-gt-tt, #goog-gt-vt, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf{
+    display: none !important; 
+ }
+ body .VIpgJd-yAWNEb-VIpgJd-fmcmS-sn54Q{
+    -webkit-user-select: none !important; /* Safari */
+    -ms-user-select: none !important; /* IE 10 and IE 11 */
+    user-select: none !important; /* Standard syntax */
+    background-color: transparent;
+    box-shadow: none;
+ }
 
 
 @media (max-width:768px) {

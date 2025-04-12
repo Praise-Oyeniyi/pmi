@@ -17,7 +17,7 @@ const SpecialProgram = () => {
   var gotData = data.data.find((e) => e.id === parseInt(id, 10))
 
   return (
-    <div className='w-full h-full font-aptos bg-hero-bg overflow-x-hidden'>
+    <div className='w-full h-full font-aeonik bg-hero-bg overflow-x-hidden'>
         <Header/>
         <div className='w-full'>
 

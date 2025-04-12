@@ -5,14 +5,18 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaCaretDown } from "react-icons
 import { Link } from 'react-router-dom';
 import { FaChevronRight } from 'react-icons/fa6';
 import { AiOutlineClose } from "react-icons/ai";
-import { useQuery } from '@tanstack/react-query';
-import { createSpecialQueryOptions } from '../queryOptions/QueryOptions';
+import { createCertQueryOptions, createSpecialQueryOptions } from '../queryOptions/QueryOptions';
+import { useQueries } from '@tanstack/react-query';
 
 const Header = () => {
     const [nav, setNav] = useState(false);
     const [menu, setMenu] = useState(null);
-    const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
-    const { data, isPending } = useQuery(createSpecialQueryOptions());
+    const [special, training] = useQueries({  
+        queries:[
+            createSpecialQueryOptions(),
+            createCertQueryOptions(),
+        ]
+    })
     
     useEffect(() => {
     // Remove any existing Google Translate elements to avoid duplicates
@@ -77,10 +81,6 @@ const Header = () => {
     };
 }, []);
     
-    // Toggle language dropdown
-    const toggleLanguageDropdown = () => {
-        setShowLanguageDropdown(!showLanguageDropdown);
-    };
 
     return (
         <header className='w-full bg-white max-h-24 flex items-center cursor-pointer'>
@@ -88,7 +88,7 @@ const Header = () => {
 
                 <div className="header-left w-3/6 flex items-center gap-x-10">
                     <Link to={'/'}>
-                        <div className="logo h-16 flex w-auto">
+                        <div className="logo h-16 max-h-16 overflow-hidden flex w-auto">
                             <img src={Logo} alt="pmi-logo" className='object-contain h-full w-auto'/>
                         </div>
                     </Link>
@@ -100,20 +100,34 @@ const Header = () => {
                                     <div className='flex items-center px-3 h-full hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>About Us</div>
                                 </Link>
                             </li>
-                            <li className='min-w-fit h-full'>
-                                <Link to={'/Training'}>
-                                    <div className='flex items-center px-3 h-full hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Training</div>
-                                </Link>
+                            <li className='min-w-fit h-full group'>
+                                <div className='flex items-center px-3 h-full group-hover:bg-secondary group-hover:text-white duration-300 transition-all ease-linear'>Training</div>
+                                <ul className='font-normal absolute space-y-1 w-fit z-50 group-hover:border-t-secondary group-hover:block text-[#676767] bg-white border border-hero-bg px-4 py-3 border-t-4 border-t-transparent hidden'>
+                                    {training.isPending ?
+                                        <li className='animate-pulse'>Loading Menus...</li>
+                                        :
+                                        Array.isArray(training.data?.data) && training.data.data.length > 0 ? (
+                                            training.data.data.map((item, index) => (
+                                                <Link to={`/Certifications/${item.cert_id}`} key={index}>
+                                                    <li key={index} className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200 capitalize'>{index ===2? item.shortform+' Certfication Training': item.shortform+' Training'}</li>
+                                                </Link>
+                                            ))
+                                        )
+                                        :
+                                        <li>Please reload page</li>
+                                    }
+                                    <Link to={'/Training'}><li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Corporate Training</li></Link>
+                                </ul>
                             </li>
                             
                             <li className='min-w-fit h-full relative group'>
                                 <div className='relative flex items-center px-3 h-full group-hover:bg-secondary group-hover:text-white duration-300 transition-all ease-linear'>Special Program</div>
                                 <ul className='font-normal absolute space-y-1 w-64 z-50 group-hover:border-t-secondary group-hover:block text-[#676767] bg-white border border-hero-bg px-4 py-3 border-t-4 border-t-transparent hidden'>
-                                    {isPending ?
+                                    {special.isPending ?
                                         <li className='animate-pulse'>Loading Menus...</li>
                                         :
-                                        Array.isArray(data?.data) && data.data.length > 0 ? (
-                                            data.data.map((item, index) => (
+                                        Array.isArray(special.data?.data) && special.data.data.length > 0 ? (
+                                            special.data.data.map((item, index) => (
                                                 <Link to={`/Special Program/${item.id}`} key={index}>
                                                     <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>{item.name}</li>
                                                 </Link>
@@ -211,10 +225,24 @@ const Header = () => {
                                             <div className='text-sm font-medium flex justify-between px-5 pr-7 py-3 border-b border-b-[#BFBFBF] items-center'>About Us <FaChevronRight size={10}/></div>
                                         </Link>
                                     </li>
-                                    <li className='w-full h-full'>
-                                        <Link to={'/Training'}>
-                                            <div className='text-sm font-medium flex justify-between px-5 pr-7 py-3 border-b border-b-[#BFBFBF] items-center'>Training <FaChevronRight size={10}/></div>
-                                        </Link>
+                                    <li className='w-full h-full' onClick={() => setMenu(3)}>
+                                        <div className='text-sm font-medium flex justify-between px-5 pr-7 py-3 border-b border-b-[#BFBFBF] items-center'>Training <FaChevronRight size={10}/></div>
+                                        
+                                        <ul className={`font-normal w-full space-y-2 border-b border-b-[#BFBFBF] text-[#676767] bg-white px-5 pr-7 py-3 border-t-4 border-t-transparent transition-all ease-linear duration-300 ${menu === 3 ? 'block' : 'hidden'}`}>
+                                            {training.isPending ?
+                                                <li className='animate-pulse'>Loading Menus...</li>
+                                                :
+                                                    Array.isArray(training.data?.data) && training.data.data.length > 0 ? (
+                                                    training.data?.data?.map((item, index) => (
+                                                        <Link to={`/Certifications/${item.cert_id}`} key={index}>
+                                                            <li>{item.shortform+' Training'}</li>
+                                                        </Link>
+                                                    )))
+                                                :
+                                                <li className='animate-pulse'>Please reload page</li>
+                                            }
+                                            <Link to={'/Training'}><li>Academic Relations</li></Link>
+                                        </ul>
                                     </li>
                                     
                                     <li className='w-full h-full relative' onClick={() => setMenu(0)}>
@@ -228,14 +256,17 @@ const Header = () => {
                                         </div>
                                         
                                         <ul className={`font-normal w-full space-y-2 border-b border-b-[#BFBFBF] text-[#676767] bg-white px-5 pr-7 py-3 border-t-4 border-t-transparent transition-all ease-linear duration-300 ${menu === 0 ? 'block' : 'hidden'}`}>
-                                            {isPending ?
+                                            {special.isPending ?
                                                 <li className='animate-pulse'>Loading Menus...</li>
                                                 :
-                                                data?.data?.map((item, index) => (
-                                                    <Link to={`/Special Program/${item.id}`} key={index}>
-                                                        <li>{item.name}</li>
-                                                    </Link>
-                                                ))
+                                                    Array.isArray(special.data?.data) && special.data.data.length > 0 ? (
+                                                    special.data?.data?.map((item, index) => (
+                                                        <Link to={`/Special Program/${item.id}`} key={index}>
+                                                            <li>{item.name}</li>
+                                                        </Link>
+                                                    )))
+                                                :
+                                                <li className='animate-pulse'>Please reload page</li>
                                             }
                                             <Link to={'/academic-relations'}><li>Academic Relations</li></Link>
                                             <Link to={"/non-profit"}><li>Non-Profits and NGOs</li></Link>
