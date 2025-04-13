@@ -74,7 +74,7 @@ const CertSupport = () => {
             <div className="top md:flex w-full justify-between items-center">
                 <div className='space-y-3 md:space-y-5'>
                     <h3 className='text-xl md:text-6xl font-bold w-5/6 md:w-4/6 leading-snug tracking-wider md:tracking-normal'>Top Certifications We Support</h3>
-                    <button className='bg-white hover:bg-[#200f3b31] transition-all ease-in duration-300 hidden rounded-full md:flex justify-center items-center border border-cgray px-7 h-[3rem]'>View all certifications</button>
+                    {/* <button className='bg-white hover:bg-[#200f3b31] transition-all ease-in duration-300 hidden rounded-full md:flex justify-center items-center border border-cgray px-7 h-[3rem]'>View all certifications</button> */}
                 </div>
 
                 <p className='text-sm md:text-2xl font-medium md:w-2/6 md:text-right'>Boost your professional credibility
@@ -92,7 +92,7 @@ const CertSupport = () => {
 
 
         <div 
-            className="certBox flex md:flex-row-reverse max-w-[90%] w-[90%] md:w-5/6 mx-auto gap-x-4 min-h-fit justify-between items-stretch overflow-hidden"
+            className="certBox flex max-w-[90%] w-[90%] md:w-5/6 mx-auto gap-x-4 min-h-fit justify-between items-stretch overflow-hidden"
             ref={sliderRef}
         >
             {isPending?
