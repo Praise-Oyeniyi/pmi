@@ -1,8 +1,8 @@
 import React from 'react'
-import DI from '../../assets/images/whycert.png'
+import { Link } from 'react-router'
 
 
-const TrainingInfo = ({schTitle, schDesc, whyTitle, feeM, feeNM,trainFeeTitle, whyDesc, whyImage, dates}) => {
+const TrainingInfo = ({schTitle, schDesc, whyTitle, feeM, feeNM,trainFeeTitle, whyDesc, whyImage, dates, link}) => {
   return (
     <div className='w-full text-dark'>
         {schTitle !== null && schDesc !== null && 
@@ -12,7 +12,7 @@ const TrainingInfo = ({schTitle, schDesc, whyTitle, feeM, feeNM,trainFeeTitle, w
                 
                 <div className='font-semibold space-y-5 md:space-y-3 w-full md:w-3/6'>
                     <p className='text-sm md:text-2xl'>{schDesc}</p>
-                    <button className='text-sm md:text-lg py-3 px-7 rounded-full bg-purple text-white cursor-pointer hover:opacity-85 transition-all ease-in duration-200'>Click Here To Register</button>
+                    <Link to={`${link}`}><button className='text-sm md:text-lg py-3 px-7 rounded-full bg-purple text-white cursor-pointer hover:opacity-85 transition-all ease-in duration-200'>Click Here To Register</button></Link>
                 </div>
             </div>
 
@@ -74,7 +74,12 @@ const TrainingInfo = ({schTitle, schDesc, whyTitle, feeM, feeNM,trainFeeTitle, w
                         </div>
                         
                         <div>
-                            <button className='w-fit bg-purple text-white rounded-full py-2 px-7 font-semibold text-sm md:text-lg cursor-pointer hover:opacity-85 transition-all ease-in duration-200'>Register Now</button>
+                            <Link to={`${link}`}>
+                                <button 
+                                    className='w-fit bg-purple text-white rounded-full py-2 px-7 font-semibold text-sm md:text-lg cursor-pointer hover:opacity-85 transition-all ease-in duration-200'>
+                                    Register Now
+                                </button>
+                            </Link>
                         </div>
                     </div>
                     

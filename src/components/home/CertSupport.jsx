@@ -92,7 +92,7 @@ const CertSupport = () => {
 
 
         <div 
-            className="certBox flex justify-start max-w-[90%] w-[90%] md:w-5/6 mx-auto gap-x-4 min-h-fit items-stretch overflow-hidden"
+            className={`certBox flex justify-start max-w-[90%] w-[90%] md:w-5/6 mx-auto gap-x-4 min-h-fit items-stretch overflow-hidden ${data?.data?.length === 2 && '!justify-center'}`}
             ref={sliderRef}
         >
             {isPending?

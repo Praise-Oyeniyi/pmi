@@ -59,6 +59,7 @@ const Certifications = () => {
                 whyDesc={cert?.why_pmp_description}
                 whyImage={cert?.why_pmp_image}
                 dates={cert?.upcoming_batches_dates}
+                link={cert.register_link}
               />
 
 
