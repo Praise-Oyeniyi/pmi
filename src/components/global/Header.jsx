@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Logo from '../../assets/images/logo.png';
+import Logo from '../../assets/images/logo.jpg';
 import mLogo from '../../assets/icons/mobile-logo.svg';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaCaretDown } from "react-icons/fa";
 import { Link } from 'react-router-dom';
@@ -88,7 +88,7 @@ const Header = () => {
 
                 <div className="header-left w-3/6 flex items-center gap-x-8">
                     <Link to={'/'}>
-                        <div className="logo w-[6.5rem] h-16 max-h-16 overflow-hidden flex">
+                        <div className="logo w-[8rem] h-17 max-h-17 overflow-hidden flex">
                             <img src={Logo} alt="pmi-logo" className='object-contain w-full h-full z-[9999999]'/>
                         </div>
                     </Link>

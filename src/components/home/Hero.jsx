@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { fetchApi } from '../../apis';
 import HeroSkeleton from '../global/Skeleton/HeroSkeleton';
 import {useQuery} from "@tanstack/react-query"
+import { Link } from 'react-router';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -40,9 +41,13 @@ const Hero = () => {
                       <p className={`font-medium text-sm md:text-2xl text-[#272622] ${currentSlide ==1 && 'text-white'}`}>
                           {currentContent?.sub_content}
                       </p>
-                      <button className={`${currentSlide ==1 && 'bg-white !text-purple'} bg-purple text-white hover:opacity-70 transition-all ease-in duration-200 md:mt-8 w-fit flex items-center justify-center text-sm sm:text-lg font-medium  h-[2.5rem] md:h-[3.5rem] px-3 md:px-7 rounded-full`}>
-                        Explore Training Programs
-                      </button>
+                      <Link to={`${currentContent.read_more_button_link}`}>
+                        <button 
+                          className={`${currentSlide ==1 && 'bg-white !text-purple'} bg-purple text-white hover:opacity-70 transition-all ease-in duration-200 md:mt-8 w-fit flex items-center justify-center text-sm sm:text-lg font-medium  h-[2.5rem] md:h-[3.5rem] px-3 md:px-7 rounded-full`}
+                        >
+                          Explore Training Programs
+                        </button>
+                      </Link>
                   </div>
                   
               </div>

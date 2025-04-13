@@ -46,6 +46,7 @@ const Certifications = () => {
                 duration={cert?.experience} 
                 body={cert?.long_description}
                 url={cert.certification_name}
+                link={cert.register_link}
                 id={id}
               />
               <TrainingInfo 
