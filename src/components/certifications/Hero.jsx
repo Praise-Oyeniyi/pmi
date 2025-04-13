@@ -13,7 +13,7 @@ const Hero = ({image, title, duration, body, url, id, link}) => {
     <div>
         {data && certBG && (
             <div 
-            className={`w-full hero-cert relative h-auto text-[#291843] overflow-hidden py-7 bg-cover bg-no-repeat bg-center ${title.toLowerCase().includes('pmp') && 'text-white'}`} 
+            className={`w-full hero-cert relative h-auto text-[#291843] overflow-hidden py-7 bg-cover bg-no-repeat bg-center ${title && title.toLowerCase().includes('pmp') && 'text-white'}`} 
             style={{backgroundImage: `url(${certBG.background_image.url})`}}
             >
                 <div className="mx-auto w-[90%] md:w-5/6 ">
@@ -26,12 +26,12 @@ const Hero = ({image, title, duration, body, url, id, link}) => {
 
                         <div className='w-full md:w-3/6 space-y-3'>
                             <h5 className={`text-sm md:text-lg font-semibold rounded-full px-4 h-8 flex justify-center items-center border border-[#291843] w-fit 
-                                ${title.toLowerCase().includes('pmp') && '!text-white !border-white'}
+                                ${title && title.toLowerCase().includes('pmp') && '!text-white !border-white'}
                                 `}
                             >
                                 Certification
                             </h5>
-                            <h3 className='font-bold text-3xl w-5/6 md:w-full md:text-5xl'>{title}</h3>
+                            <h3 className='font-bold text-3xl w-5/6 md:w-full md:text-5xl'>{title && title}</h3>
                             <h4 className='text-base md:text-3xl font-semibold'>{duration}</h4>
                             <div className={`text-sm md:text-lg font-normal space-y-2 list-disc  ${id !== '2691'? 'text-[#291843]': 'text-[#ffffffc0]'}`} dangerouslySetInnerHTML={{ __html: body }}/>
                             <Link to={`${link}`}>
