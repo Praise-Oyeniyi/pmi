@@ -12,8 +12,9 @@ const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, index, i
             <div className=''>
                 <div className='flex justify-between'>
                     <button className={`tag my-5 md:my-6 text-white border border-white rounded-full px-3 h-6 md:h-[1.875rem] text-sm md:text-base flex justify-center items-center w-fit 
-                        ${index === 0 && ' border !bordr-[#291843] !tet-[#291843] '}
+                        
                     `}>
+                        {/* ${index === 0 && ' border !bordr-[#291843] !tet-[#291843] '} */}
                         Certification</button>
                     
                     <div className='relative h-24 object-cover md:h-44 w-56 overflow-hidden'>
@@ -23,21 +24,26 @@ const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, index, i
 
                 <div className="box-body mt-2">
                     <h5 className={`text-base md:text-3xl font-bold py-2 
-                        ${index === 0? 'text-[#B365FD]': index ===1 ? 'text-[#05BFE0]':'text-[#200F3B]'}
-                        `}>{title}</h5>
+                       
+                        `}>
+                             {/* ${index === 0? 'text-[#B365FD]': index ===1 ? 'text-[#05BFE0]':'text-[#200F3B]'} */}
+                            {title}</h5>
                     <h4 className={`text-white text-xl md:text-4xl md:tracking-wide font-semibold  
-                        ${index === 0 && ' !tet-[#291843] '}
+                        
                     `}>
+                        {/* ${index === 0 && ' !tet-[#291843] '} */}
                         {mainTitle}</h4>
                     <div className={`mt-2 md:mt-5`}>
                         <h6 className={`text-sm md:text-xl font-semibold text-off-white pb-2 
-                            ${index === 0 && ' !txt-[#291843] '}
+                            
                         `}>
+                            {/* ${index === 0 && ' !txt-[#291843] '} */}
                             {subTitle}
                         </h6>
                         <p className={`font-normal pr-5 md:pr-0 text-sm md:text-lg text-off-white leading-6 md:leading-normal 
-                            ${index === 0 && '!tet-[#3A2B51] '}
+                            
                         `}>
+                            {/* ${index === 0 && '!tet-[#3A2B51] '} */}
                             {boxInfo}
                         </p>
                     </div>
