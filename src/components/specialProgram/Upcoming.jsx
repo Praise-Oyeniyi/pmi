@@ -9,13 +9,14 @@ import {createUpcomingQueryOptions} from '../queryOptions/QueryOptions';
 const Upcoming = ({id}) => {
  const [coming, setComing] = useState([]);
 
-  const {data, isPending} = useQuery(createUpcomingQueryOptions({id}))
+  const {data, isPending} = useQuery(createUpcomingQueryOptions(id))
 
   useEffect(()=>{
     if(data){
       setComing(data.data)
     }
   }, [data])
+
 
   
 

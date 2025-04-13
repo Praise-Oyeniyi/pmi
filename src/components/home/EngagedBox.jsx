@@ -14,12 +14,12 @@ const EngagedBox = ({image, head, title, body,style, name, id}) => {
                 
                 <div className='space-y-1 md:space-y-0'>
                     <h6 className='text-sm md:text-base font-normal truncate'>{head}</h6>
-                    <h4 className='text-lg md:text-3xl font-bold leading-tight'>{title}</h4>
+                    <h4 className='text-lg md:text-3xl font-bold leading-tight line-clamp-4'>{title}</h4>
                 </div>
             </div>
 
             <div className='md:text-xl text-sm w-full md:w-[40%]'>
-                <p className='font-medium md:text-xl md:pt-1'>{body}</p>
+                <p className='font-medium md:text-xl md:pt-1 line-clamp-6'>{body}</p>
                 <Link to={`/Special Program/${name}/${id}`} > 
                     <button 
                         className='w-fit font-bold pt-2 flex gap-x-1 items-center cursor-pointer transition-all ease-in duration-300 hover:underline  underline-offset-3'
