@@ -50,7 +50,7 @@ const Footer = () => {
                                     Array.isArray(training.data?.data) && training.data.data.length > 0 ? (
                                         training.data.data.map((item, index) => (
                                             <Link to={`/Certifications/${item.cert_id}`} key={index}>
-                                                <li key={index} className={`${index ===1 && 'hidden'}`}>{index ===2? item.shortform+' Certfication': item.shortform+' Training'}</li>
+                                                <li key={index} className={`${index ===1 && 'hidden'}`}>{item?.shortform.toLowerCase().includes('pmp')? item.shortform+' Certfication': item.shortform+' Training'}</li>
                                             </Link>
                                         ))
                                     )

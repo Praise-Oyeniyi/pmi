@@ -109,7 +109,7 @@ const Header = () => {
                                         Array.isArray(training.data?.data) && training.data.data.length > 0 ? (
                                             training.data.data.map((item, index) => (
                                                 <Link to={`/Certifications/${item.cert_id}`} key={index}>
-                                                    <li key={index} className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200 capitalize'>{index ===2? item.shortform+' Certfication Training': item.shortform+' Training'}</li>
+                                                    <li key={index} className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200 capitalize'>{item?.shortform.toLowerCase().includes('pmp') ? item.shortform+' Certfication Training': item.shortform+' Training'}</li>
                                                 </Link>
                                             ))
                                         )
