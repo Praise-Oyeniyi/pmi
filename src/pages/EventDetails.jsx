@@ -13,6 +13,8 @@ import NotFound from './NotFound'
 import { useQueries } from '@tanstack/react-query'
 import { createEventDetailsQueryOptions, createRelatedQueryOptions } from '../components/queryOptions/QueryOptions'
 import RelatedLoader from '../components/global/Skeleton/RelatedLoader'
+import Fee from '../assets/images/Fees.png'
+
 
 const EventDetails = () => {
     const [event, setEvent] = useState(null)
@@ -54,6 +56,7 @@ const EventDetails = () => {
                         role={speaker?.designation}
                         image={speaker?.image}
                         date={event?.date_time}
+                        regLink={event.register_button_link}
                       />
                     </div>
                   ))}
@@ -74,6 +77,33 @@ const EventDetails = () => {
                   aboutSpeaker={event?.about_speaker}
                 />
               }
+
+              <div>
+                <div className='md:w-5/6 w-[90%] mx-auto mt-16 md:mt-20 mb-10 flex justify-between items-center'>
+                  <div className='w-2/6'>
+                    <h4 className='text-2xl md:text-3xl font-bold pb-2'>Fees</h4>
+                    <p>Early Bird offer till April 20th is 5500 all inclusive for all members/non members.</p>
+                  </div>
+
+
+                  <div >
+                    <div className='bg-[#FBFBFB] rounded-xl md:rounded-3xl overflow-hidden p-3 md:p-4 border-[#E8E8E8] cursor-pointer'>
+                      <div className="inner flex w-full gap-x-3 md:gap-x-4 items-center">
+                        <div className="image rounded-lg md:rounded-3xl overflow-hidden">
+                          <img src={Fee} alt="" className='md:h-[10.72rem] md:min-w-[14rem] max-w-[14rem] object-cover object-center'/>
+                        </div>
+
+                        <div className='w-4/6'>
+                          <h4 className='text-2xl md:text-3xl font-bold pb-2 line-clamp-3 overflow-hidden'>DevSecOps Workshop</h4>
+                        </div>
+                      </div>
+                    </div> 
+                  </div>
+
+
+                </div>
+              </div>
+
 
               <div className='w-full mt-16 md:mt-20 mb-10'>
                 <div className='md:max-w-5/6 mx-auto md:w-5/6 w-[90%]'>

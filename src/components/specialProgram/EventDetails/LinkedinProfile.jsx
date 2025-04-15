@@ -1,9 +1,8 @@
 import React from 'react'
 import { FaLinkedin } from "react-icons/fa";
 import { Link } from 'react-router';
-import EDA from '../../../assets/images/ed-avatara.png'
 
-const LinkedinProfile = ({name,link, role, image, date}) => {
+const LinkedinProfile = ({name,link, role, image, date, regLink}) => {
 
     function isDateInPast(date) {
         const parts = date.split(' ');
@@ -37,9 +36,12 @@ const LinkedinProfile = ({name,link, role, image, date}) => {
             </div>
 
             {!isDateInPast(date) && 
-                (<button className='flex w-fit mx-auto transition-all ease-in duration-300 hover:opacity-75 cursor-pointer justify-center items-center md:mr-3 rounded-full bg-secondary text-white px-10 py-2 text-sm md:text-2xl font-bold'>
-                    Register
-                </button>)
+                (<Link to={`${regLink}`}>
+                    <button className='flex w-fit mx-auto transition-all ease-in duration-300 hover:opacity-75 cursor-pointer justify-center items-center md:mr-3 rounded-full bg-secondary text-white px-10 py-2 text-sm md:text-2xl font-bold'>
+                        Register
+                    </button>
+                </Link>
+                )
             }
         </div>
 
