@@ -85,7 +85,7 @@ const CertSupport = () => {
                     help you stand out and succeed.
                 </p>
 
-                <button className='bg-white md:hidden text-sm md:text-xl rounded-full flex justify-center items-center border border-cgray px-5 h-[2.6rem] mt-4'>View all certifications</button>
+                {/* <button className='bg-white md:hidden text-sm md:text-xl rounded-full flex justify-center items-center border border-cgray px-5 h-[2.6rem] mt-4'>View all certifications</button> */}
 
             </div>
         </div>

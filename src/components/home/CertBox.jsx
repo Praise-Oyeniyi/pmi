@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, index, id}) => {
   return (
-    <div className={`w-full group h-full overflow-hidden px-5 pb-5 md:pb-6 box-outer rounded-[1.25rem] bg-cover 
+    <div className={`w-full group h-full overflow-hidden pl-5 md:px-5 pb-5 md:pb-6 box-outer rounded-[1.25rem] bg-cover 
             ${index === 0 && ' borde border-[#291843b4] '}
         `} 
         style={{background:`url(${gradient})`}}
@@ -16,12 +16,12 @@ const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, index, i
                     `}>
                         Certification</button>
                     
-                    <div className='relative h-24 object-cover md:h-44 w-56 overflow-hidden'>
-                        <img src={image} alt="tag-icon" className='w-full h-full absolute group-hover:scale-105 transition-all ease-linear duration-300'/>
+                    <div className='relative h-24 md:h-44 w-56 overflow-hidden'>
+                        <img src={image} alt="tag-icon" className='w-full h-full object-contain object-top absolute group-hover:scale-105 transition-all ease-linear duration-300'/>
                     </div>
                 </div>
 
-                <div className="box-body mt-2">
+                <div className="box-body mt-2 pr-5">
                     <h5 className={`text-base md:text-3xl font-bold py-2 
                         ${title ? (
                             title.toLowerCase().includes('pmp') ? 'text-[#B365FD]' : 
@@ -30,7 +30,7 @@ const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, index, i
                           ) : 'text-[#200F3B]'}
                         `}>
                             {title}</h5>
-                    <h4 className={`text-[#291843] text-xl md:text-4xl md:tracking-wide font-semibold  
+                    <h4 className={`text-[#291843] text-xl md:text-4xl md:tracking-wide font-semibold w-5/6 sm:w-full
                         ${title.toLowerCase().includes('pmp') && '!text-white'}
                     `}>
                         {mainTitle}</h4>
