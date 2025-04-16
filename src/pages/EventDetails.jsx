@@ -78,32 +78,34 @@ const EventDetails = () => {
                 />
               }
 
-              {!result1.isPending && result1.data.data.fees_right_section[0]?.linkfile && (<div>
-                <div className='md:w-5/6 w-[90%] mx-auto mt-16 md:mt-20 mb-10 flex justify-between items-center'>
-                  <div className='w-2/6'>
-                    <h4 className='text-2xl md:text-3xl font-bold pb-2'>Fees</h4>
-                    <p>Early Bird offer till April 20th is 5500 all inclusive for all members/non members.</p>
-                  </div>
-
-                  <Link to={`${result1.data.data.fees_right_section[0]?.linkfile}`} target={'_blank'}>
-                    <div className='cursor-pointer'>
-                      <div className='bg-[#FBFBFB] rounded-xl md:rounded-3xl overflow-hidden p-3 md:p-4 border-[#E8E8E8] cursor-pointer'>
-                        <div className="inner flex w-full gap-x-3 md:gap-x-4 items-center">
-                          <div className="image rounded-lg md:rounded-3xl overflow-hidden">
-                            <img src={result1.data.data.fees_right_section[0]?.image.url} alt="" className='md:h-[10.72rem] md:min-w-[14rem] max-w-[14rem] object-cover object-center'/>
-                          </div>
-
-                          <div className='w-4/6'>
-                            <h4 className='text-2xl md:text-3xl font-bold pb-2 line-clamp-3 overflow-hidden'>{result1.data.data.fees_right_section[0]?.label}</h4>
-                          </div>
-                        </div>
-                      </div> 
+              {!result1.isPending && result1.data.data.fees_right_section[0]?.linkfile && (
+                <div>
+                  <div className='md:w-5/6 w-[90%] mx-auto mt-16 md:mt-20 mb-10 md:flex justify-between items-center space-y-3 md:space-y-0'>
+                    <div className='md:w-2/6 w-5/6'>
+                      <h4 className='text-2xl md:text-3xl font-bold pb-2'>Fees</h4>
+                      <p>Early Bird offer till April 20th is 5500 all inclusive for all members/non members.</p>
                     </div>
-                  </Link>
+
+                    <Link to={`${result1.data.data.fees_right_section[0]?.linkfile}`} target={'_blank'}>
+                      <div className='cursor-pointer'>
+                        <div className='bg-[#FBFBFB] rounded-xl md:rounded-3xl overflow-hidden p-3 md:p-4 border-[#E8E8E8] cursor-pointer'>
+                          <div className="inner flex w-full gap-x-3 md:gap-x-4 items-center">
+                            <div className="image rounded-lg md:rounded-3xl overflow-hidden">
+                              <img src={result1.data.data.fees_right_section[0]?.image.url} alt="" className='md:h-[10.72rem] md:min-w-[14rem] max-w-[14rem] object-cover object-center'/>
+                            </div>
+
+                            <div className='w-4/6'>
+                              <h4 className='text-xl md:text-3xl font-bold pb-2 line-clamp-3 overflow-hidden'>{result1.data.data.fees_right_section[0]?.label}</h4>
+                            </div>
+                          </div>
+                        </div> 
+                      </div>
+                    </Link>
 
 
+                  </div>
                 </div>
-              </div>)}
+              )}
 
 
               <div className='w-full mt-16 md:mt-20 mb-10'>
