@@ -21,8 +21,8 @@ const LinkedinProfile = ({name,link, role, image, date, regLink}) => {
     <div className='w-full'>
         <div className="mx-auto w-[90%] md:w-5/6 bg-white space-y-3 md:space-y-0 rounded-3xl border border-[#E8E8E8] p-3 md:p-4 md:flex justify-between items-center">
             
-            <div className='flex items-center gap-x-5'>
-                <div className="avatar h-12 w-12 md:w-[6.25rem] md:h-[6.25rem] rounded-full overflow-hidden">
+            <div className='flex items-center gap-x-3 md:gap-x-5'>
+                <div className="avatar min-h-12 min-w-12 max-w-12 max-h-12 md:max-w-[6.25rem] md:max-h-[6.25rem] md:min-w-[6.25rem] md:min-h-[6.25rem] rounded-full overflow-hidden">
                     <img src={image} alt="" className='w-full h-full object-cover object-top'/>
                 </div>
                 <div className="bio">
