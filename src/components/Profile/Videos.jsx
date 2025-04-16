@@ -1,17 +1,26 @@
 import React, { useState } from 'react'
 import VI from '../../assets/images/videos-thumb.png'
 import PI from '../../assets/icons/play-icon.svg'
+import { useQuery } from '@tanstack/react-query';
+import { fetchApi } from '../../apis';
+import VideoSkeletonLoader from '../global/Skeleton/VideoSkeletonLoader';
 
 const Videos = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
+
+  const {data, isPending} = useQuery({
+    queryKey: ['videos'],
+    queryFn: getVideos
+  })
+
+  console.log(data)
   
-  const videoData = [...Array(8)].map((_, index) => ({
-    id: index,
-    title: "The world is your playground",
-    author: "rohith bhat",
-    details: "PM open Space | 23.O5.2024 | 65m",
-    thumbnail: VI,
-    youtubeId: "4pEC3UF0D58?si=Hgox1xu6w7FJqIi_"
+  const videoData = data?.data.map((video, index) => ({
+    id: video.id,
+    title: video.title,
+    details: video.brief,
+    thumbnail: video.featured_image.url,
+    vimeoUrl: video.vimeo_embed_url
   }));
 
   const handleVideoClick = (video) => {
@@ -22,12 +31,21 @@ const Videos = () => {
     setSelectedVideo(null);
   };
 
+
+  const formatVimeoUrl = (url) => {
+    const hasParams = url.includes('?');
+    return `${url}${hasParams ? '&' : '?'}autoplay=1&title=0&byline=0&portrait=0`;
+  };
+
   return (
     <div className='w-full space-y-4 md:space-y-7 relative'>
-      <h3 className='text-2xl md:text-4xl font-bold'>8 Videos</h3>
+      <h3 className='text-2xl md:text-4xl font-bold'>{data?.data.length} Videos</h3>
 
-      <div className='w-full grid justify-start items-center gap-4 gap-y-7 grid-cols-2 md:grid-cols-4 flex-wrap'>
-        {videoData.map((video, index) => (
+      <div className='w-full grid justify-start items-start gap-4 gap-y-7 grid-cols-2 md:grid-cols-4 flex-wrap'>
+        {isPending?
+          <VideoSkeletonLoader/>
+        :
+        videoData.map((video, index) => (
           <div 
             key={index}
             className="w-full capitalize cursor-pointer"
@@ -47,7 +65,6 @@ const Videos = () => {
                 </h4>
 
                 <div className='font-normal text-sm md:text-lg text-[#6C6C6C]'>
-                  <h6>{video.author}</h6>
                   <p className='tracking-tight truncate'>{video.details}</p>
                 </div>
               </div>
@@ -56,9 +73,9 @@ const Videos = () => {
         ))}
       </div>
 
-      {/* YouTube Video Overlay */}
+      {/* Vimeo Video Overlay */}
       {selectedVideo && (
-        <div className="fixed inset-0 bg-[#000000ab] bg-opacity-70 backdrop-blur-md flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-[#000000ab] bg-opacity-70 backdrop-blur-md flex items-center justify-center z-[99999999]">
           <div className="relative h-3/4 w-5/6 bg-black shadow-xl rounded-xl overflow-hidden flex flex-col">
             {/* Close button */}
             <button 
@@ -70,14 +87,14 @@ const Videos = () => {
               </svg>
             </button>
             
-            {/* YouTube Embed */}
+            {/* Vimeo Embed */}
             <div className="flex-1 w-full">
               <iframe
                 className="w-full h-full"
-                src={`https://www.youtube.com/embed/${selectedVideo.youtubeId}?autoplay=1`}
-                title="YouTube video player"
+                src={formatVimeoUrl(selectedVideo.vimeoUrl)}
+                title="Vimeo video player"
                 frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
               ></iframe>
             </div>
@@ -92,6 +109,12 @@ const Videos = () => {
       )}
     </div>
   )
+}
+
+const getVideos = async () =>{
+  const videoLink = '/custom/v1/videos/'
+  const result = await fetchApi(videoLink)
+  return result;
 }
 
 export default Videos

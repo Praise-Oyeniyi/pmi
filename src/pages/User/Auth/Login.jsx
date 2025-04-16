@@ -30,6 +30,7 @@ const Login = () => {
                 console.log(formData)
                 setSending(false)  
                 setFormData({email: ''})
+                navigate('/otp')
 
             } else {    
                 console.log(result)
@@ -40,7 +41,6 @@ const Login = () => {
         catch (error) {
             console.log(error)
         }
-        // navigate('/otp')
     }
 
   return (

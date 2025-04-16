@@ -38,6 +38,17 @@ export function createRelatedQueryOptions(id){
     })
 }
 
+export function createUserQueryOptions(){
+    return queryOptions({
+        queryKey: ['user'],
+        queryFn: getUser
+    })
+}
+
+
+
+
+
 const getComing = async (id) =>{
     const comingLink = `/custom/v1/upcoming-events?category_id=${id}`
     const result = await fetchApi(comingLink)
@@ -68,4 +79,10 @@ const getCert = async () =>{
     const certification = '/custom/v1/certifications-listing/'
     const result = await fetchApi(certification)
     return result
+}
+
+const getUser = async () =>{
+    const userLink = '/custom/v1/user'
+    const result = await fetchApi(userLink)
+    return result;
 }

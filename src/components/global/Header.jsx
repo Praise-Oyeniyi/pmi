@@ -5,16 +5,17 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaCaretDown } from "react-icons
 import { Link } from 'react-router-dom';
 import { FaChevronRight } from 'react-icons/fa6';
 import { AiOutlineClose } from "react-icons/ai";
-import { createCertQueryOptions, createSpecialQueryOptions } from '../queryOptions/QueryOptions';
+import { createCertQueryOptions, createSpecialQueryOptions, createUserQueryOptions } from '../queryOptions/QueryOptions';
 import { useQueries } from '@tanstack/react-query';
 
 const Header = () => {
     const [nav, setNav] = useState(false);
     const [menu, setMenu] = useState(null);
-    const [special, training] = useQueries({  
+    const [special, training, user] = useQueries({  
         queries:[
             createSpecialQueryOptions(),
             createCertQueryOptions(),
+            createUserQueryOptions(),
         ]
     })
     
@@ -186,8 +187,8 @@ const Header = () => {
                         </div>
                     </div>
                     
-                    <Link to={'/Login'}>
-                        <button className='text-base font-normal transition-all duration-300 ease-in hover:underline hover:text-[#200F3B] text-[#7C7C7C] cursor-pointer'>Login</button>
+                    <Link to={`${user.data.success? '/Profile' : '/Login'}`}>
+                        <button className='text-base font-normal transition-all duration-300 ease-in hover:underline hover:text-[#200F3B] text-[#7C7C7C] cursor-pointer'>{user.data.success? 'Profile' : 'Login'}</button>
                     </Link>
                 </div>
             </div>
@@ -302,8 +303,8 @@ const Header = () => {
                                     </div>
                                 </div>
 
-                                <Link to={'/Login'}>
-                                    <h5 className='text-base text-center font-normal text-[#7C7C7C] tracking-wide'>Log In</h5>
+                                <Link to={`${user.data.success? '/Profile' : '/Login'}`}>
+                                    <h5 className='text-base text-center font-normal text-[#7C7C7C] tracking-wide'>{user.data.success? 'Profile' : 'Log In'}</h5>
                                 </Link>
                             </div>
                         </div>

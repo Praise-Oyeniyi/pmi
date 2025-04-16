@@ -27,6 +27,7 @@ const Otp = () => {
             if (result.success){    
                 setFormData({otp: ''})
                 setSending(false)
+                navigate('/Profile')
             } else {    
                 console.log(result)
                 setSending(false)
@@ -35,7 +36,6 @@ const Otp = () => {
         catch (error) {
             console.log(error)
         }
-        // navigate('/otp')
     }
 
 
