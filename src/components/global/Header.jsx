@@ -187,8 +187,8 @@ const Header = () => {
                         </div>
                     </div>
                     
-                    <Link to={`${user.data.success? '/Profile' : '/Login'}`}>
-                        <button className='text-base font-normal transition-all duration-300 ease-in hover:underline hover:text-[#200F3B] text-[#7C7C7C] cursor-pointer'>{user.data.success? 'Profile' : 'Login'}</button>
+                    <Link to={`${user.data?.success? '/Profile' : '/Login'}`}>
+                        <button className='text-base font-normal transition-all duration-300 ease-in hover:underline hover:text-[#200F3B] text-[#7C7C7C] cursor-pointer'>{user.data?.success? 'Profile' : 'Login'}</button>
                     </Link>
                 </div>
             </div>
@@ -303,8 +303,8 @@ const Header = () => {
                                     </div>
                                 </div>
 
-                                <Link to={`${user.data.success? '/Profile' : '/Login'}`}>
-                                    <h5 className='text-base text-center font-normal text-[#7C7C7C] tracking-wide'>{user.data.success? 'Profile' : 'Log In'}</h5>
+                                <Link to={`${user.data?.success? '/Profile' : '/Login'}`}>
+                                    <h5 className='text-base text-center font-normal text-[#7C7C7C] tracking-wide'>{user.data?.success? 'Profile' : 'Log In'}</h5>
                                 </Link>
                             </div>
                         </div>

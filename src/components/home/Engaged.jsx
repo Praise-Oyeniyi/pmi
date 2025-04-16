@@ -13,7 +13,6 @@ const Engaged = () => {
     queryFn: getActive
   })
 
-  console.log(data?.data)
 
   return (
     <div>
