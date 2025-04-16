@@ -1,16 +1,46 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Footer from '../../../components/global/Footer'
 import Header from '../../../components/global/Header'
 import LI from '../../../assets/images/LoginImg.png'
 import { useNavigate } from 'react-router-dom'
+import { sendApi } from '../../../apis'
 
 
 const Login = () => {
     const navigate = useNavigate();
+    const [sending, setSending] = useState(false)
+    const [formData, setFormData] = useState({
+        email: '',
+    });
 
-    const handleSubmit = (e) =>{
+    const handleChange = (e) => {
+        setFormData(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value,
+        }));
+    };
+
+    const handleSubmit = async (e) =>{
         e.preventDefault();
-        navigate('/otp')
+        setSending(true)
+        const dataEnpoint = '/custom/v1/send-otp';
+        try {
+            const result = await sendApi(formData, dataEnpoint)
+            if (result.success){    
+                console.log(formData)
+                setSending(false)  
+                setFormData({email: ''})
+
+            } else {    
+                console.log(result)
+                setSending(false)
+                alert("email does not exist")
+            }
+        } 
+        catch (error) {
+            console.log(error)
+        }
+        // navigate('/otp')
     }
 
   return (
@@ -27,7 +57,7 @@ const Login = () => {
                         </div>
 
                         <div className="form">
-                            <form action='#' className='space-y-5' onSubmit={(e)=>handleSubmit(e)}>
+                            <form action='#' className='space-y-5' onSubmit={handleSubmit}>
                                 <div className="email-input w-full space-y-1">
                                     <label htmlFor="email" className=' text-sm md:text-xl font-normal block capitalize mb-1 text-[#200F3B]'>Registered Email*</label>
                                     <input 
@@ -36,11 +66,12 @@ const Login = () => {
                                         type="email" 
                                         name="email" 
                                         id="email" 
+                                        value={formData.email} onChange={handleChange}
                                         className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
                                     />
                                 </div>
 
-                                <button type="submit" className='h-[3.625rem] hover:opacity-80 transition-all duration-200 ease-in-out cursor-pointer w-full justify-center items-center tracking-wider flex text-white text-sm md:text-lg font-semibold bg-[#7030A0] rounded-lg'>Request OTP</button>
+                            <button type="submit" className={`h-[3.625rem] hover:opacity-80 transition-all duration-200 ease-in-out cursor-pointer w-full justify-center items-center tracking-wider flex text-white text-sm md:text-lg font-semibold bg-[#7030A0] rounded-lg ${sending && 'animate-pulse'}`}>{`${sending? 'Requesting': 'Request'}`} OTP</button>
                             </form>
                         </div>
                     </div>

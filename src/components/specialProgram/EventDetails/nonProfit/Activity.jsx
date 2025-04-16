@@ -1,5 +1,4 @@
 import React from 'react'
-import AI from '../../../../assets/images/non-profit.png'
 import NP1 from '../../../../assets/images/Rs 1 lakh contribution to Anudip Foundation.jpg'
 import NP2 from '../../../../assets/images/Oxygen Concentrators to Hemkunt.jpg'
 import NP3 from '../../../../assets/images/Collaborating with Robin Hood Army.jpg'

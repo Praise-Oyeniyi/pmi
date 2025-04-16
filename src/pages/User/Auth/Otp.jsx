@@ -1,17 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Footer from '../../../components/global/Footer'
 import Header from '../../../components/global/Header'
-import Logo from '../../../assets/images/logo.png'
 import LI from '../../../assets/images/LoginImg.png'
 import { useNavigate } from 'react-router-dom'
 
 const Otp = () => {
     const navigate = useNavigate();
+    const [sending, setSending] = useState(false)
+    const [formData, setFormData] = useState({
+        otp: '',
+    });
 
-    const handleSubmit = (e) =>{
+    const handleChange = (e) => {
+        setFormData(prev => ({
+            ...prev,
+            [e.target.name]: e.target.value,
+        }));
+    };
+
+    const handleSubmit = async (e) =>{
         e.preventDefault();
-        navigate('/Profile')
+        setSending(true)
+        const dataEnpoint = '/custom/v1/send-otp';
+        try {
+            const result = await sendApi(formData, dataEnpoint)
+            if (result.success){    
+                setFormData({otp: ''})
+                setSending(false)
+            } else {    
+                console.log(result)
+                setSending(false)
+            }
+        } 
+        catch (error) {
+            console.log(error)
+        }
+        // navigate('/otp')
     }
+
 
 
   return (
@@ -37,6 +63,7 @@ const Otp = () => {
                                         pattern='(?:0|[1-9]\d*)' 
                                         inputMode="decimal"
                                         name="otp" 
+                                        value={formData.otp} onChange={handleChange}
                                         id="otp" 
                                         className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
                                     />
@@ -47,7 +74,7 @@ const Otp = () => {
 
                             <div className='space-y-5 hidden'>
                                 <p className='text-[#404040] text-xl font-normal capitalize'>Didn’t receive it? check your spam folder or click on the button below.</p>
-                                <button type="submit" className='h-[3.625rem] cursor-pointer border border-[#FF0000] text-[#FF0000] w-full justify-center items-center tracking-wider flex bg-transparent text-sm md:text-lg font-semibold rounded-lg'>Request OTP</button>
+                                <button type="submit" className={`h-[3.625rem] cursor-pointer border border-[#FF0000] text-[#FF0000] w-full justify-center items-center tracking-wider flex bg-transparent text-sm md:text-lg font-semibold rounded-lg ${sending && 'animate-pulse'}`}>{`${sending? 'Requesting': 'Request'}`} OTP</button>
                                 
                             </div>
                         </div>
