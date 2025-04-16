@@ -3,6 +3,7 @@ import { FaChevronRight } from "react-icons/fa6";
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router';
 import EngagedLoader from '../global/Skeleton/EngagedLoader';
+import { fetchApi } from '../../apis';
 
 
 
@@ -12,6 +13,7 @@ const Engaged = () => {
     queryFn: getActive
   })
 
+  console.log(data?.data)
 
   return (
     <div>
@@ -54,9 +56,9 @@ const Engaged = () => {
 }
 
 const getActive = async () =>{
-  const activeLink = `/custom/v1/active-events/`
-    const result = await fetchApi(activeLink)
-    return result;
+  const activeLink = '/custom/v1/active-events/'
+  const result = await fetchApi(activeLink)
+  return result;
 }
 
 export default Engaged
