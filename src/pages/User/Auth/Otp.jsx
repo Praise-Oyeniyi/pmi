@@ -23,7 +23,7 @@ const Otp = () => {
     const handleSubmit = async (e) =>{
         e.preventDefault();
         setSending(true)
-        const dataEnpoint = '/custom/v1/send-otp';
+        const dataEnpoint = '/custom/v1/verify-otp';
         try {
             const result = await sendApi(formData, dataEnpoint)
             if (result.success){    
