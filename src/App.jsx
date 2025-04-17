@@ -16,6 +16,7 @@ import NonProfit from './pages/SpecialPrograms/NonProfit'
 import AcademicRelations from './pages/SpecialPrograms/AcademicRelations'
 import Membership from './pages/Membership'
 import NotFound from './pages/NotFound'
+import RecentVideos from './pages/User/RecentVideos'
 
 function App() {
 
@@ -24,16 +25,17 @@ function App() {
       <ScrollToTop>
         <Routes>
           <Route path='/' element={<Home/>}/>
-          <Route path ='/Special Program/:id' element={<SpecialProgram/>}/>
-          <Route path ='/Special Program/:name/:id' element={<EventDetails/>}/>
-          <Route path='/Certifications/:id' element={<Certifications/>}/>
-          <Route path='/About' element={<About/>}/>
-          <Route path='/Training' element={<Training/>}/>
-          <Route path='/Contact' element={<Contact/>}/>
-          <Route path='/Profile' element={<Profile/>}/>
-          <Route path='/Login' element={<Login/>}/>
+          <Route path ='/special Program/:id' element={<SpecialProgram/>}/>
+          <Route path ='/special Program/:name/:id' element={<EventDetails/>}/>
+          <Route path='/certifications/:id' element={<Certifications/>}/>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/training' element={<Training/>}/>
+          <Route path='/contact' element={<Contact/>}/>
+          <Route path='/profile' element={<Profile/>}/>
+          <Route path= 'profile/Videos/:id' element={<RecentVideos/>}/>
+          <Route path='/login' element={<Login/>}/>
           <Route path='/otp' element={<Otp/>}/>
-          <Route path='/Volunteer' element={<Volunteering/>}/>
+          <Route path='/volunteer' element={<Volunteering/>}/>
           <Route path='/non-profit' element={<NonProfit/>}/>
           <Route path='/academic-relations' element={<AcademicRelations/>}/>
           <Route path='/membership' element={<Membership/>}/>

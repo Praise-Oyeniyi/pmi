@@ -1,6 +1,8 @@
+import { useQueries } from '@tanstack/react-query'
 import { useQuery } from '@tanstack/react-query'
 import React from 'react'
 import { useState } from 'react'
+import { redirect } from 'react-router'
 import Footer from '../../../components/global/Footer'
 import Header from '../../../components/global/Header'
 import NotLoggedIn from '../../../components/global/NotLoggedIn'
@@ -13,6 +15,7 @@ const Profile = () => {
     const [tabbed, setTabbed] = useState(0)
 
     const {data, isPending} = useQuery(createUserQueryOptions())
+
 
 
   return (

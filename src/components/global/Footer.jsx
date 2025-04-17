@@ -2,15 +2,16 @@ import { useQueries } from '@tanstack/react-query';
 import React from 'react'
 import { Link } from 'react-router';
 import Logo from '../../assets/images/logo.png';
-import { createCertQueryOptions, createSpecialQueryOptions } from '../queryOptions/QueryOptions';
+import { createCertQueryOptions, createSpecialQueryOptions, createUserQueryOptions } from '../queryOptions/QueryOptions';
 
 
 const Footer = () => {
 
-    const [training, special] = useQueries({  
+    const [training, special, user] = useQueries({  
         queries:[
             createCertQueryOptions(),
             createSpecialQueryOptions(),
+            createUserQueryOptions()
         ]
     })
 
@@ -66,7 +67,7 @@ const Footer = () => {
                             <ul className="text-sm md:text-base font-normal space-y-2">
                                 <Link to={'/membership#benefits'}><li className='mb-3'>Membership Benefits</li></Link>
                                 <Link to={'/Volunteer'}><li className='mb-3'>Volunteer With Us</li></Link>
-                                <Link to={'/Login'}><li className='mb-3'>Member Dashboard</li></Link>
+                                <Link to={`${user.data?.success? '/Profile' : '/Login'}`}><li className='mb-3'>Member Dashboard</li></Link>
                             </ul>
                         </div>
                         <div>

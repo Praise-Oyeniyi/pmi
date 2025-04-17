@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Footer from '../../../components/global/Footer'
 import Header from '../../../components/global/Header'
 import LI from '../../../assets/images/LoginImg.png'
@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'
 import { Toaster, toast } from 'react-hot-toast';
 import { sendApi } from '../../../apis'
 import { useLocation } from 'react-router'
+import { useQuery } from '@tanstack/react-query'
+import { createUserQueryOptions } from '../../../components/queryOptions/QueryOptions'
 
 const Otp = () => {
     const navigate = useNavigate();
@@ -15,6 +17,15 @@ const Otp = () => {
     const [formData, setFormData] = useState({
         otp: '',
     });
+
+    const {data} = useQuery(createUserQueryOptions())
+
+
+    useEffect(() => {
+        if (data?.success) {
+        navigate('/profile');
+        }
+    }, [data, navigate]);
 
     const handleChange = (e) => {
         setFormData(prev => ({

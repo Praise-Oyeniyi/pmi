@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Footer from '../../../components/global/Footer'
 import Header from '../../../components/global/Header'
 import LI from '../../../assets/images/LoginImg.png'
 import { useNavigate } from 'react-router-dom'
 import { sendApi } from '../../../apis'
 import { Toaster, toast } from 'react-hot-toast';
+import { useQuery } from '@tanstack/react-query'
+import { createUserQueryOptions } from '../../../components/queryOptions/QueryOptions'
 
 
 const Login = () => {
@@ -13,6 +15,15 @@ const Login = () => {
     const [formData, setFormData] = useState({
         email: '',
     });
+    
+    const {data} = useQuery(createUserQueryOptions())
+
+
+    useEffect(() => {
+        if (data?.success) {
+        navigate('/profile');
+        }
+    }, [data, navigate]);
 
     const handleChange = (e) => {
         setFormData(prev => ({

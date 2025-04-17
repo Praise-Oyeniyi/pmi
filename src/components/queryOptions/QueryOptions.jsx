@@ -45,6 +45,20 @@ export function createUserQueryOptions(){
     })
 }
 
+export function createVideoQueryOptions(){
+    return queryOptions({
+        queryKey: ['videos'],
+        queryFn: getVideos
+    })
+}
+
+
+export function createRecentVideoQueryOptions(){
+    return queryOptions({
+        queryKey: ['recentVideo'],
+        queryFn: getRVideo
+    })
+}
 
 
 
@@ -84,5 +98,17 @@ const getCert = async () =>{
 const getUser = async () =>{
     const userLink = '/custom/v1/user'
     const result = await fetchApi(userLink)
+    return result;
+}
+
+const getVideos = async () =>{
+    const videoLink = '/custom/v1/videos/'
+    const result = await fetchApi(videoLink)
+    return result;
+}
+
+const getRVideo = async () =>{
+    const videoLink = '/custom/v1/recent-videos/'
+    const result = await fetchApi(videoLink)
     return result;
 }

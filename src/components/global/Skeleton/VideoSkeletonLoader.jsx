@@ -1,8 +1,8 @@
-const VideoSkeletonLoader = () => {
+const VideoSkeletonLoader = ({count = 8}) => {
     return (
       <>
         {/* Generate 8 skeleton loaders */}
-        {[...Array(8)].map((_, index) => (
+        {[...Array(count)].map((_, index) => (
           <div key={index} className="w-full capitalize">
             <div className='w-full'>
               {/* Thumbnail skeleton */}
