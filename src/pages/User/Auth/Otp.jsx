@@ -5,10 +5,13 @@ import LI from '../../../assets/images/LoginImg.png'
 import { useNavigate } from 'react-router-dom'
 import { Toaster, toast } from 'react-hot-toast';
 import { sendApi } from '../../../apis'
+import { useLocation } from 'react-router'
 
 const Otp = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const [sending, setSending] = useState(false)
+    const mail = location.state?.email;
     const [formData, setFormData] = useState({
         otp: '',
     });
@@ -16,6 +19,7 @@ const Otp = () => {
     const handleChange = (e) => {
         setFormData(prev => ({
             ...prev,
+            email:mail,
             [e.target.name]: e.target.value,
         }));
     };
@@ -38,7 +42,6 @@ const Otp = () => {
             }
         } 
         catch (error) {
-            console.log(error)
             toast.error('Incorrect Code. Please try again!')
         }
     }
@@ -61,7 +64,7 @@ const Otp = () => {
                         <div className="form space-y-10">
                             <form action="#" className='space-y-5' onSubmit={(e)=>handleSubmit(e)}>
                                 <div className="otp-input w-full space-y-1">
-                                    <label htmlFor="otp" className=' text-sm md:text-lg font-normal block capitalize mb-1 text-[#200F3B]'>Enter OTP*</label>
+                                    <label htmlFor="otp" className=' text-sm md:text-base font-normal block capitalize mb-1 text-[#200F3B]'>Enter OTP*</label>
                                     <input 
                                         required
                                         placeholder='******'
@@ -78,9 +81,11 @@ const Otp = () => {
                                 <button type="submit" className='h-[3.625rem] hover:opacity-80 transition-all duration-200 ease-in-out cursor-pointer w-full justify-center items-center tracking-wider flex text-white text-sm md:text-lg font-semibold bg-[#7030A0] rounded-lg'>Log In</button>
                             </form>
 
-                            <div className='space-y-5 hidden'>
-                                <p className='text-[#404040] text-xl font-normal capitalize'>Didn’t receive it? check your spam folder or click on the button below.</p>
-                                <button type="submit" className={`h-[3.625rem] cursor-pointer border border-[#FF0000] text-[#FF0000] w-full justify-center items-center tracking-wider flex bg-transparent text-sm md:text-base font-semibold rounded-lg ${sending && 'animate-pulse'}`}>{`${sending? 'Requesting': 'Request'}`} OTP</button>
+                            <div className='space-y-2 md:space-y-3'>
+                                <p className='text-[#404040] text-sm font-normal capitalize'>Didn’t receive it? check your spam folder or click on the button below.</p>
+                                <button type="submit"
+                                    onClick={() => window.history.back()} 
+                                    className={`h-[3rem] cursor-pointer border border-[#FF0000] text-[#FF0000] w-full justify-center items-center tracking-wider flex bg-transparent text-sm md:text-base font-semibold rounded-lg ${sending && 'animate-pulse'}`}>{`${sending? 'Requesting': 'Request'}`} OTP</button>
                                 
                             </div>
                         </div>

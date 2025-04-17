@@ -30,8 +30,8 @@ const Login = () => {
             if (result.success){    
                 toast.success('OTP sent. Please check your mail!')
                 setSending(false)  
+                navigate('/otp', { state: { email: formData.email } })
                 setFormData({email: ''})
-                navigate('/otp')
 
             } else {    
                 setSending(false)
@@ -62,7 +62,7 @@ const Login = () => {
                         <div className="form">
                             <form action='#' className='space-y-5' onSubmit={handleSubmit}>
                                 <div className="email-input w-full space-y-1">
-                                    <label htmlFor="email" className=' text-sm md:text-lg font-normal block capitalize mb-1 text-[#200F3B]'>Registered Email*</label>
+                                    <label htmlFor="email" className=' text-sm md:text-base font-normal block capitalize mb-1 text-[#200F3B]'>Registered Email*</label>
                                     <input 
                                         required 
                                         placeholder='you@example.com' 
