@@ -39,7 +39,7 @@ const Videos = () => {
 
   return (
     <div className='w-full space-y-4 md:space-y-7 relative'>
-      <h3 className='text-2xl md:text-4xl font-bold'>{data?.data.length} Videos</h3>
+      <h3 className='text-2xl md:text-3xl font-bold'>{data?.data.length} Videos</h3>
 
       <div className='w-full grid justify-start items-start gap-4 gap-y-7 grid-cols-2 md:grid-cols-4 flex-wrap'>
         {isPending?

@@ -23,7 +23,7 @@ const Upcoming = ({id}) => {
   return (
     <div className='w-full my-16 md:my-20'>
         <div className="inner w-[90%] md:w-5/6 mx-auto bg-[#00799E] rounded-[20px] py-5 md:py-7 px-3 md:px-14">
-            <h4 className='uppercase text-white font-semibold tracking-wider text-2xl md:text-4xl '>upcoming events</h4>
+            <h4 className='uppercase text-white font-semibold tracking-wider text-2xl md:text-3xl'>upcoming events</h4>
             {isPending?
               <EngagedLoader count={1}/>
               : 
@@ -37,7 +37,7 @@ const Upcoming = ({id}) => {
                   body={coming[0]?.brief_content}/>
               )
               :
-              <h3 className='text-base md:text-xl font-bold leading-tight text-white py-5'>No Upcoming Events</h3>
+              <h3 className='text-base md:text-xl font-medium leading-tight text-white py-3'>No Upcoming Events</h3>
             }
         </div>
     </div>

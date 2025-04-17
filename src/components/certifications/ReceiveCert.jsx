@@ -74,8 +74,8 @@ const ReceiveCert = ({explore, whatReceive}) => {
         <div>
             <div className='mx-auto w-[90%] md:w-5/6'>
                 <div className="w-full space-y-4 md:space-y-0 md:flex justify-between items-center gap-x-10">
-                    <h3 className='text-2xl md:text-5xl font-bold'>What You’ll Receive</h3>
-                    <p className='w-full md:w-3/6 text-sm md:text-2xl font-semibold'>This training includes PMI’s latest digital learning toolkit, designed to give you everything you need to pass the exam:</p>
+                    <h3 className='text-2xl md:text-4xl font-bold'>What You’ll Receive</h3>
+                    <p className='w-full md:w-3/6 text-sm md:text-xl font-medium'>This training includes PMI’s latest digital learning toolkit, designed to give you everything you need to pass the exam:</p>
                 </div>
             </div>
             <div className='w-full overflow-x-hidden  mt-7'>
@@ -90,7 +90,7 @@ const ReceiveCert = ({explore, whatReceive}) => {
                                 onTouchEnd={handleTouchEnd}
                             >
                                 <div className='w-full self-stretch font-semibold px-7 md:px-0 text-center space-y-5 flex flex-col justify-center items-center'>
-                                    <h3 className='text-purple text-4xl md:text-5xl h-1/4'>{formatIndex(index + 1)}</h3>
+                                    <h3 className='text-purple text-4xl md:text-4xl h-1/4'>{formatIndex(index + 1)}</h3>
                                     <p className='text-lg md:-2xl h-2/4'>{e && e}</p>
                                 </div>
                             </div>

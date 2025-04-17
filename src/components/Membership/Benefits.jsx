@@ -33,7 +33,7 @@ const Benefits = () => {
     <div className="w-full">
         <div className="mx-auto md:w-5/6 w-[90%] pb-10" id='benefits'>
             <div className=' mt-7 w-full'>
-                <h3 className='font-bold text-2xl md:text-5xl leading-snug text-center capitalize'>Benefits from your membership</h3>
+                <h3 className='font-bold text-2xl md:text-4xl leading-snug text-center capitalize'>Benefits from your membership</h3>
             </div>
             <div>
                 {benefits.map((e, index)=>(
@@ -43,7 +43,7 @@ const Benefits = () => {
                         </div>
 
                         <div className='text-lg font-normal flex justify-between gap-x-8 text-[#200F3B] md:w-5/6'>
-                            <div className='space-y-2 w-full text-sm md:text-xl'>
+                            <div className='space-y-2 w-full text-sm md:text-lg'>
                                 <ul className='list-disc pl-7'>
                                     {e.offers.map((offer, index)=>(
                                         <li key={index}>{offer}</li>

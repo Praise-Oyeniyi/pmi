@@ -33,7 +33,7 @@ const getPast = async (year, id) =>{
     <div className='w-full mt-16 mb-7 md:my-20 overflow-x-hidden'>
         <div className="inner w-[90%] md:w-5/6 mx-auto py-5 md:py-7 md:px-14">
             <div className='flex items-center gap-x-5 md:gap-x-7 md:mb-4'>
-                <h4 className='uppercase text-black font-semibold tracking-wider text-2xl md:text-4xl'>past events</h4>
+                <h4 className='uppercase text-black font-semibold tracking-wider text-2xl md:text-3xl'>past events</h4>
                 <select 
                   onClick={(e)=>setYear(e.target.value)}
                   className='bg-[#F2F2F2] outline-0 rounded-[2px] text-sm md:text-base font-semibold  border border-[#DCDCDC] w-fit px-3 py-2'
@@ -50,7 +50,7 @@ const getPast = async (year, id) =>{
               <EngagedLoader/>
               : 
                Array.isArray(info) && info.length > 0 ? (
-                <div>
+                <div className='space-y-2'>
                     {info.map((event, index)=>(
                         <div key={index}>
                             <EngagedBox image={event?.featured_image.url} 
@@ -66,7 +66,7 @@ const getPast = async (year, id) =>{
                 </div>
               )
               :
-              <h3 className='text-base md:text-xl font-bold leading-tight'>No Past Events</h3>
+              <h3 className='text-base md:text-xl font-medium leading-tight'>No Past Events</h3>
             }
             
         </div>

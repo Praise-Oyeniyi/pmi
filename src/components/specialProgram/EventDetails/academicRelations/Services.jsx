@@ -18,10 +18,10 @@ const Services = () => {
     <div>
         <div className='w-full'>
             <div className='w-[90%] md:w-5/6 mx-auto border-b border-b-[#DBD8D1] pb-7' id='services'>
-                <h3 className='font-bold text-2xl md:text-5xl leading-snug text-center pb-3 capitalize '>Services And Engagements</h3>
+                <h3 className='font-bold text-2xl md:text-4xl leading-snug text-center pb-3 capitalize '>Services And Engagements</h3>
 
                 <div className='space-y-3'>
-                    <h4 className='text-purple text-xl md:text-2xl font-semibold'>Certification</h4>
+                    <h4 className='text-purple text-lg md:text-xl font-semibold tracking-wide'>Certification</h4>
 
                     <div className='space-y-5'>
                         {certifications.map((cert, index)=>(
@@ -37,17 +37,17 @@ const Services = () => {
                     </div>
                 </div>
 
-                <div className="text-[#200F3B] mt-5 text-sm md:text-xl font-normal space-y-3">
+                <div className="text-[#200F3B] mt-5 text-sm md:text-lg font-normal space-y-3">
 
                     <div className='space-y-2'>
-                        <h4 className='text-purple text-lg md:text-2xl font-semibold'>Awareness</h4>
+                        <h4 className='text-purple text-lg md:text-xl font-semibold tracking-wide'>Awareness</h4>
                         <ul className='space-y-2'>
                             <li className='capitalize md:w-4/6'>anel Discussions & Sessions for Faculty/Management at Institutions Awareness sessions for Students - experience sharing by PM stalwarts.</li>
                         </ul>
                     </div>
 
                     <div className='space-y-2'>
-                        <h4 className='text-purple text-lg md:text-2xl font-semibold'>Generic sessions</h4>
+                        <h4 className='text-purple text-lg md:text-xl font-semibold tracking-wide'>Generic sessions</h4>
                         <ul className='space-y-2 list-disc pl-7'>
                             <li>Overview and Relevance of Project Management</li>
                             <li>History of Project Management</li>
@@ -57,7 +57,7 @@ const Services = () => {
                     </div>
 
                     <div className='space-y-2'>
-                        <h4 className='text-purple text-lg md:text-2xl font-semibold'>Research Collaboration</h4>
+                        <h4 className='text-purple text-lg md:text-xl font-semibold tracking-wide'>Research Collaboration</h4>
                         <ul className='space-y-2 list-disc pl-7'>
                             <li>Identify common themes of collaboration (PM Related)</li>
                             <li>Define goal scope of research, identify resources etc.</li>

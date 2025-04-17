@@ -53,8 +53,8 @@ const Volunteer = () => {
     <div className='w-full'>
         <div className='w-[90%] md:w-5/6 mx-auto' id='volunteer'>
             <div className='my-7 space-y-2'>
-                <h3 className='font-bold text-2xl md:text-5xl leading-snug text-center capitalize md:tracking-normal tracking-tight'>Volunteering knows no age limit</h3>
-                <p className='md:text-xl text-lg text-[#200F3B] text-center'>The purpose of life is not to be happy, but to matter- to be productive, to be useful, to have it make some difference that you have lived at all." - Leo Rosten</p>
+                <h3 className='font-bold text-2xl md:text-4xl leading-snug text-center capitalize md:tracking-normal tracking-tight'>Volunteering knows no age limit</h3>
+                <p className='text-lg text-[#200F3B] text-center'>The purpose of life is not to be happy, but to matter- to be productive, to be useful, to have it make some difference that you have lived at all." - Leo Rosten</p>
             </div>
             
             <div className="course-body">
@@ -63,8 +63,8 @@ const Volunteer = () => {
                         <div className={`border-b border-b-[#DBD8D1] pt-3 md:py-6 md:flex justify-between gap-x-20 items-start ${index === volunteerInfo.length-1 && 'border-none'}`} key={index}>
 
                             <div className='w-auto text-lg font-normal md:flex justify-between gap-x-8 text-[#200F3B]'>
-                                <h4 className='text-lg md:text-3xl font-bold text-dark w-full md:w-[45%]'>{e.title}</h4>
-                                <div className='space-y-2 w-full text-sm md:text-xl   md:w-[55%]'>
+                                <h4 className='text-lg md:text-2xl font-bold text-dark w-full md:w-[45%]'>{e.title}</h4>
+                                <div className='space-y-2 w-full text-sm md:text-lg   md:w-[55%]'>
                                     <p  dangerouslySetInnerHTML={{ __html: e.para }} className='text=[#200F3B]'/>
                                     <ul className='list-disc pl-7'>
                                         {e.offers.map((offer, index)=>(
@@ -97,11 +97,11 @@ const Volunteer = () => {
                         </p>
 
 
-                        <button className='text-md:text-lg py-3 px-7 rounded-full bg-purple text-white cursor-pointer hover:opacity-85 transition-all ease-in duration-200'>
+                        <button className='text-base py-3 px-7 rounded-full bg-purple text-white cursor-pointer hover:opacity-85 transition-all ease-in duration-200'>
                             View current opportunites
                         </button>
 
-                        <h4 className='text-dark text-xl md:text-3xl font-bold'>Happy Volunteering at PMIBC</h4>
+                        <h4 className='text-dark text-lg md:text-xl font-bold'>Happy Volunteering at PMIBC</h4>
                     </div>
                 </div>
             </div>

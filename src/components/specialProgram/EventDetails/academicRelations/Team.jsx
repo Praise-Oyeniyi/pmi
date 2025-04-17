@@ -22,7 +22,7 @@ const Team = () => {
   return (
     <div className='w-full'>
         <div className='w-[90%] md:w-5/6 mx-auto border-b border-b-[#DBD8D1] pb-7 space-y-5' id='team'>
-            <h3 className='font-bold text-2xl md:text-5xl leading-snug text-center md:pb-3 capitalize '>The team</h3>
+            <h3 className='font-bold text-2xl md:text-4xl leading-snug text-center md:pb-3 capitalize '>The team</h3>
 
             <div>
                 <div className='space-y-7'>
@@ -32,7 +32,7 @@ const Team = () => {
                                 <img src={teamWho.image} alt="" className='w-full absolute h-full object-cover'/>
                             </div>
 
-                            <p className='md:text-xl text-sm'>{teamWho.about}</p>
+                            <p className='md:text-lg text-sm'>{teamWho.about}</p>
                         </div>
                         
                     ))}

@@ -65,12 +65,12 @@ const Chapter = () => {
     <div className='w-full'>
         <div className="mx-auto w-[90%] md:w-5/6 space-y-10" id='chapter'>
             <div className='bg-hero-bg rounded-3xl overflow-hidden border border-[#BFBFBF]'>
-                <h4 className='w-full py-2 md:py-4 text-center text-base font-semibold md:text-xl'>Volunteers</h4>
+                <h4 className='w-full py-2 md:py-4 text-center text-base font-semibold md:text-lg'>Volunteers</h4>
                 <ChapterTable item={info.Volunteers}/>
             </div>
 
             <div className='bg-hero-bg rounded-3xl overflow-hidden border border-[#BFBFBF]'>
-                <h4 className='w-full py-2 md:py-4 text-center text-base font-semibold md:text-xl'>AVP</h4>
+                <h4 className='w-full py-2 md:py-4 text-center text-base font-semibold md:text-lg'>AVP</h4>
                 <ChapterTable item={info.AVP}/>
             </div>
         </div>

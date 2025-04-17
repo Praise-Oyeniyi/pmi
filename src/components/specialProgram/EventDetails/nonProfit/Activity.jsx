@@ -40,8 +40,8 @@ const Activity = () => {
                 <div className={`border-b border-b-[#DBD8D1] pt-3 md:py-6 md:flex justify-between gap-x-20 items-start ${index === activityInfo.length-1 && 'border-none pb-5'}`} key={index}>
 
                     <div className='w-auto text-lg font-normal md:flex justify-between gap-x-8 text-[#200F3B]'>
-                        <h4 className='text-lg md:text-3xl font-bold text-dark w-full md:w-[45%]'>{e.title}</h4>
-                        <div className='space-y-2 w-full text-sm md:text-xl   md:w-[55%]'>
+                        <h4 className='text-lg md:text-2xl font-bold text-dark w-full md:w-[45%]'>{e.title}</h4>
+                        <div className='space-y-2 w-full text-sm md:text-lg   md:w-[55%]'>
                             <p  dangerouslySetInnerHTML={{ __html: e.para }} className='text=[#200F3B]'/>
                             {/* <ul className='list-disc pl-7'>
                                 {e.offers.map((offer, index)=>(

@@ -6,8 +6,8 @@ const Objectives = () => {
     <div className='w-full'>
         <div className='w-[90%] md:w-5/6 mx-auto space-y-2 border-b border-b-[#DBD8D1] pb-10' id='obj'>
             <div className=' space-y-2 mt-7'>
-                <h3 className='font-bold text-2xl md:text-5xl leading-snug text-center capitalize'>Objectives</h3>
-                <p className='md:text-xl text-lg text-[#200F3B]'>PMI Bengaluru Chapter Academic relations portfolio aims to build relationships with academic institutions in Bangalore & Karnataka, partnering in the area of project management through certifications, awareness, events, research et al</p>
+                <h3 className='font-bold text-2xl md:text-4xl leading-snug text-center capitalize'>Objectives</h3>
+                <p className='text-lg text-[#200F3B]'>PMI Bengaluru Chapter Academic relations portfolio aims to build relationships with academic institutions in Bangalore & Karnataka, partnering in the area of project management through certifications, awareness, events, research et al</p>
             </div>
 
             <div className="obj-img-box w-[90%] md:w-5/6 mx-auto">
@@ -17,13 +17,13 @@ const Objectives = () => {
                 
             </div>
 
-            <div className="text-[#200F3B] text-sm md:text-xl font-normal space-y-3">
-                <p className='text-[#200F3B] text-sm md:text-xl font-normal'>
+            <div className="text-[#200F3B] text-sm md:text-lg font-normal space-y-3">
+                <p className='text-[#200F3B] text-sm md:text-lg font-normal'>
                     Build partnerships with Academic institutions in Bangalore and Karnataka.Deliver Services on time and quality
                 </p>
 
                 <div className='space-y-2'>
-                    <h4 className='text-purple text-lg md:text-2xl font-semibold'>Stakeholders/Customers</h4>
+                    <h4 className='text-purple text-lg md:text-xl font-semibold tracking-wide'>Stakeholders/Customers</h4>
                     <ul className='space-y-2 list-disc pl-7'>
                         <li>Business Schools</li>
                         <li>Engineering Colleges</li>
@@ -32,7 +32,7 @@ const Objectives = () => {
                 </div>
 
                 <div className='space-y-2'>
-                    <h4 className='text-purple text-lg md:text-2xl font-semibold'>Axes of Engagement</h4>
+                    <h4 className='text-purple text-lg md:text-xl font-semibold tracking-wide'>Axes of Engagement</h4>
                     <ul className='space-y-2 list-disc pl-7'>
                         <li>Certifications</li>
                         <li>Awareness</li>
@@ -42,7 +42,7 @@ const Objectives = () => {
                 </div>
 
                 <div className='space-y-2'>
-                    <h4 className='text-purple text-lg md:text-2xl font-semibold'>Please contact:</h4>
+                    <h4 className='text-purple text-lg md:text-xl font-semibold tracking-wide'>Please contact:</h4>
                     <ul className='space-y-2'>
                         <li>Academic Relations Team (academicrelations@pmibangalore.org)</li>
                         <li>Kartikeyan Ramamurthy</li>

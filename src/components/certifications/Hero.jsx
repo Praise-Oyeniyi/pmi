@@ -17,7 +17,7 @@ const Hero = ({image, title, duration, body, url, id, link}) => {
             style={{backgroundImage: `url(${certBG.background_image.url})`}}
             >
                 <div className="mx-auto w-[90%] md:w-5/6 ">
-                    <h4 className='text-sm md:text-xl hero-link text-nowrap w-5/6 truncate md:w-full font-semibold' dangerouslySetInnerHTML={{ __html: `<a href='/' className='hover:underline'>Home</a> / Certifications / ${url}`}}/>
+                    <h4 className='text-sm md:text-lg hero-link text-nowrap w-5/6 truncate md:w-full font-semibold tracking-wider' dangerouslySetInnerHTML={{ __html: `<a href='/' className='hover:underline'>Home</a> / Certifications / ${url}`}}/>
 
                     <div className='w-full md:flex gap-x-10 space-y-7 md:space-y-0 mt-7'>
                         <div className='w-full md:w-3/6 md:h-[30rem] flex justify-center px-10 md:px-0'>
@@ -25,18 +25,18 @@ const Hero = ({image, title, duration, body, url, id, link}) => {
                         </div>
 
                         <div className='w-full md:w-3/6 space-y-3'>
-                            <h5 className={`text-sm md:text-lg font-semibold rounded-full px-4 h-8 flex justify-center items-center border border-[#291843] w-fit 
+                            <h5 className={`text-sm md:text-base font-medium tracking-wide rounded-full px-4 h-8 flex justify-center items-center border border-[#291843] w-fit 
                                 ${title && title.toLowerCase().includes('pmp') && '!text-white !border-white'}
                                 `}
                             >
                                 Certification
                             </h5>
-                            <h3 className='font-bold text-3xl w-5/6 md:w-full md:text-5xl'>{title && title}</h3>
-                            <h4 className='text-base md:text-3xl font-semibold'>{duration}</h4>
+                            <h3 className='font-bold text-3xl w-5/6 md:w-full md:text-4xl tracking-wider'>{title && title}</h3>
+                            <h4 className='text-base md:text-2xl font-semibold'>{duration}</h4>
                             <div className={`text-sm md:text-lg font-normal space-y-2 list-disc  ${id !== '2691'? 'text-[#291843]': 'text-[#ffffffc0]'}`} dangerouslySetInnerHTML={{ __html: body }}/>
                             <Link to={`${link}`}>
                                 <button 
-                                    className='mt-5 bg-white rounded-full cursor-pointer transition-all ease-linear duration-300 hover:bg-[#0003] hover:text-white flex justify-center items-center text-sm md:text-lg font-semibold text-[#040301] px-7 py-3'
+                                    className='mt-5 bg-white rounded-full cursor-pointer transition-all ease-linear duration-300 hover:bg-[#0003] hover:text-white flex justify-center items-center text-sm md:text-base font-semibold text-[#040301] px-7 py-3'
                                 >
                                     Click Here To Register
                                 </button>

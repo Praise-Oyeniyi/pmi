@@ -89,13 +89,13 @@ const Header = () => {
 
                 <div className="header-left w-3/6 flex items-center gap-x-8">
                     <Link to={'/'}>
-                        <div className="logo w-[8rem] h-17 max-h-17 overflow-hidden flex">
+                        <div className="logo w-[7.85rem] h-12 max-h-12 overflow-hidden flex">
                             <img src={Logo} alt="pmi-logo" className='object-contain w-full h-full z-[9999999]'/>
                         </div>
                     </Link>
 
                     <nav className="menu w-fit">
-                        <ul className='text-black flex items-center gap-x-1 text-xl font-semibold h-18 relative'>
+                        <ul className='text-black flex items-center gap-x-1 tracking-wider text-base font-semibold h-16 relative'>
                             <li className='min-w-fit h-full'>
                                 <Link to={'/About'}>
                                     <div className='flex items-center px-3 h-full hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>About Us</div>
@@ -110,7 +110,7 @@ const Header = () => {
                                         Array.isArray(training.data?.data) && training.data.data.length > 0 ? (
                                             training.data.data.map((item, index) => (
                                                 <Link to={`/Certifications/${item.cert_id}`} key={index}>
-                                                    <li key={index} className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200 capitalize'>{item?.shortform.toLowerCase().includes('pmp') ? item.shortform+' Certfication Training': item.shortform+' Training'}</li>
+                                                    <li key={index} className='hover:border-b-[#200F3B] mb-1 w-fit border-b border-b-transparent transition-all ease-in duration-200 capitalize'>{item?.shortform.toLowerCase().includes('pmp') ? item.shortform+' Certfication Training': item.shortform+' Training'}</li>
                                                 </Link>
                                             ))
                                         )
@@ -122,7 +122,7 @@ const Header = () => {
                             </li>
                             
                             <li className='min-w-fit h-full relative group'>
-                                <div className='relative flex items-center px-3 h-full group-hover:bg-secondary group-hover:text-white duration-300 transition-all ease-linear'>Special Program</div>
+                                <div className='relative flex items-center px-3 h-full group-hover:bg-secondary group-hover:text-white duration-300 transition-all ease-linear'>Special Programs</div>
                                 <ul className='font-normal absolute space-y-1 w-64 z-50 group-hover:border-t-secondary group-hover:block text-[#676767] bg-white border border-hero-bg px-4 py-3 border-t-4 border-t-transparent hidden'>
                                     {special.isPending ?
                                         <li className='animate-pulse'>Loading Menus...</li>
@@ -130,7 +130,7 @@ const Header = () => {
                                         Array.isArray(special.data?.data) && special.data.data.length > 0 ? (
                                             special.data.data.map((item, index) => (
                                                 <Link to={`/Special Program/${item.id}`} key={index}>
-                                                    <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>{item.name}</li>
+                                                    <li className='hover:border-b-[#200F3B] mb-1 w-fit border-b border-b-transparent transition-all ease-in duration-200'>{item.name}</li>
                                                 </Link>
                                             ))
                                         )
@@ -138,7 +138,7 @@ const Header = () => {
                                         <li>Please reload page</li>
                                     }
                                     <Link to={'/academic-relations'}>
-                                        <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Academic Relations</li>
+                                        <li className='hover:border-b-[#200F3B] mb-1 w-fit border-b border-b-transparent transition-all ease-in duration-200'>Academic Relations</li>
                                     </Link>
                                     <Link to={"/non-profit"}>
                                         <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Non-Profits and NGOs</li>
@@ -149,7 +149,7 @@ const Header = () => {
                                 <div className='relative flex items-center px-3 h-full group-hover:bg-secondary group-hover:text-white duration-300 transition-all ease-linear'>Volunteering</div>
                                 <ul className='font-normal absolute space-y-1 w-64 z-50 group-hover:border-t-secondary group-hover:block text-[#676767] bg-white border border-hero-bg px-4 py-3 border-t-4 border-t-transparent hidden'>
                                     <Link to={'/membership'}>
-                                        <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Membership</li>
+                                        <li className='hover:border-b-[#200F3B] mb-1 w-fit border-b border-b-transparent transition-all ease-in duration-200'>Membership</li>
                                     </Link>
                                     <Link to={'/Volunteer'}>
                                         <li className='hover:border-b-[#200F3B] w-fit border-b border-b-transparent transition-all ease-in duration-200'>Volunteering</li>
@@ -250,7 +250,7 @@ const Header = () => {
                                         <div 
                                             className='text-sm font-medium px-5 pr-7 py-3 border-b border-b-[#BFBFBF] flex justify-between items-center'
                                         >
-                                            Special Program 
+                                            Special Programs 
                                             <span className="h-5 z-30 flex justify-end items-center">
                                                 <FaChevronRight size={10}/>
                                             </span>

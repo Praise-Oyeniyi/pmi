@@ -82,8 +82,8 @@ const EventDetails = () => {
                 <div>
                   <div className='md:w-5/6 w-[90%] mx-auto mt-16 md:mt-20 mb-10 md:flex justify-between items-center space-y-3 md:space-y-0'>
                     <div className='md:w-2/6 w-5/6'>
-                      <h4 className='text-2xl md:text-3xl font-bold pb-2'>Fees</h4>
-                      <p>Early Bird offer till April 20th is 5500 all inclusive for all members/non members.</p>
+                      <h4 className='text-2xl md:text-2xl font-bold pb-2'>Fees</h4>
+                      <p className='text-sm md:text-lg'>Early Bird offer till April 20th is 5500 all inclusive for all members/non members.</p>
                     </div>
 
                     <Link to={`${result1.data.data.fees_right_section[0]?.linkfile}`} target={'_blank'}>
@@ -95,7 +95,7 @@ const EventDetails = () => {
                             </div>
 
                             <div className='w-4/6'>
-                              <h4 className='text-xl md:text-3xl font-bold pb-2 line-clamp-3 overflow-hidden'>{result1.data.data.fees_right_section[0]?.label}</h4>
+                              <h4 className='text-xl md:text-2xl font-bold pb-2 line-clamp-3 overflow-hidden'>{result1.data.data.fees_right_section[0]?.label}</h4>
                             </div>
                           </div>
                         </div> 
@@ -110,9 +110,9 @@ const EventDetails = () => {
 
               <div className='w-full mt-16 md:mt-20 mb-10'>
                 <div className='md:max-w-5/6 mx-auto md:w-5/6 w-[90%]'>
-                  <h3 className='text-2xl md:text-5xl font-bold'>Related Events</h3>
+                  <h3 className='text-2xl md:text-3xl font-bold tracking-wide'>Related Events</h3>
 
-                  <div className='w-full grid-cols-1 md:grid-cols-2 pt-7 md:pt-10 gap-y-6 gap-x-3 grid justify-between items-stretch h-full'>
+                  <div className='w-full grid-cols-1 md:grid-cols-2 pt-5 md:pt-7 gap-y-6 gap-x-3 grid justify-between items-stretch h-full'>
                     {result2.isPending?
                       <RelatedLoader/>
                       :

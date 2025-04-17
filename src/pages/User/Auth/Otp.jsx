@@ -3,6 +3,8 @@ import Footer from '../../../components/global/Footer'
 import Header from '../../../components/global/Header'
 import LI from '../../../assets/images/LoginImg.png'
 import { useNavigate } from 'react-router-dom'
+import { Toaster, toast } from 'react-hot-toast';
+import { sendApi } from '../../../apis'
 
 const Otp = () => {
     const navigate = useNavigate();
@@ -25,16 +27,19 @@ const Otp = () => {
         try {
             const result = await sendApi(formData, dataEnpoint)
             if (result.success){    
+                toast.success('Login Successful!')
                 setFormData({otp: ''})
                 setSending(false)
                 navigate('/Profile')
             } else {    
-                console.log(result)
+                toast.error('Incorrect Code. Please try again!')
                 setSending(false)
+                setFormData({otp: ''})
             }
         } 
         catch (error) {
             console.log(error)
+            toast.error('Incorrect Code. Please try again!')
         }
     }
 
@@ -43,6 +48,7 @@ const Otp = () => {
   return (
     <div className='w-full h-auto bg-hero-bg font-aeonik text-dark !overflow-x-hidden'>
         <Header/>
+        <Toaster position="top-right" />
         <div className='main w-full md:border-t border-t-[#D9D9D9] bg-white'>
             <div className='flex justify-between items-center gap-x-28'> 
                 <div className=" w-full md:w-[45%]">
@@ -55,7 +61,7 @@ const Otp = () => {
                         <div className="form space-y-10">
                             <form action="#" className='space-y-5' onSubmit={(e)=>handleSubmit(e)}>
                                 <div className="otp-input w-full space-y-1">
-                                    <label htmlFor="otp" className=' text-sm md:text-xl font-normal block capitalize mb-1 text-[#200F3B]'>Enter OTP*</label>
+                                    <label htmlFor="otp" className=' text-sm md:text-lg font-normal block capitalize mb-1 text-[#200F3B]'>Enter OTP*</label>
                                     <input 
                                         required
                                         placeholder='******'
@@ -74,7 +80,7 @@ const Otp = () => {
 
                             <div className='space-y-5 hidden'>
                                 <p className='text-[#404040] text-xl font-normal capitalize'>Didn’t receive it? check your spam folder or click on the button below.</p>
-                                <button type="submit" className={`h-[3.625rem] cursor-pointer border border-[#FF0000] text-[#FF0000] w-full justify-center items-center tracking-wider flex bg-transparent text-sm md:text-lg font-semibold rounded-lg ${sending && 'animate-pulse'}`}>{`${sending? 'Requesting': 'Request'}`} OTP</button>
+                                <button type="submit" className={`h-[3.625rem] cursor-pointer border border-[#FF0000] text-[#FF0000] w-full justify-center items-center tracking-wider flex bg-transparent text-sm md:text-base font-semibold rounded-lg ${sending && 'animate-pulse'}`}>{`${sending? 'Requesting': 'Request'}`} OTP</button>
                                 
                             </div>
                         </div>

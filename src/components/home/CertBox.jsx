@@ -11,7 +11,7 @@ const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, index, i
         <div className="box-inner relative flex flex-col justify-between h-full">
             <div className=''>
                 <div className='flex justify-between'>
-                    <button className={`tag my-5 md:my-6 text-[#291843] border-[#291843]  border  rounded-full px-3 h-6 md:h-[1.875rem] text-sm md:text-base flex justify-center items-center w-fit 
+                    <button className={`tag my-5 md:my-6 text-[#291843] border-[#291843]  border  rounded-full px-3 h-6 text-sm font-medium flex justify-center items-center w-fit 
                         ${title.toLowerCase().includes('pmp') && '!text-white !border-white'}
                     `}>
                         Certification</button>
@@ -22,7 +22,7 @@ const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, index, i
                 </div>
 
                 <div className="box-body mt-2 pr-5">
-                    <h5 className={`text-base md:text-3xl font-bold py-2 
+                    <h5 className={`text-base md:text-3xl tracking-wider font-extrabold py-2 
                         ${title ? (
                             title.toLowerCase().includes('pmp') ? 'text-[#B365FD]' : 
                             title.toLowerCase().includes('pmi-acp') ? 'text-[#200F3B]' : 
@@ -35,7 +35,7 @@ const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, index, i
                     `}>
                         {mainTitle}</h4>
                     <div className={`mt-2 md:mt-5`}>
-                        <h6 className={`text-sm md:text-xl font-semibold text-[#291843]  pb-2 
+                        <h6 className={`text-sm md:text-base font-semibold text-[#291843]  pb-2 
                             ${title.toLowerCase().includes('pmp') && '!text-off-white'}
                         `}>
                             {subTitle}
@@ -52,7 +52,7 @@ const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, index, i
             <Link to={`/Certifications/${id}`}>
                 <button className={`
                     transition-all duration-300 ease-linear hover:text-white hover:opacity-85
-                    cursor-pointer w-fit mt-5 flex text-sm md:text-lg font-semibold justify-center items-center bg-white h-10 md:h-12 px-5 rounded-full text-black outline-none 
+                    cursor-pointer w-fit mt-5 flex text-sm md:text-base font-normal tracking-wide justify-center items-center bg-white h-10 md:h-12 px-5 rounded-full text-black outline-none 
                     ${title.toLowerCase().includes('pmp') ? 'hover:bg-[#B365FD]' : 
                         title.toLowerCase().includes('pmi-acp') ? 'hover:bg-[#200F3B]' : 'hover:bg-[#200F3B]'}`}
                 >

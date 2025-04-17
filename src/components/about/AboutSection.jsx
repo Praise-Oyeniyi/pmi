@@ -11,15 +11,15 @@ const AboutSection = () => {
             </div>
 
             
-            <div className='md:w-3/6 space-y-5 mt-10'>
-                <p className='text-normal text-[#200F3B] text-base md:text-2xl'>
+            <div className='md:w-3/6 space-y-5 mt-5'>
+                <p className='text-normal text-[#200F3B] text-base md:text-lg'>
                     The Bangalore Chapter of the Project Management Institute (PMI) was founded in 1998, as an autonomous, 
                     non-profit, membership association dedicated to the science of project Management.
                 </p>
                 <div className='space-y-3'>
-                    <h4 className='text-2xl md:text-3xl font-bold md:pb-1 text-dark'>Objectives</h4>
-                    <p className='text-sm md:text-xl font-normal text-[#200F3B]'>The objectives of the Chapter supplement the purposes of PMI as set forth in the PMI by-laws.</p>
-                    <ul className='text-sm md:text-xl font-normal text-[#200F3B] list-disc pl-7'>
+                    <h4 className='text-2xl md:text-2xl font-bold md:pb-1 text-dark'>Objectives</h4>
+                    <p className='text-sm md:text-lg font-normal text-[#200F3B]'>The objectives of the Chapter supplement the purposes of PMI as set forth in the PMI by-laws.</p>
+                    <ul className='text-sm md:text-lg font-normal text-[#200F3B] list-disc pl-7'>
                         <li>The Chapter objectives are to encourage and facilitate education, certification and professionalism in 
                             Project Management and to provide a forum for discussion and examination of problems, solutions, applications, 
                             and ideas related to the management of projects and to foster communication between public and private sectors 

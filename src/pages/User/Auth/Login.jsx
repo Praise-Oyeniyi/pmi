@@ -4,6 +4,7 @@ import Header from '../../../components/global/Header'
 import LI from '../../../assets/images/LoginImg.png'
 import { useNavigate } from 'react-router-dom'
 import { sendApi } from '../../../apis'
+import { Toaster, toast } from 'react-hot-toast';
 
 
 const Login = () => {
@@ -27,39 +28,41 @@ const Login = () => {
         try {
             const result = await sendApi(formData, dataEnpoint)
             if (result.success){    
-                console.log(formData)
+                toast.success('OTP sent. Please check your mail!')
                 setSending(false)  
                 setFormData({email: ''})
                 navigate('/otp')
 
             } else {    
-                console.log(result)
                 setSending(false)
-                alert("email does not exist")
+                toast.error("email does not exist")
+                setFormData({email: ''})
             }
         } 
         catch (error) {
             console.log(error)
+            toast.error("email does not exist")
         }
     }
 
   return (
     <div className='w-full h-auto bg-hero-bg font-aeonik text-dark !overflow-x-hidden'>
         <Header/>
+        <Toaster position="top-right" />
         <div className='main w-full md:border-t border-t-[#D9D9D9] bg-white'>
             <div className='flex justify-between items-center gap-x-28'> 
                 <div className="w-full md:w-[45%]">
                     <div className='left w-[90%] md:w-[80%] space-y-7 md:ml-auto md:-mt-10 mx-auto py-10 md:py-0'>
 
                         <div className='space-y-2 text-[#200F3B]'>
-                            <h3 className='text-2xl md:text-4xl font-semibold'>Login</h3>
+                            <h3 className='text-2xl md:text-3xl font-semibold'>Login</h3>
                             <p className='text-lg md:text-xl font-normal '>Welcome! please log in with your PMI account to continue</p>
                         </div>
 
                         <div className="form">
                             <form action='#' className='space-y-5' onSubmit={handleSubmit}>
                                 <div className="email-input w-full space-y-1">
-                                    <label htmlFor="email" className=' text-sm md:text-xl font-normal block capitalize mb-1 text-[#200F3B]'>Registered Email*</label>
+                                    <label htmlFor="email" className=' text-sm md:text-lg font-normal block capitalize mb-1 text-[#200F3B]'>Registered Email*</label>
                                     <input 
                                         required 
                                         placeholder='you@example.com' 
@@ -71,7 +74,7 @@ const Login = () => {
                                     />
                                 </div>
 
-                            <button type="submit" className={`h-[3.625rem] hover:opacity-80 transition-all duration-200 ease-in-out cursor-pointer w-full justify-center items-center tracking-wider flex text-white text-sm md:text-lg font-semibold bg-[#7030A0] rounded-lg ${sending && 'animate-pulse'}`}>{`${sending? 'Requesting': 'Request'}`} OTP</button>
+                            <button type="submit" className={`h-[3.625rem] hover:opacity-80 transition-all duration-200 ease-in-out cursor-pointer w-full justify-center items-center tracking-wider flex text-white text-sm md:text-base font-semibold bg-[#7030A0] rounded-lg ${sending && 'animate-pulse'}`}>{`${sending? 'Requesting': 'Request'}`} OTP</button>
                             </form>
                         </div>
                     </div>

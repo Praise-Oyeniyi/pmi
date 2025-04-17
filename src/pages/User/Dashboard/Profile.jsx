@@ -27,7 +27,7 @@ const Profile = () => {
                 :
                 <div>
                     <div className="p-head w-full h-14 bg-purple flex items-center">
-                        <div className='cursor-pointer h-full w-[90%] md:w-5/6 mx-auto text-white text-base md:text-xl font-semibold flex items-center justify-between'>
+                        <div className='cursor-pointer h-full w-[90%] md:w-5/6 mx-auto text-white text-base md:text-lg font-semibold flex items-center justify-between'>
                             <ul className='flex items-center pt-4 md:pt-3.5 h-full gap-x-5 md:gap-x-7'>
                                 {['My Profile', 'My Videos'].map((tab, index)=>(
                                     <li 
@@ -38,7 +38,7 @@ const Profile = () => {
                                 ))}
                             </ul>
                             
-                            <button className='cursor-pointer transition-all ease-linear duration-200 h-full hover:opacity-70'>Logout</button>
+                            <button className='cursor-pointer transition-all text-base ease-linear duration-200 h-full hover:opacity-70'>Logout</button>
                         </div>
                     </div>
 

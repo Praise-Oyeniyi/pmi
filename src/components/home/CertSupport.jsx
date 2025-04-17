@@ -73,11 +73,11 @@ const CertSupport = () => {
         <div className="cert-inner w-[90%] md:w-5/6 mx-auto pb-10">
             <div className="top md:flex w-full justify-between items-center">
                 <div className='space-y-3 md:space-y-5'>
-                    <h3 className='text-xl md:text-6xl font-bold w-5/6 md:w-4/6 leading-snug tracking-wider md:tracking-normal'>Top Certifications We Support</h3>
+                    <h3 className='text-xl md:text-5xl font-bold w-5/6 md:w-4/6 leading-[1.2] tracking-wider md:tracking-normal'>Top Certifications We Support</h3>
                     {/* <button className='bg-white hover:bg-[#200f3b31] transition-all ease-in duration-300 hidden rounded-full md:flex justify-center items-center border border-cgray px-7 h-[3rem]'>View all certifications</button> */}
                 </div>
 
-                <p className='text-sm md:text-2xl font-medium md:w-2/6 md:text-right'>Boost your professional credibility
+                <p className='text-sm md:text-xl font-medium md:w-3/6 md:text-right'>Boost your professional credibility
                     with globally recognized certifications.
                     Whether you're starting your journey
                     or upskilling for leadership, PMI

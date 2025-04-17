@@ -5,8 +5,8 @@ const Mission = () => {
     <div className='w-full text-dark md:my-8 my-5'>
         <div className='w-[90%] md:w-5/6 mx-auto pb-12 border-b border-b-[#DBD8D1]' id='mission'>
             <h3 className='font-bold text-2xl md:text-5xl leading-snug text-center'>Our Mission</h3>
-            <p className='text-sm md:text-xl font-normal py-3 text-[#200F3B]'>The objectives of the Chapter supplement the purposes of PMI as set forth in the PMI by-laws.</p>
-            <ul className='text-sm md:text-xl font-normal list-disc space-y-2 pl-7 text-[#200F3B]'>
+            <p className='text-sm md:text-lg font-normal py-3 text-[#200F3B]'>The objectives of the Chapter supplement the purposes of PMI as set forth in the PMI by-laws.</p>
+            <ul className='text-sm md:text-lg font-normal list-disc space-y-2 pl-7 text-[#200F3B]'>
                 <li>
                     The Chapter objectives are to encourage and facilitate education, certification and professionalism in Project
                     Management and to provide a forum for discussion and examination of problems, solutions, applications, 

@@ -32,7 +32,7 @@ const President = () => {
                             <div className={`border-b py-5 border-b-[#DBD8D1] gap-y-4 md:gap-y-0 w-full flex md:flex-row flex-col items-center gap-x-10 justify-between ${index === pres.length-1 && 'border-none'}`} key={index}>
                                 
                                 <div className='md:flex justify-between items-start w-full md:w-4/6 order-2 md:order-1'>
-                                    <h4 className='text-lg md:text-3xl font-bold w-full md:w-3/6 tracking-tighter md:tracking-normal md:pr-10'>{e?.name}</h4>
+                                    <h4 className='text-lg md:text-2xl font-bold w-full md:w-3/6 tracking-tight md:tracking-normal md:pr-10'>{e?.name}</h4>
                                     
                                     <div className="dir-info text-sm md:text-lg font-normal space-y-2 md:w-3/6">
                                         <h5 className=''>{e?.role}</h5>

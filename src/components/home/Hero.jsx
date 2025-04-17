@@ -37,13 +37,13 @@ const Hero = () => {
 
               <div className="hero-text w-full md:w-5/6 ">
                   <div className={`hero-text-inner space-y-4 pr-10 sm:w-full w-[90%] md:w-5/6 mx-auto `}>
-                      <h2 className={`text-3xl md:text-7xl font-bold text-black ${currentContent.is_backgroud_purple && 'text-white'}`} >{currentContent?.title}</h2>
+                      <h2 className={`text-3xl md:text-6xl font-bold text-black ${currentContent.is_backgroud_purple && 'text-white'}`} >{currentContent?.title}</h2>
                       <p className={`font-medium text-sm md:text-2xl text-[#272622] ${currentContent.is_backgroud_purple && 'text-white'}`}>
                           {currentContent?.sub_content}
                       </p>
                       <Link to={`${currentContent.read_more_button_link}`}>
                         <button 
-                          className={`${currentContent.is_backgroud_purple && 'bg-white !text-purple'} bg-purple text-white hover:opacity-70 transition-all ease-in duration-200 md:mt-8 w-fit flex items-center justify-center text-sm sm:text-lg font-medium  h-[2.5rem] md:h-[3.5rem] px-3 md:px-7 rounded-full`}
+                          className={`${currentContent.is_backgroud_purple && 'bg-white !text-purple'} bg-purple text-white hover:opacity-70 transition-all ease-in duration-200 md:mt-8 w-fit flex items-center justify-center text-sm sm:text-base font-medium  h-[2.5rem] md:h-[3.5rem] px-3 md:px-7 rounded-full`}
                         >
                           Explore Training Programs
                         </button>

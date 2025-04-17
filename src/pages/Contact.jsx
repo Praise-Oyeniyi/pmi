@@ -22,11 +22,11 @@ const Contact = () => {
             />
             <main className="about-main-header pt-10">
                 <div className="main-inner overflow-x-auto hide-bar min-full w-full  border-b border-b-[#DBD8D1]">
-                    <div className='w-full pl-3 pr-5 md:px-0 md:w-5/6 mx-auto flex justify-between gap-x-7 overflow-x-auto hide-bar md:overflow-x-hidden text-purple-light text-sm md:text-3xl md:gap-x-5 '>
+                    <div className='w-full pl-3 pr-5 md:px-0 md:w-5/6 mx-auto flex justify-between gap-x-7 overflow-x-auto hide-bar md:overflow-x-hidden text-purple-light text-sm md:text-2xl md:gap-x-5 '>
                         {['General Support', 'Corporate Enquiry', 'Individual Training Enquiry', 'CSR Activity Collaboration'].map((nav, index)=>(
                             <h4 
                                 key={index}
-                                className={`w-fit text-nowrap tracking-tight hover:opacity-80 transition-all ease-linear duration-200 md:py-4 py-2 border-b-3 ${index === btn? 'border-b-purple':'border-b-transparent'}`}  
+                                className={`w-fit text-nowrap tracking-tight hover:opacity-80 transition-all ease-linear duration-200 md:py-3 py-2 border-b-3 ${index === btn? 'border-b-purple':'border-b-transparent'}`}  
                                 onClick={()=>setBtn(index)}
                             >
                                 {nav}

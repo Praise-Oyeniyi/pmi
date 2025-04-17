@@ -8,16 +8,16 @@ const ChapterTable = ({item}) => {
     <div className="overflow-x-hidden">
         <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-purple text-center">
-            <tr className='text-sm md:text-2xl font-semibold'>
+            <tr className='text-sm md:text-lg font-semibold'>
                 <th 
                 scope="col" 
-                className="w-2/4 py-3 border-r border-r-[#fff] text-sm md:text-2xl font-semibold text-white"
+                className="w-2/4 py-3 border-r border-r-[#fff] text-sm md:text-lg font-semibold text-white"
                 >
                 Portfolio
                 </th>
                 <th 
                 scope="col" 
-                className="w-2/4 py-3 text-sm md:text-2xl font-semibold text-white"
+                className="w-2/4 py-3 text-sm md:text-lg font-semibold text-white"
                 >
                 Name
                 </th>
@@ -25,7 +25,7 @@ const ChapterTable = ({item}) => {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200 text-center">
                 {item?.map((e, index)=>(
-                <tr className='text-sm md:text-2xl font-semibold' key={index}>
+                <tr className='text-sm md:text-lg font-semibold' key={index}>
                     <td className=" py-3 uppercase border-r border-r-[#BFBFBF] whitespace-nowrap">
                         {e?.portfolio}
                     </td>

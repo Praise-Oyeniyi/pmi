@@ -23,7 +23,7 @@ const RelatedEvents = ({image, date, title, id, name}) => {
 
               <div className='flex items-center justify-between px-2 md:px-3 py-2 rounded-full border border-[#F3EFEF] cursor-pointer'>
                 <FaCalendar className="text-[#040301] mr-1 md:mr-2 md:h-3.5 h-2.5"/>
-                <h6 className='border-l border-l-[#F3EFEF] pl-1 md:pl-2 text-xs text-nowrap md:text-base font-normal'>{date}</h6>
+                <h6 className='border-l border-l-[#F3EFEF] pl-1 md:pl-2 text-xs text-nowrap md:text-sm font-normal'>{date}</h6>
               </div>
 
 
@@ -32,7 +32,7 @@ const RelatedEvents = ({image, date, title, id, name}) => {
               </div>
             </div>
 
-            <h4 className='text-base md:text-3xl font-bold capitalize pb-1 line-clamp-3 overflow-hidden'>{title}</h4>
+            <h4 className='text-base md:text-2xl tracking-wide font-semibold capitalize pb-1 line-clamp-3 overflow-hidden'>{title}</h4>
           </div>
         </div>
     </div>
