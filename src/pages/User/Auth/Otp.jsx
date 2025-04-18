@@ -96,7 +96,7 @@ const Otp = () => {
                                 <p className='text-[#404040] text-sm font-normal capitalize'>Didn’t receive it? check your spam folder or click on the button below.</p>
                                 <button type="submit"
                                     onClick={() => window.history.back()} 
-                                    className={`h-[3rem] cursor-pointer border border-[#FF0000] text-[#FF0000] w-full justify-center items-center tracking-wider flex bg-transparent text-sm md:text-base font-semibold rounded-lg ${sending && 'animate-pulse'}`}>{`${sending? 'Requesting': 'Request'}`} OTP</button>
+                                    className={`h-[3rem] cursor-pointer border border-[#FF0000] text-[#FF0000] w-full justify-center items-center tracking-wider flex bg-transparent text-sm md:text-base font-semibold rounded-lg ${sending && 'animate-pulse'}`}>Request OTP</button>
                                 
                             </div>
                         </div>

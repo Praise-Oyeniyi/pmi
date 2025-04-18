@@ -1,8 +1,7 @@
 import { useQueries } from '@tanstack/react-query'
 import { useQuery } from '@tanstack/react-query'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { redirect } from 'react-router'
 import Footer from '../../../components/global/Footer'
 import Header from '../../../components/global/Header'
 import NotLoggedIn from '../../../components/global/NotLoggedIn'
@@ -14,15 +13,18 @@ import { createUserQueryOptions } from '../../../components/queryOptions/QueryOp
 const Profile = () => {
     const [tabbed, setTabbed] = useState(0)
 
-    const {data, isPending} = useQuery(createUserQueryOptions())
+    const {data, isPending, refetch, isRefetching} = useQuery(createUserQueryOptions())
 
+    useEffect(() => {
+        refetch();
+    }, []);
 
 
   return (
     <div className='w-full h-auto bg-hero-bg font-aeonik text-dark !overflow-x-hidden'>
         <Header/>
         <div className='main w-full bg-white md:pb-16'>
-            {isPending? 
+            {isPending || isRefetching? 
                 <ProfileLoader/>
                 : 
                 !data.status?
