@@ -46,12 +46,13 @@ const Login = () => {
 
             } else {    
                 setSending(false)
-                toast.error("email does not exist")
+                toast.error(result.error)
                 setFormData({email: ''})
             }
         } 
         catch (error) {
-            console.log(error)
+            toast.error('An unexpected error occurred');
+            setSending(false);
             toast.error("email does not exist")
         }
     }

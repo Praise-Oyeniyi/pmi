@@ -1,5 +1,5 @@
 import { queryOptions } from "@tanstack/react-query";
-import { fetchApi } from "../../apis";
+import { fetchApi, fetchDetails } from "../../apis";
 
 
 
@@ -96,8 +96,8 @@ const getCert = async () =>{
 }
 
 const getUser = async () =>{
-    const userLink = '/custom/v1/user'
-    const result = await fetchApi(userLink)
+    const userLink = '/custom/v2/user-details'
+    const result = await fetchDetails(userLink)
     return result;
 }
 

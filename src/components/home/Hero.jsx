@@ -26,7 +26,7 @@ const Hero = () => {
   return (
     <div>
     {
-      isPending?
+      isPending || data.data.length === 0?
         <HeroSkeleton/>
       :
       <div className={`hero-outer transition-all ease-linear duration-300`} style={{backgroundImage: `url(${currentContent.background_image})`}}>

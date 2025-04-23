@@ -7,6 +7,7 @@ import { FaChevronRight } from 'react-icons/fa6';
 import { AiOutlineClose } from "react-icons/ai";
 import { createCertQueryOptions, createSpecialQueryOptions, createUserQueryOptions } from '../queryOptions/QueryOptions';
 import { useQueries } from '@tanstack/react-query';
+import TranslateComponent from './Language';
 
 const Header = () => {
     const [nav, setNav] = useState(false);
@@ -18,69 +19,6 @@ const Header = () => {
             createUserQueryOptions(),
         ]
     })
-    
-    useEffect(() => {
-    // Remove any existing Google Translate elements to avoid duplicates
-    const existingElements = document.querySelectorAll('.google-translate-element, #google_translate_script');
-    existingElements.forEach(el => el.remove());
-    
-    // Define the initialization function
-    window.googleTranslateElementInit = () => {
-        // Initialize only one element
-        if (document.getElementById('google_translate_element')) {
-            new window.google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'ar,de,en,es,fr,zh-CN', 
-                layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
-    };
-    
-    // Create script element
-    const script = document.createElement('script');
-    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-    script.id = 'google_translate_script';
-    document.body.appendChild(script);
-    
-    // Function to move the translator between containers
-    const moveTranslator = (isMobile) => {
-        const sourceId = isMobile ? 'google_translate_element' : 'google_translate_element_mobile';
-        const targetId = isMobile ? 'google_translate_element_mobile' : 'google_translate_element';
-        
-        const sourceElement = document.getElementById(sourceId);
-        const targetElement = document.getElementById(targetId);
-        
-        if (sourceElement && targetElement && sourceElement.firstChild) {
-            // Move all children from source to target
-            while (sourceElement.firstChild) {
-                targetElement.appendChild(sourceElement.firstChild);
-            }
-        }
-    };
-    
-    // Set up a way to detect mobile vs desktop view
-    // This is an example - adjust based on how you determine mobile vs desktop in your app
-    const handleResize = () => {
-        const isMobile = window.innerWidth < 768; // Example breakpoint
-        moveTranslator(isMobile);
-    };
-    
-    // Initial check and add resize listener
-    window.addEventListener('resize', handleResize);
-    
-    // Run once after translator is likely loaded
-    setTimeout(handleResize, 1000);
-    
-    // Cleanup on unmount
-    return () => {
-        window.removeEventListener('resize', handleResize);
-        delete window.googleTranslateElementInit;
-        if (document.getElementById('google_translate_script')) {
-            document.getElementById('google_translate_script').remove();
-        }
-    };
-}, []);
     
 
     return (
@@ -183,7 +121,8 @@ const Header = () => {
                         <div 
                             className='flex overflow-hidden max-h-[2.9rem] bg-[#FDFDFD] text-base font-normal justify-center items-center border border-[#F3EFEF] rounded-sm text-[#7C7C7C] gap-x-2'
                         >
-                            <div id="google_translate_element" className='min-w-[10rem] max-w-[10rem] min-h-[2.9rem] flex justify-center items-center'></div>
+                            {/* <div id="google_translate_element" className='min-w-[10rem] max-w-[10rem] min-h-[2.9rem] flex justify-center items-center'></div> */}
+                            <TranslateComponent/>
                         </div>
                     </div>
                     
@@ -299,7 +238,7 @@ const Header = () => {
                                 {/* Mobile Google Translate Element */}
                                 <div className='w-full bg-[#F5F5F5] py-3 flex justify-center z-20'>
                                     <div className='w-5/6 bg-[#FDFDFD] h-12 flex items-center px-3 rounded-md'>
-                                        <div id="google_translate_element_mobile"></div>
+                                        {/* <TranslateComponent/> */}
                                     </div>
                                 </div>
 

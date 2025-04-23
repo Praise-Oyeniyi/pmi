@@ -1,4 +1,3 @@
-import { useQueries } from '@tanstack/react-query'
 import { useQuery } from '@tanstack/react-query'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
@@ -20,6 +19,7 @@ const Profile = () => {
     }, []);
 
 
+
   return (
     <div className='w-full h-auto bg-hero-bg font-aeonik text-dark !overflow-x-hidden'>
         <Header/>
@@ -27,7 +27,7 @@ const Profile = () => {
             {isPending || isRefetching? 
                 <ProfileLoader/>
                 : 
-                !data.status?
+                !data.success?
                 <NotLoggedIn/>
                 :
                 <div>

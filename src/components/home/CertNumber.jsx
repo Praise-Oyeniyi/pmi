@@ -9,11 +9,13 @@ const CertNumber = () => {
   }) 
 
 
-
   return (
       <div className='w-full my-20 mb-22'>
         {isPending?
-        <CertNo/>
+          <CertNo/>
+        :
+        data === undefined || data?.data?.length === 0?
+        ''
         :
         <div className="cert-no-inner text-white w-[90%] md:w-5/6 mx-auto bg-purple rounded-lg md:rounded-[1.25rem]">
             <div className="h-fit md:h-28 cert-inner-top md:flex justify-between w-full">

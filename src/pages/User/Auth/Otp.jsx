@@ -35,25 +35,32 @@ const Otp = () => {
         }));
     };
 
-    const handleSubmit = async (e) =>{
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setSending(true)
+        setSending(true);
         const dataEnpoint = '/custom/v1/verify-otp';
+        
         try {
-            const result = await sendApi(formData, dataEnpoint)
-            if (result.success){    
-                toast.success('Login Successful!')
-                setFormData({otp: ''})
-                setSending(false)
-                navigate('/Profile')
+            const result = await sendApi(formData, dataEnpoint);
+            
+            if (result.success) {    
+                toast.success('Login Successful!');
+                localStorage.setItem('authToken', result.data.token);
+                setFormData({otp: ''});
+                setSending(false);
+                navigate('/Profile');
             } else {    
-                toast.error('Incorrect Code. Please try again!')
-                setSending(false)
-                setFormData({otp: ''})
+                toast.error(result.error || 'An error occurred');
+                setSending(false);
+                setFormData({otp: ''});
             }
         } 
         catch (error) {
-            toast.error('Incorrect Code. Please try again!')
+            toast.error('An unexpected error occurred');
+            setSending(false);
+            setFormData({otp: ''});
         }
     }
 
