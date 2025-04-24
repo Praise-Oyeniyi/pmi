@@ -69,7 +69,7 @@ const CSRForm = () => {
                 </div>
 
                 <div className="email-input">
-                    <label htmlFor="email" className=' text-sm md:text-base font-normal text-[#6B5E64] block capitalize mb-1'>email ID of Requested*</label>
+                    <label htmlFor="email" className=' text-sm md:text-base font-normal text-[#6B5E64] block capitalize mb-1'>email ID of Requestor*</label>
                     <input required type="email" name="email" id="email" 
                         className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
                         value={formData.email} onChange={handleChange}
