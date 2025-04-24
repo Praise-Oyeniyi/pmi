@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 
 function TranslateComponent() {
-  // This useEffect runs once on component mount to add the Google Translate script
   useEffect(() => {
     const existingElements = document.querySelectorAll('.google-translate-element, #google_translate_script');
     existingElements.forEach(el => el.remove());

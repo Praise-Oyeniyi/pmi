@@ -36,11 +36,11 @@ const Header = () => {
                         <ul className='text-black flex items-center gap-x-1 tracking-wider text-base font-semibold h-16 relative'>
                             <li className='min-w-fit h-full'>
                                 <Link to={'/About'}>
-                                    <div className='flex items-center px-3 h-full hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>About Us</div>
+                                    <div className='flex items-center px-3 capitalize h-full hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>About Us</div>
                                 </Link>
                             </li>
                             <li className='min-w-fit h-full group'>
-                                <div className='flex items-center px-3 h-full group-hover:bg-secondary group-hover:text-white duration-300 transition-all ease-linear'>Training</div>
+                                <div className='flex items-center px-3 capitalize h-full group-hover:bg-secondary group-hover:text-white duration-300 transition-all ease-linear'>Training</div>
                                 <ul className='font-normal absolute space-y-1 w-fit z-50 group-hover:border-t-secondary group-hover:block text-[#676767] bg-white border border-hero-bg px-4 py-3 border-t-4 border-t-transparent hidden'>
                                     {training.isPending ?
                                         <li className='animate-pulse'>Loading Menus...</li>
@@ -60,7 +60,7 @@ const Header = () => {
                             </li>
                             
                             <li className='min-w-fit h-full relative group'>
-                                <div className='relative flex items-center px-3 h-full group-hover:bg-secondary group-hover:text-white duration-300 transition-all ease-linear'>Special Programs</div>
+                                <div className='relative flex items-center px-3 capitalize h-full group-hover:bg-secondary group-hover:text-white duration-300 transition-all ease-linear'>Special Programs</div>
                                 <ul className='font-normal absolute space-y-1 w-64 z-50 group-hover:border-t-secondary group-hover:block text-[#676767] bg-white border border-hero-bg px-4 py-3 border-t-4 border-t-transparent hidden'>
                                     {special.isPending ?
                                         <li className='animate-pulse'>Loading Menus...</li>
@@ -84,7 +84,7 @@ const Header = () => {
                                 </ul>
                             </li>
                             <li className='min-w-fit h-full group'>
-                                <div className='relative flex items-center px-3 h-full group-hover:bg-secondary group-hover:text-white duration-300 transition-all ease-linear'>Volunteering</div>
+                                <div className='relative flex items-center px-3 capitalize h-full group-hover:bg-secondary group-hover:text-white duration-300 transition-all ease-linear'>Volunteering</div>
                                 <ul className='font-normal absolute space-y-1 w-64 z-50 group-hover:border-t-secondary group-hover:block text-[#676767] bg-white border border-hero-bg px-4 py-3 border-t-4 border-t-transparent hidden'>
                                     <Link to={'/membership'}>
                                         <li className='hover:border-b-[#200F3B] mb-1 w-fit border-b border-b-transparent transition-all ease-in duration-200'>Membership</li>
@@ -96,7 +96,7 @@ const Header = () => {
                             </li>
                             <li className='min-w-fit h-full'>
                                 <Link to={'/Contact'}>
-                                    <div className='flex items-center px-3 h-full hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Contact</div>
+                                    <div className='flex items-center px-3 capitalize h-full hover:bg-secondary hover:text-white duration-300 transition-all ease-linear'>Contact</div>
                                 </Link>
                             </li>
                         </ul>
@@ -236,8 +236,8 @@ const Header = () => {
 
                             <div className='cursor-pointer space-y-3 mt-3'>
                                 {/* Mobile Google Translate Element */}
-                                <div className='w-full bg-[#F5F5F5] py-3 flex justify-center z-20'>
-                                    <div className='w-5/6 bg-[#FDFDFD] h-12 flex items-center px-3 rounded-md'>
+                                <div className='w-full bg-[#F5F5F5] py-3 justify-center z-20 hidden'>
+                                    <div className='w-5/6 bg-[#FDFDFD] h-12 flex items-center px-3 capitalize rounded-md'>
                                         {/* <TranslateComponent/> */}
                                     </div>
                                 </div>

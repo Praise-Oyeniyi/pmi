@@ -96,7 +96,7 @@ const getCert = async () =>{
 }
 
 const getUser = async () =>{
-    const userLink = '/custom/v2/user-details'
+    const userLink = '/custom/v1/user-details'
     const result = await fetchDetails(userLink)
     return result;
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 const ProfileLoader = () => {
     return (
-        <div className='md:flex items-center gap-x-10 md:w-5/6 mx-auto w-[90%]'>
+        <div className='md:flex items-center gap-x-10 md:w-5/6 mx-auto w-[90%] py-10'>
             {/* Profile Image Skeleton */}
             <div className='w-44 h-44 md:h-72 md:w-72 rounded-3xl relative overflow-hidden bg-gray-200 animate-pulse'>
             </div>

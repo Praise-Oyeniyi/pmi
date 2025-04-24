@@ -26,14 +26,13 @@ const RecentVideos = () => {
 
   
     useEffect(() => {
-        if (!user.data?.success) {
-        navigate('/login');
+        if (!localStorage.getItem('authToken')) {
+            navigate('/login');
         }
-    }, [user.data, navigate]);
+    }, [data, navigate]);
 
     useEffect(()=>{
         if(video.data){
-            console.log(video.data)
             setSelectedVideo(video.data.data.find((picked)=>picked.id === parseInt(id)))
         }
         if(rVideo.data){

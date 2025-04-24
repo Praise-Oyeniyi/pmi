@@ -8,20 +8,50 @@ import ProfileLoader from '../../../components/global/Skeleton/ProfileLoader'
 import Info from '../../../components/Profile/Info'
 import Videos from '../../../components/Profile/Videos'
 import { createUserQueryOptions } from '../../../components/queryOptions/QueryOptions'
+import { Toaster, toast } from 'react-hot-toast';
+import { sendApi } from '../../../apis'
+import { useNavigate } from 'react-router'
 
 const Profile = () => {
+    const navigate = useNavigate();
     const [tabbed, setTabbed] = useState(0)
+    const [sending, setSending] = useState(false)
 
     const {data, isPending, refetch, isRefetching} = useQuery(createUserQueryOptions())
 
     useEffect(() => {
         refetch();
-    }, []);
+    }, [data?.success]);
+
+
+    const Logout = async () => {
+        const dataEnpoint = '/custom/v1/logout';
+        setSending(true)
+        try {
+            const result = await sendApi('',dataEnpoint);
+            if (result.success) {    
+                toast.success('User Logged Out Successfully!');
+                localStorage.removeItem('authToken');
+                navigate('/login');
+            } else {    
+                toast.error(result.error || 'An error occurred');
+                setSending(false);
+                setFormData({otp: ''});
+                setSending(false)
+            }
+        } 
+        catch (error) {
+            toast.error('An unexpected error occurred');
+            setSending(false)
+        }
+    }
+
 
 
 
   return (
     <div className='w-full h-auto bg-hero-bg font-aeonik text-dark !overflow-x-hidden'>
+        <Toaster position="top-right" />
         <Header/>
         <div className='main w-full bg-white md:pb-16'>
             {isPending || isRefetching? 
@@ -43,7 +73,7 @@ const Profile = () => {
                                 ))}
                             </ul>
                             
-                            <button className='cursor-pointer transition-all text-base ease-linear duration-200 h-full hover:opacity-70'>Logout</button>
+                            <button onClick={()=>Logout()} className={`cursor-pointer transition-all text-base ease-linear duration-200 h-full hover:opacity-70 ${sending && 'animate-pulse'}`}>{sending? 'Logging out...': 'Logout'}</button>
                         </div>
                     </div>
 
@@ -52,10 +82,10 @@ const Profile = () => {
                         {tabbed === 0?
                             <div>
                                 <Info 
-                                    image={data.data?.profile_picture} 
-                                    name={data.data?.name} 
-                                    mail={data.data?.email}
-                                    memberNo={data.data?.memership_number}
+                                    image={data.data?.user.profile_picture} 
+                                    name={data.data?.user.name} 
+                                    mail={data.data?.user.email}
+                                    memberNo={data.data?.user.memership_number}
                                 />
                             </div>
                             :

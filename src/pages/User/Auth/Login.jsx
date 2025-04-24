@@ -16,12 +16,12 @@ const Login = () => {
         email: '',
     });
     
-    const {data} = useQuery(createUserQueryOptions())
+    const {data, isPending} = useQuery(createUserQueryOptions())
 
 
     useEffect(() => {
-        if (data?.success) {
-        navigate('/profile');
+        if (localStorage.getItem('authToken')) {
+            navigate('/profile');
         }
     }, [data, navigate]);
 
@@ -86,7 +86,7 @@ const Login = () => {
                                     />
                                 </div>
 
-                            <button type="submit" className={`h-[3.625rem] hover:opacity-80 transition-all duration-200 ease-in-out cursor-pointer w-full justify-center items-center tracking-wider flex text-white text-sm md:text-base font-semibold bg-[#7030A0] rounded-lg ${sending && 'animate-pulse'}`}>{`${sending? 'Requesting': 'Request'}`} OTP</button>
+                            <button type="submit" className={`h-[3.625rem] hover:opacity-80 transition-all duration-200 ease-in-out cursor-pointer w-full justify-center items-center tracking-wider flex text-white text-sm md:text-base font-semibold bg-[#7030A0] rounded-lg ${sending && 'animate-pulse pointer-events-none'}`}>{`${sending? 'Requesting': 'Request'}`} OTP</button>
                             </form>
                         </div>
                     </div>

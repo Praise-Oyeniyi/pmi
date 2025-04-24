@@ -96,14 +96,15 @@ const Otp = () => {
                                     />
                                 </div>
 
-                                <button type="submit" className='h-[3.625rem] hover:opacity-80 transition-all duration-200 ease-in-out cursor-pointer w-full justify-center items-center tracking-wider flex text-white text-sm md:text-lg font-semibold bg-[#7030A0] rounded-lg'>Log In</button>
+                                <button disabled={sending && true} type="submit" className={`h-[3.625rem] hover:opacity-80 transition-all duration-200 ease-in-out cursor-pointer w-full justify-center items-center tracking-wider flex text-white text-sm md:text-lg font-semibold bg-[#7030A0] rounded-lg ${sending && 'animate-pulse'}`}>Log In</button>
                             </form>
 
                             <div className='space-y-2 md:space-y-3'>
                                 <p className='text-[#404040] text-sm font-normal capitalize'>Didn’t receive it? check your spam folder or click on the button below.</p>
                                 <button type="submit"
                                     onClick={() => window.history.back()} 
-                                    className={`h-[3rem] cursor-pointer border border-[#FF0000] text-[#FF0000] w-full justify-center items-center tracking-wider flex bg-transparent text-sm md:text-base font-semibold rounded-lg ${sending && 'animate-pulse'}`}>Request OTP</button>
+                                    disabled={sending && true}
+                                    className={`h-[3rem] cursor-pointer border border-[#FF0000] text-[#FF0000] w-full justify-center items-center tracking-wider flex bg-transparent text-sm md:text-base font-semibold rounded-lg `}>Request OTP</button>
                                 
                             </div>
                         </div>
