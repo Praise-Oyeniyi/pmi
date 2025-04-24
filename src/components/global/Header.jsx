@@ -119,7 +119,7 @@ const Header = () => {
                     {/* Desktop Google Translate Element */}
                     <div className="relative">
                         <div 
-                            className='flex overflow-hidden max-h-[2.9rem] bg-[#FDFDFD] text-base font-normal justify-center items-center border border-[#F3EFEF] rounded-sm text-[#7C7C7C] gap-x-2'
+                            className='flex overflow-hidden h-[2.9rem] max-h-[2.9rem] bg-[#FDFDFD] text-base font-normal justify-center items-center border border-[#F3EFEF] rounded-sm text-[#7C7C7C] gap-x-2'
                         >
                             {/* <div id="google_translate_element" className='min-w-[10rem] max-w-[10rem] min-h-[2.9rem] flex justify-center items-center'></div> */}
                             <TranslateComponent/>

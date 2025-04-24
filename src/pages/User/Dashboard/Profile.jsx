@@ -36,8 +36,6 @@ const Profile = () => {
             } else {    
                 toast.error(result.error || 'An error occurred');
                 setSending(false);
-                setFormData({otp: ''});
-                setSending(false)
             }
         } 
         catch (error) {

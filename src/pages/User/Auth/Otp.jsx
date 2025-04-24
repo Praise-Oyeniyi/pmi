@@ -23,7 +23,9 @@ const Otp = () => {
 
     useEffect(() => {
         if (data?.success) {
-        navigate('/profile');
+            navigate('/profile');
+        }else if(localStorage.getItem('authToken') && !mail || !localStorage.getItem('authToken') && !mail){
+            navigate('/login')
         }
     }, [data, navigate]);
 

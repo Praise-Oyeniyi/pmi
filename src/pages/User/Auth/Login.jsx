@@ -20,7 +20,7 @@ const Login = () => {
 
 
     useEffect(() => {
-        if (localStorage.getItem('authToken')) {
+        if (localStorage.getItem('authToken') && data?.success) {
             navigate('/profile');
         }
     }, [data, navigate]);

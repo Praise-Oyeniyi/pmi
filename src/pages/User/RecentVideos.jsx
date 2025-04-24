@@ -63,7 +63,7 @@ const RecentVideos = () => {
             :
                 selectedVideo && (<div className='w-full sp-bg bg-center bg-contain bg-no-repeat' style={{backgroundImage: `url(${BG})`}}>
                     <div className="inner w-[90%] md:w-5/6 mx-auto py-5">
-                        <h4 className='text-white font-semibold  text-sm md:text-lg tracking-wider'><Link to={'/'} className="hover:underline">Home</Link> / Videos /</h4>
+                        <h4 className='text-white font-semibold  text-sm md:text-lg tracking-wider'><Link to={'/'} className="hover:underline">Home</Link> / <Link to={'/profile'} className="hover:underline">Videos</Link> /</h4>
                         <div className='text-center my-7 text-white'>
                             <h3 className={`text-3xl md:text-5xl font-bold pb-3 mx-auto w-5/6 tracking-wide leading-snug`}>{selectedVideo.title}</h3>
                         </div>
