@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
 import { sendApi } from '../../apis';
+import emailjs from '@emailjs/browser'
+import { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
+
+
 
 const ITEnquiry = () => {
     const [sending, setSending] = useState(false)
 
     const [formData, setFormData] = useState({
         name: '',
-        phone:'',
+        mobile:'',
+        enquiryType:"",
         email: '',
-        orgName:'',
-        trainingSubject:'',
+        organization:'',
+        subjects:'',
         date : {dateYear:'',dateMonth: '',dateWeek:''},
         message: '',
     });
@@ -25,20 +31,23 @@ const ITEnquiry = () => {
     const iEnquire = async (e) =>{
         e.preventDefault();
         setSending(true)
-        const dataEnpoint = '/customforms/v1/individual-training-enquiry';
 
-       try {
-            const result = await sendApi(formData, dataEnpoint)
-            if (result.success){        
-                setSending(false)
-                setFormData({name: '', phone:'', email: '', orgName:'',trainingSubject:'',dateYear:'',dateMonth: '', dateWeek:'',message: '',})    
-            } else {
-                console.log(result)
-                setSending(null)
-            }
-        } catch (error) {
-            console.log(error)
+        try {
+            const response = await emailjs.send(
+              'service_iqmmizr',       
+              'template_j1mcdqv',     
+              formData,
+              'KKddIFUjR-JosfdPh'     
+            );
+            toast.success('Email sent')
+            setFormData({name: '', mobile:'', enquiryType:"", email: '', organization:'',subjects:'',dateYear:'',dateMonth: '', dateWeek:'',message: '',})    
+            setSending(false)
+          } catch (error) {
+            setFormData({name: '', mobile:'', enquiryType:"", email: '', organization:'',subjects:'',dateYear:'',dateMonth: '', dateWeek:'',message: '',})    
+            toast.error('Email failed:',error)
+            setSending(false)
         }
+
 
     }
 
@@ -47,6 +56,7 @@ const ITEnquiry = () => {
   return (
     <div className='w-full'>
         <div className="w-[90%] md:w-3/6 mx-auto md:pt-5">
+            <Toaster position="top-right" />
             <h4 className='font-bold text-2xl md:text-2xl tracking-wide'>Individual Training Enquiry</h4>
 
             <form action="#" onSubmit={iEnquire} className="py-5 w-full space-y-5">
@@ -61,9 +71,9 @@ const ITEnquiry = () => {
 
                     <div className="tel-input w-full md:w-3/6">
                         <label htmlFor="tel" className='text-sm md:text-base font-normal text-[#6B5E64] block capitalize mb-1'>Mobile No of Requestor*</label>
-                        <input required type="tel" name="tel" id="tel" 
+                        <input required type="tel" name="mobile" id="tel" 
                             className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
-                            value={formData.phone} onChange={handleChange}
+                            value={formData.mobile} onChange={handleChange}
                         />
                     </div>
                 </div>
@@ -78,19 +88,19 @@ const ITEnquiry = () => {
 
                 <div className="org-name">
                     <label htmlFor="org-name" className='text-sm md:text-base font-normal text-[#6B5E64] block capitalize mb-1'>Name of organization</label>
-                    <input type="text" name="orgName" id="org-name" 
+                    <input type="text" name="organization" id="org-name" 
                         className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12'
-                        value={formData.orgName} onChange={handleChange}
+                        value={formData.organization} onChange={handleChange}
                     />
                 </div>
 
                 <div className="training-subj">
-                    <label htmlFor="trainingSubj" className='text-sm md:text-base font-normal text-[#6B5E64] block capitalize mb-1'>Training Subjects</label>
-                    <select name="trainingSubj" id="training-subj" 
+                    <label htmlFor="subjects" className='text-sm md:text-base font-normal text-[#6B5E64] block capitalize mb-1'>Training Subjects</label>
+                    <select name="subjects" id="training-subj" 
                         className='w-full block bg-[#FBF9F8] border border-[#E4E2DE] rounded-xs outline-none px-3 h-12 accent-[#6B5E64]'
-                        value={formData.trainingSubject} onChange={handleChange}
+                        value={formData.subjects} onChange={handleChange}
                     >
-                        <option value={'PMP Training(ATP Accredited)'} disabled>Training Subjects</option>
+                        <option value={'PMP Training(ATP Accredited)'}>Training Subjects</option>
                     </select>
                 </div>
 
@@ -142,3 +152,22 @@ const ITEnquiry = () => {
 }
 
 export default ITEnquiry
+
+
+
+
+    //     setSending(true)
+    //     const dataEnpoint = '/customforms/v1/individual-training-enquiry';
+
+    //    try {
+    //         const result = await sendApi(formData, dataEnpoint)
+    //         if (result.success){        
+    //             setSending(false)
+    //             setFormData({name: '', mobile:'', email: '', organization:'',subjects:'',dateYear:'',dateMonth: '', dateWeek:'',message: '',})    
+    //         } else {
+    //             console.log(result)
+    //             setSending(null)
+    //         }
+    //     } catch (error) {
+    //         console.log(error)
+    //     }

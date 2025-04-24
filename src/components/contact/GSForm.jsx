@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
-import { sendApi } from '../../apis';
+import emailjs from '@emailjs/browser';
+import { Toaster, toast } from 'react-hot-toast';
+
+
 
 const GSForm = () => {
     const [sending, setSending] = useState(false)
@@ -24,28 +27,25 @@ const GSForm = () => {
         e.preventDefault();
         setSending(true)
 
-        const dataEnpoint = '/customforms/v1/general-support';
-
         try {
-            const result = await sendApi(formData, dataEnpoint)
-            if (result.success){        
-                setSending(false)   
-                console.log(formData)
-                setFormData({name: '',email: '',subject:'',phone: '',message: '',})
-
-            } else {    
-                console.log(result)
-                setSending(null)
-            }
-        } 
-        catch (error) {
-            console.log(error)
+            const response = await emailjs.send(
+              'service_iqmmizr',       
+              'template_tyn7zjs',     
+              formData,
+              'KKddIFUjR-JosfdPh'     
+            );
+            toast.success('Email sent')
+            setFormData({name: '',email: '',subject:'',phone: '',message: '',})
+            setSending(false)
+          } catch (error) {
+            toast.error('Email failed:',error)
         }
     }
 
   return (
     <div className='w-full'>
         <div className="mx-auto w-[90%] md:w-5/6 md:flex justify-between gap-x-20 md:pt-5">
+            <Toaster position="top-right" />
             <div className="form-left w-full md:w-3/6 ">
                 <h4 className='font-bold text-2xl tracking-wide'>Send Us Message</h4>
 
@@ -136,3 +136,27 @@ const GSForm = () => {
 }
 
 export default GSForm
+
+
+
+
+
+
+
+ // const dataEnpoint = '/customforms/v1/general-support';
+
+        // try {
+        //     const result = await sendApi(formData, dataEnpoint)
+        //     if (result.success){        
+        //         setSending(false)   
+        //         console.log(formData)
+        //         setFormData({name: '',email: '',subject:'',phone: '',message: '',})
+
+        //     } else {    
+        //         console.log(result)
+        //         setSending(null)
+        //     }
+        // } 
+        // catch (error) {
+        //     console.log(error)
+        // }
