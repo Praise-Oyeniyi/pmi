@@ -29,7 +29,7 @@ const RecentVideos = () => {
         if (!localStorage.getItem('authToken')) {
             navigate('/login');
         }
-    }, [data, navigate]);
+    }, [user.data, navigate]);
 
     useEffect(()=>{
         if(video.data){
