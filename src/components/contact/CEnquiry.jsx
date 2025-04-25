@@ -164,9 +164,9 @@ const CEnquiry = () => {
 
     return (
         <div className='w-full'>
-            <div className="w-[90%] md:w-3/6 mx-auto md:pt-5">
+            <div className="w-[90%] md:w-3/6 mx-auto md:pt-5 relative">
                 
-                <h4 className='font-bold text-2xl md:text-2xl tracking-wide'>Corporate (Bulk Training) Enquiry </h4>
+                <h4 className='font-bold text-2xl md:text-2xl tracking-wide relative'>Corporate (Bulk Training) Enquiry </h4>
                 <Toaster position="top-right" />
                 <form action="#" onSubmit={cEnquire} className="py-5 w-full space-y-5">
                     <div className='w-full md:flex gap-x-5 space-y-5 md:space-y-0'>

@@ -103,9 +103,10 @@ const GSForm = () => {
     return (
         <div className='w-full'>
             <div className="mx-auto w-[90%] md:w-5/6 md:flex justify-between gap-x-20 md:pt-5">
-                <Toaster position="top-right" />
-                <div className="form-left w-full md:w-3/6 ">
-                    <h4 className='font-bold text-2xl tracking-wide'>Send Us Message</h4>
+                
+                <div className="form-left w-full md:w-3/6 relative">
+                    <h4 className='font-bold text-2xl tracking-wide relative'>Send Us Message</h4>
+                    <Toaster position="top-right" />
 
                     <form action="#" onSubmit={general} className="py-5 w-full space-y-5">
                         <div className='w-full md:flex gap-x-5 space-y-5 md:space-y-0'>
