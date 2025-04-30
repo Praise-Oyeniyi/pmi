@@ -7,7 +7,7 @@ const Info = ({name, image, memberNo, mail}) => {
   return (
     <div className='md:flex items-center gap-x-10'>
         <div className='w-44 h-44 md:h-72 md:w-72 rounded-3xl relative overflow-hidden'>
-            <img src={image} alt="user display image" className='absolute h-full w-full object-cover '/>
+            <img src={image} alt="user display image" className='absolute h-full w-full object-cover bg-gray-200'/>
         </div>
 
         <div className='flex flex-col justify-between  gap-y-5 md:gap-y-12 h-full py-5 md:py-0'>
