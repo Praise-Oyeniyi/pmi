@@ -29,7 +29,6 @@ const Profile = () => {
     }, []);
 
 
-    console.log(data)
 
     const Logout = async () => {
         const dataEnpoint = '/custom/v1/logout';
@@ -57,7 +56,7 @@ const Profile = () => {
         <Toaster position="top-right" />
         <Header/>
         <div className='main w-full bg-white md:pb-16'>
-            {isPending || isRefetching? 
+            {isPending? 
                 <ProfileLoader/>
                 : 
                 !data.success?
