@@ -17,12 +17,19 @@ const Profile = () => {
     const [tabbed, setTabbed] = useState(0)
     const [sending, setSending] = useState(false)
 
-    const {data, isPending, refetch, isRefetching} = useQuery(createUserQueryOptions())
+    const {data, isPending, refetch, isRefetching} = useQuery({
+        ...createUserQueryOptions(),
+        refetchOnWindowFocus: false
+    })
 
     useEffect(() => {
-        refetch();
-    }, [data && data.success]);
+        if (!data?.success) {
+            refetch();
+        }
+    }, []);
 
+
+    console.log(data)
 
     const Logout = async () => {
         const dataEnpoint = '/custom/v1/logout';
@@ -43,8 +50,6 @@ const Profile = () => {
             setSending(false)
         }
     }
-
-
 
 
   return (

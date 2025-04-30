@@ -111,7 +111,6 @@ span img{
     color: transparent !important;
     display: flex;
     justify-content: start;
-    min-height: 100%;
     padding-bottom: 5px;
 }
 .goog-te-combo:nth-child(1){
