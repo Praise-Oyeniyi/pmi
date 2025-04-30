@@ -21,7 +21,7 @@ const Profile = () => {
 
     useEffect(() => {
         refetch();
-    }, [data?.success]);
+    }, [data && data.success]);
 
 
     const Logout = async () => {
@@ -83,7 +83,7 @@ const Profile = () => {
                                     image={data.data?.user.profile_picture} 
                                     name={data.data?.user.name} 
                                     mail={data.data?.user.email}
-                                    memberNo={data.data?.user.memership_number}
+                                    memberNo={data.data?.user.membership_number}
                                 />
                             </div>
                             :

@@ -13,7 +13,7 @@ const Info = ({name, image, memberNo, mail}) => {
         <div className='flex flex-col justify-between  gap-y-5 md:gap-y-12 h-full py-5 md:py-0'>
             <div className='md:space-y-2'>
                 <h3 className='text-xl md:text-2xl font-bold'>{name}</h3>
-                <h5 className='capitalize text-base md:text-xl font-medium'>membership number: <span className='font-semibold'>{!memberNo? 'NIL': 'memberNo'}</span> </h5>
+                <h5 className='capitalize text-base md:text-xl font-medium'>membership number: <span className='font-semibold'>{!memberNo? 'NIL': memberNo}</span> </h5>
             </div>
             
 

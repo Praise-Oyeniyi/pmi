@@ -19,7 +19,7 @@ function TranslateComponent() {
         {
           pageLanguage: "en",
           includedLanguages:
-            "en,es,de,zh,fr,ru,ar,hi,bn,te,mr,ta,gu,kn,ml,pa,ja",
+            "en,hi,ta,kn,ml",
             autoDisplay: true,
         },
         "google_translate_element"

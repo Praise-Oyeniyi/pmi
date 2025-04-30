@@ -67,6 +67,28 @@ const Otp = () => {
     }
 
 
+    const resendOTP = async () =>{
+        setSending(true)
+        const dataEnpoint = '/custom/v1/send-otp';
+        try {
+            const result = await sendApi({email: mail}, dataEnpoint)
+            if (result.success){    
+                toast.success('OTP sent. Please check your mail!')
+                setSending(false)  
+            } else {    
+                setSending(false)
+                toast.error(result.error)
+            }
+        } 
+        catch (error) {
+            toast.error('An unexpected error occurred');
+            setSending(false);
+            toast.error("email does not exist")
+        }
+    }
+
+
+
 
   return (
     <div className='w-full h-auto bg-hero-bg font-aeonik text-dark !overflow-x-hidden'>
@@ -104,9 +126,9 @@ const Otp = () => {
                             <div className='space-y-2 md:space-y-3'>
                                 <p className='text-[#404040] text-sm font-normal capitalize'>Didn’t receive it? check your spam folder or click on the button below.</p>
                                 <button type="submit"
-                                    onClick={() => window.history.back()} 
+                                    onClick={() => resendOTP()} 
                                     disabled={sending && true}
-                                    className={`h-[3rem] cursor-pointer border border-[#FF0000] text-[#FF0000] w-full justify-center items-center tracking-wider flex bg-transparent text-sm md:text-base font-semibold rounded-lg `}>Request OTP</button>
+                                    className={`h-[3rem] cursor-pointer border border-[#FF0000] text-[#FF0000] w-full justify-center items-center tracking-wider flex bg-transparent text-sm md:text-base font-semibold rounded-lg ${sending && 'animate-pulse'}`}>RESEND OTP</button>
                                 
                             </div>
                         </div>
