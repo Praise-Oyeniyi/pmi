@@ -113,7 +113,7 @@ span img{
     justify-content: start;
 }
 .goog-te-combo:nth-child(1){
-    display: none ;
+    /* display: none ; */
 }
 .goog-te-combo:nth-child(2) {
     outline: none;
@@ -125,13 +125,14 @@ span img{
     max-width: 12rem;
     min-height: 4rem;
     max-height:6rem;
-    background-color: transparent !important;
+    background-color:transparent !important;
     color: transparent !important;
     pointer-events: auto;
     cursor: pointer;
     position: relative;
-    z-index: 15;
     font-family: 'aeonik';
+    left: -40% !important;
+    z-index: 35;
 }
 
 body .goog-te-gadget::after {
@@ -146,7 +147,7 @@ body .goog-te-gadget::after {
     font-weight: 600;
     padding-left: 2px;
     top:50%;
-    transform:translateY(-35%);
+    transform:translateY(-40%);
     left:0;
     pointer-events: none;
     cursor: pointer;
