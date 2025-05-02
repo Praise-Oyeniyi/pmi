@@ -38,7 +38,7 @@ const NeedAssistance = ({explore}) => {
                                 <div key={index} className='bg-[#F6F6F6] rounded-xl justify-between md:justify-start flex items-center gap-x-4 p-3'>
                                     
                                     <div className='flex items-center gap-x-3'>
-                                        <div className='md:h-10 md:w-10 w-8 h-8 rounded-full overflow-hidden'>    
+                                        <div className='md:h-14 md:w-14 w-10 h-10 rounded-full overflow-hidden'>    
                                             <img src={e.avatar} alt="contact-avatar" className='w-full h-full'/>
                                         </div>
                                         <h6 className='text-sm md:text-base tracking-wide font-normal'>{e.name}:</h6>

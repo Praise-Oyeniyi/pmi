@@ -147,7 +147,7 @@ body .goog-te-gadget::after {
     font-weight: 600;
     padding-left: 2px;
     top:50%;
-    transform:translateY(-40%);
+    transform:translateY(-45%);
     left:0;
     pointer-events: none;
     cursor: pointer;
