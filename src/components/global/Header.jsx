@@ -105,13 +105,13 @@ const Header = () => {
 
                 <div className="header-right flex w-auto items-center gap-x-5">
                     <div className="socials flex gap-x-3 text-[#131313]">
-                        <Link to={'https://www.facebook.com/PMIBDChapter/'} target='_blank'>
+                        <Link to={'https://www.facebook.com/pmibangalore'} target='_blank'>
                             <FaFacebookF size={15} className="hover:scale-105 transition-all ease-in duration-200"/>
                         </Link>
-                        <Link to={'https://www.instagram.com/pmi_bangladesh?igsh=b3JiN29uNGo5aDAz'} target='_blank'>
+                        <Link to={'https://www.instagram.com/pmibangalore/?hl=en'} target='_blank'>
                             <FaInstagram size={15} className="hover:scale-105 transition-all ease-in duration-200"/>
                         </Link>
-                        <Link to={'https://www.linkedin.com/company/pmi-bangladesh-chapter/'} target='_blank'>
+                        <Link to={'https://www.linkedin.com/company/pmi-bangalore-chapter/'} target='_blank'>
                             <FaLinkedinIn size={15} className="hover:scale-105 transition-all ease-in duration-200"/>
                         </Link>
                     </div>
