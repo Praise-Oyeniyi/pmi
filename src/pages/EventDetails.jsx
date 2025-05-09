@@ -33,8 +33,6 @@ const EventDetails = () => {
     }, [result1.data])
 
 
-  
-
   return (
     <div className='w-full h-full font-aeonik bg-hero-bg overflow-x-hidden'>
         <Header/>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const CertBox = ({image, title, mainTitle, subTitle, boxInfo, gradient, index, id}) => {
   return (
-    <div className={`w-full group h-full overflow-hidden pl-5 md:px-5b pb-5 md:pb-6 box-outer rounded-[1.25rem] bg-cover 
+    <div className={`w-full group h-full overflow-hidden pl-5 md:px-5b pb-5 md:pb-6 box-outer rounded-[1.25rem] !bg-cover 
             ${index === 0 && ' borde border-[#291843b4] '}
         `} 
         style={{background:`url(${gradient})`}}

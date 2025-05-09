@@ -41,7 +41,7 @@ const Hero = () => {
                       <p className={`font-medium text-sm md:text-2xl text-[#272622] ${currentContent.is_backgroud_purple && 'text-white'}`}>
                           {currentContent?.sub_content}
                       </p>
-                      <Link to={`${currentContent.read_more_button_link}`}>
+                      <Link to={`http://localhost:5173/Certifications/2691`}>
                         <button 
                           className={`${currentContent.is_backgroud_purple && 'bg-white !text-purple'} bg-purple text-white hover:opacity-70 transition-all ease-in duration-200 md:mt-8 w-fit flex items-center justify-center text-sm sm:text-base font-medium  h-[2.5rem] md:h-[3.5rem] px-3 md:px-7 rounded-full`}
                         >

@@ -33,6 +33,7 @@ const Upcoming = ({id}) => {
                   id={coming[0]?.id} 
                   head={`${coming[0]?.event_category[0]?.name} | ${coming[0]?.event_time}`} 
                   style={'text-white'} 
+                  name={coming[0]?.event_category[0]?.name}
                   title={coming[0]?.title} 
                   body={coming[0]?.brief_content}/>
               )

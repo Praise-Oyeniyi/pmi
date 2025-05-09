@@ -1,6 +1,7 @@
 import React from 'react'
 
 const EventDescription = ({image, desc, audTitle, audContent, profCert, keyExpTitle, profCertTitle, keyExpPoints, aboutSpeaker}) => {
+    
 
   return (
     <div className='w-full'>
@@ -31,7 +32,7 @@ const EventDescription = ({image, desc, audTitle, audContent, profCert, keyExpTi
 
             <div className="speaker">
                 <h4 className='text-xl md:text-xl font-bold pb-2'>About the speaker</h4>
-                <div className='text-sm md:text-lg font-light space-y-2 list-disc' dangerouslySetInnerHTML={{ __html: aboutSpeaker }}/>
+                <div className='text-sm md:text-lg font-light space-y-4 [&>ul]:list-disc [&>ul]:pl-5 [&>p]:mb-4' dangerouslySetInnerHTML={{__html: aboutSpeaker && aboutSpeaker.replace(/\n/g, '<br /><br/>') }}/>
 
 
                 {keyExpPoints !== [] || profCert !== [] && 

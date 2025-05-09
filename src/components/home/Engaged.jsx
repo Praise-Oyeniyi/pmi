@@ -36,6 +36,7 @@ const Engaged = () => {
                             id={e.event_id} 
                             head={`${e?.event_category[0]?.name} | ${e?.event_time}`} 
                             title={e.title} 
+                            name={e?.event_category[0]?.name}
                             body={e.brief_content}
                             style={'border-b'}
                           />
