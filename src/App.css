@@ -105,15 +105,13 @@ span img{
     display:none !important;
 } 
 .goog-te-gadget{
-    pointer-events: none;
+    pointer-events: auto;
     position: relative;
+    height: 100%;
     overflow: hidden;
     color: transparent !important;
     display: flex;
     justify-content: start;
-}
-.goog-te-combo:nth-child(1){
-    /* display: none ; */
 }
 .goog-te-combo:nth-child(2) {
     outline: none;
@@ -187,6 +185,11 @@ body .VIpgJd-ZVi9od-ORHb, .VIpgJd-ZVi9od-ORHb-OEVmcd{
     background-color: transparent;
     box-shadow: none;
     pointer-events: none;
+}
+
+.goog-te-gadget .goog-te-combo {
+    min-height: 100%;
+    min-width: 100%;
 }
 
 @media (max-width:768px) {
