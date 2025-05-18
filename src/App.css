@@ -97,6 +97,7 @@ span img{
 #google_translate_element, #google_translate_element_mobile {
     min-width: 10rem;
     max-width: 10rem;
+    max-height: 2.9rem;
     background-color: #FDFDFD;
     border: none !important;
     overflow: hidden;
@@ -189,8 +190,10 @@ body .VIpgJd-ZVi9od-ORHb, .VIpgJd-ZVi9od-ORHb-OEVmcd{
 
 .goog-te-gadget .goog-te-combo {
     min-height: 100%;
-    min-width: 100%;
+    min-width: 10rem;
+    max-width: 10rem;
 }
+
 
 @media (max-width:768px) {
     .sp-bg{
